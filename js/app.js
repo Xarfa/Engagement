@@ -384,6 +384,10 @@
     if (ogTitle) ogTitle.setAttribute("content", s.title + " — Engagement");
     var ogDesc = $('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", s.summary);
+    var canonical = $('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", window.location.href);
+    var ogUrl = $('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", window.location.href);
 
     var hero = $("#storyHero");
     hero.innerHTML = '' +
