@@ -19,7 +19,9 @@
 <link rel="canonical" href="https://xarfa.github.io/Engagement/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/EBGaramond-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/HankenGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/EBGaramond-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InstrumentSans-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");</script>
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/site.css">
 <script>
@@ -27,7 +29,7 @@
     var slug = new URLSearchParams(location.search).get("slug");
     if (!slug || !/^[a-z0-9-]+$/i.test(slug)) return;
     var l = document.createElement("link");
-    l.rel = "preload"; l.as = "image";
+    l.rel = "preload"; l.as = "image"; l.fetchpriority = "high";
     l.href = "assets/stories/" + encodeURIComponent(slug) + "/cover.jpg";
     document.head.appendChild(l);
   })();
@@ -86,7 +88,7 @@
     <span>© <span id="footYear">2026</span> Rattry Wu</span>
     <span>Nanjing, China</span>
   </div>
-  <div class="socials" data-socials aria-label="Social links"></div>
+  <div class="socials" data-socials role="group" aria-label="Social links"></div>
 </footer>
 
 <noscript>

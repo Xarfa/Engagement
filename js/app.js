@@ -34,7 +34,7 @@
   var SOCIALS = [
     { name: "Xiaohongshu", file: "xiaohongshu.svg", href: "", off: true },
     { name: "LinkedIn", file: "linkedin.svg", href: "", off: true },
-    { name: "Cnblogs", file: "cnblogs.ico", href: "https://www.cnblogs.com/FibonacciHeap", off: false }
+    { name: "Cnblogs", file: "cnblogs.svg", href: "https://www.cnblogs.com/FibonacciHeap", off: false }
   ];
 
   function socialMarkup() {
@@ -89,12 +89,15 @@
   /* ---------------- home ---------------- */
 
   function cardMarkup(s, i) {
-    var cover = "assets/stories/" + s.slug + "/cover.jpg";
+    var slug = "assets/stories/" + s.slug;
+    var late = i >= 6; // below the fold: scroll-reveal instead of load-stagger
     return '' +
-      '<a class="card reveal" href="' + storyHref(s) + '" style="--i:' + i + '" ' +
+      '<a class="card' + (late ? ' reveal-sr' : ' reveal') + '" href="' + storyHref(s) + '" style="--i:' + i + '" ' +
         'aria-label="' + esc(s.title) + ' — ' + esc(s.dateLabel) + '">' +
         '<div class="card-photo">' +
-          '<img alt="" loading="lazy" data-alt="' + esc(s.title) + '" data-cover="' + cover + '">' +
+          '<img alt="" width="1536" height="1024" loading="lazy" decoding="async" ' +
+            'srcset="' + slug + '/cover-960.jpg 960w, ' + slug + '/cover.jpg 1536w" ' +
+            'sizes="(min-width: 700px) 448px, 92vw" data-cover="' + slug + '/cover-960.jpg">' +
         "</div>" +
         '<div class="card-scrim" aria-hidden="true"></div>' +
         '<div class="card-body">' +
@@ -114,6 +117,23 @@
       var img = $("img[data-cover]", card);
       attachImage(card, img, img.getAttribute("data-cover"));
     });
+
+    /* below-fold cards reveal on scroll with the story-body rhythm */
+    var late = $$(".card.reveal-sr", grid);
+    if (!late.length) return;
+    if (!("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      late.forEach(function (t) { t.classList.add("is-in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.classList.add("is-in");
+        io.unobserve(entries[i].target);
+      }
+    }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
+    late.forEach(function (t) { t.classList.add("sr"); io.observe(t); });
   }
 
   /* ---------------- search ---------------- */
@@ -133,7 +153,7 @@
           '<div>' +
             '<label class="search-label" id="searchTitle" for="searchInput">Search the archive</label>' +
             '<input class="search-input" id="searchInput" type="search" autocomplete="off" ' +
-              'spellcheck="false" placeholder="Try “leadership”, “kitchen”, “Oxford”…" ' +
+              'spellcheck="false" placeholder="Try “leadership”, “kitchen”…" ' +
               'role="combobox" aria-expanded="false" aria-controls="searchResults" aria-autocomplete="list">' +
           "</div>" +
           '<button class="search-close" type="button" aria-label="Close search">' +
@@ -143,6 +163,7 @@
         "</div>" +
         '<p class="search-count" id="searchCount" aria-live="polite"></p>' +
         '<div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>' +
+        '<p class="search-empty" id="searchEmpty" hidden></p>' +
         '<p class="search-hint"><kbd>/</kbd> to open · <kbd>↑</kbd><kbd>↓</kbd> to move · <kbd>Esc</kbd> to close</p>' +
       "</div>";
     document.body.appendChild(el);
@@ -208,8 +229,11 @@
   function renderResults(q) {
     var list = $("#searchResults");
     var count = $("#searchCount");
+    var empty = $("#searchEmpty");
+    var input = $("#searchInput");
     var results = matchList(q);
     searchState.active = -1;
+    if (input) input.removeAttribute("aria-activedescendant");
 
     var years = STORIES.map(function (s) { return s.date.slice(0, 4); }).sort();
     var span = years.length ? years[0] + "—" + years[years.length - 1] : "";
@@ -217,15 +241,22 @@
       ? results.length + (results.length === 1 ? " engagement" : " engagements") + " for “" + q + "”"
       : results.length + " engagements" + (span ? " · " + span : "");
 
+    if (input) input.setAttribute("aria-expanded", results.length ? "true" : "false");
+
     if (!results.length) {
-      list.innerHTML = '<p class="search-empty">Nothing under <strong>“' + esc(q) + '”</strong> yet. ' +
-        "Try a category, a place, or a word from a story.</p>";
+      list.innerHTML = "";
+      if (empty) {
+        empty.hidden = false;
+        empty.innerHTML = 'Nothing under <strong>“' + esc(q) + "”</strong> yet. " +
+          "Try a category, a place, or a word from a story.";
+      }
       return;
     }
+    if (empty) empty.hidden = true;
 
     list.innerHTML = results.map(function (s, i) {
       return '<a class="search-result" role="option" id="searchResult-' + i + '" aria-selected="false" ' +
-        'href="' + storyHref(s) + '" data-i="' + i + '">' +
+        'tabindex="-1" href="' + storyHref(s) + '" data-i="' + i + '">' +
         '<span class="search-num">' + pad(i + 1) + "</span>" +
         "<span>" +
           '<span class="search-title">' + mark(s.title, q) + "</span>" +
@@ -273,13 +304,16 @@
     input.setAttribute("aria-expanded", "true");
     input.value = "";
     renderResults("");
-    window.setTimeout(function () { input.focus(); }, 60);
+    searchState.focusTimer = window.setTimeout(function () {
+      if (searchState.open) input.focus();
+    }, 60);
   }
 
   function closeSearch() {
     if (!searchState.open) return;
     var el = $("#searchPanel");
     searchState.open = false;
+    if (searchState.focusTimer) { window.clearTimeout(searchState.focusTimer); searchState.focusTimer = null; }
     el.classList.remove("is-open");
     el.setAttribute("aria-hidden", "true");
     setExpanded(false);
@@ -340,7 +374,7 @@
         if (searchState.open) closeSearch(); else openSearch();
       }
       if (!searchState.open || e.key !== "Tab") return;
-      var focusables = [$(".search-input", el), $(".search-close", el)].concat($$(".search-result", el));
+      var focusables = [$(".search-input", el), $(".search-close", el)];
       var first = focusables[0], last = focusables[focusables.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
@@ -370,7 +404,7 @@
         var url = "assets/stories/" + s.slug + "/body.jpg";
         out.push('<figure class="' + figVariant + '"><div class="fig-frame" data-fig="' + url + '">' +
           "<span>Photo</span>" +
-          '<img alt="" loading="lazy" data-alt="' + esc(s.figure.caption || s.title) + '">' +
+          '<img alt="" width="1600" height="1067" loading="lazy" decoding="async" data-alt="' + esc(s.figure.caption || s.title) + '">' +
           "</div><figcaption>" + esc(s.figure.caption || "") + "</figcaption></figure>");
       }
     });
@@ -395,6 +429,23 @@
       }
     }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
     targets.forEach(function (t) { t.classList.add("sr"); io.observe(t); });
+  }
+
+  /* "Cover exhale": the still cover sinks and swells slightly as the reader
+     scrolls into the body — rAF-throttled, transform-only, reduced-motion guarded. */
+  function initHeroDrift() {
+    var media = $(".story-hero-media"), hero = $(".story-hero");
+    if (!media || !hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var queued = false;
+    var paint = function () {
+      queued = false;
+      var h = hero.offsetHeight || 1, y = Math.min(window.scrollY, h), p = y / h;
+      media.style.transform = "translate3d(0," + (y * 0.22).toFixed(1) + "px,0) scale(" + (1 + p * 0.06).toFixed(4) + ")";
+    };
+    var onScroll = function () { if (!queued) { queued = true; requestAnimationFrame(paint); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    paint();
   }
 
   function initStory() {
@@ -432,8 +483,8 @@
 
     var hero = $("#storyHero");
     hero.innerHTML = '' +
-      '<div class="story-hero-media"><img alt="" data-cover="assets/stories/' + s.slug + '/cover.jpg" ' +
-        'data-alt="' + esc(s.title) + '"></div>' +
+      '<div class="story-hero-media"><img alt="" width="1536" height="1024" ' +
+        'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(s.title) + '"></div>' +
       '<div class="story-hero-inner">' +
         '<p class="story-kicker">' + esc(s.category) + "</p>" +
         '<h1 class="story-title">' + esc(s.title) + "</h1>" +
@@ -453,6 +504,7 @@
     $("#nextMeta").textContent = next.category + " · " + next.dateLabel;
 
     initReveal();
+    initHeroDrift();
   }
 
   /* ---------------- boot ---------------- */
