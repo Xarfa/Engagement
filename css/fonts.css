@@ -1,0 +1,22 @@
+/* Local, self-hosted variable fonts — no external requests. */
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../assets/fonts/EBGaramond-var.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../assets/fonts/EBGaramond-italic-var.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("../assets/fonts/HankenGrotesk-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
