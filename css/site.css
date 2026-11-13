@@ -579,10 +579,10 @@ button {
   margin: 0 auto;
   max-width: 1040px;
   font-family: var(--sans);
-  font-size: clamp(32px, 5.7vw, 76px);
+  font-size: clamp(32px, 4.5vw, 66px);
   font-weight: 700;
   line-height: 1.04;
-  letter-spacing: .04em;
+  letter-spacing: .045em;
   text-transform: uppercase;
   text-wrap: balance;
   color: #fff;

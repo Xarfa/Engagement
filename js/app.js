@@ -213,9 +213,11 @@
     var results = matchList(q);
     searchState.active = -1;
 
+    var years = STORIES.map(function (s) { return s.date.slice(0, 4); }).sort();
+    var span = years.length ? years[0] + "—" + years[years.length - 1] : "";
     count.textContent = q
       ? results.length + (results.length === 1 ? " engagement" : " engagements") + " for “" + q + "”"
-      : results.length + " engagements · 2024—2026";
+      : results.length + " engagements" + (span ? " · " + span : "");
 
     if (!results.length) {
       list.innerHTML = '<p class="search-empty">Nothing under <strong>“' + esc(q) + '”</strong> yet. ' +
