@@ -20,10 +20,12 @@ Hand-built HTML + CSS + a little vanilla JavaScript. No framework, no build step
 
 ## Add your photographs
 
-Photos are detected automatically — no code edit needed. Drop files here:
+The images currently in the repo are **AI-generated placeholders** (YuRen API, documentary style, no faces) — they make the layout read like the finished site, but they are not real photos of these events.
+
+Photos are detected automatically — no code edit needed. Replace the placeholders by dropping real files here:
 
 ```
-assets/stories/<slug>/cover.jpg    # card + hero (square or portrait crop works best)
+assets/stories/<slug>/cover.jpg    # card + hero (landscape works best)
 assets/stories/<slug>/body.jpg     # the 4:3 figure inside the story
 ```
 
@@ -34,7 +36,7 @@ assets/stories/the-hour-before-dinner/cover.jpg
 assets/stories/the-hour-before-dinner/body.jpg
 ```
 
-Until a file exists, the site shows the paper placeholder with the tiny **PHOTO** mark. Refresh after uploading. Recommended: 1600px wide, JPEG quality 80.
+Refresh after uploading. Recommended: 1600px wide, JPEG quality 80. If a file is missing, the card falls back to a quiet neutral wash, so nothing breaks.
 
 ## Edit the text
 
@@ -78,8 +80,11 @@ Push to `main`. GitHub Pages serves the repository root. `.nojekyll` keeps the `
 
 ## Design notes
 
-- Type: EB Garamond for reading, Hanken Grotesk for caps and metadata.
-- Hero: 94svh dark cover, uppercase title at `clamp(32px, 5.7vw, 76px)`, 3px-equivalent tracking.
-- Story body: two columns on desktop, one on mobile; justified serif at 18px / 1.72.
-- Search: `/` or ⌘K to open; live match across title, category, place, role and body; ↑↓ + Enter.
-- Motion: one card fade-up, one hero image settle; everything is disabled under `prefers-reduced-motion`.
+Layout and typography follow the measured specs of the UN Volunteers × Exposure reference (`research/unv-exposure/analysis.md` in the wffp workspace):
+
+- Palette: white paper, near-black ink, one UN sky-blue accent `#009EDB` (no gold, no cream, no red).
+- Masthead: left-aligned uppercase wordmark in UN blue at `clamp(50px, 9vw, 128px)`, weight 700, tight tracking; EB Garamond intro below.
+- Feed: 3-column square cards (2 under 920px, 1 under 640px), 16px gutters, 24px margins, 1440px container; card title 24px uppercase white on a bottom scrim, EB Garamond italic deck, caps date.
+- Story: 100svh cover, uppercase title `clamp(27px, 4.6vw, 40px)` with 3px tracking, italic 24px deck; single reading column of max 700px (582px on small screens), EB Garamond 18px / 1.52.
+- Search: `/` or ⌘K to open; live match across title, category, place, role and body; ↑↓ + Enter; Esc closes.
+- Motion: staggered card fade-up, wordmark line-rise, hero image settle; everything is disabled under `prefers-reduced-motion`.

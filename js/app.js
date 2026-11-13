@@ -93,17 +93,15 @@
     var cover = "assets/stories/" + s.slug + "/cover.jpg";
     return '' +
       '<a class="card reveal" href="' + storyHref(s) + '" style="--i:' + i + '" ' +
-        'aria-label="' + esc(s.title) + ' — ' + esc(s.category) + ', ' + esc(s.dateLabel) + '">' +
+        'aria-label="' + esc(s.title) + ' — ' + esc(s.dateLabel) + '">' +
         '<div class="card-photo">' +
           '<img alt="" loading="lazy" data-alt="' + esc(s.title) + '" data-cover="' + cover + '">' +
-        '</div>' +
-        '<span class="card-index">' + pad(i + 1) + "</span>" +
-        '<span class="card-photo-note">Photo</span>' +
+        "</div>" +
+        '<div class="card-scrim" aria-hidden="true"></div>' +
         '<div class="card-body">' +
           '<h2 class="card-title">' + esc(s.title) + "</h2>" +
-          '<p class="card-category">' + esc(s.category) + "</p>" +
+          '<p class="card-deck">' + esc(s.summary) + "</p>" +
           '<span class="card-date">' + esc(s.dateLabel) + "</span>" +
-          '<div class="card-rule" aria-hidden="true"></div>' +
         "</div>" +
       "</a>";
   }
@@ -337,7 +335,7 @@
   /* ---------------- story ---------------- */
 
   function renderBody(s) {
-    var ps = s.body || [];
+    var ps = (s.lead ? [s.lead] : []).concat(s.body || []);
     var out = [];
     var quoteAt = ps.length > 3 ? 2 : 1;
     var figAt = ps.length > 4 ? 3 : ps.length - 1;
@@ -368,10 +366,10 @@
 
     if (idx === -1) {
       root.innerHTML = '<section class="story-main" style="text-align:center;padding-top:120px">' +
-        '<p class="masthead-kicker">404 — Not found</p>' +
+        '<p class="story-end-label" style="display:block;margin-bottom:14px">404 — Not found</p>' +
         '<h1 class="story-next-title" style="font-size:clamp(28px,4vw,48px)">This engagement does not exist.</h1>' +
-        '<p class="story-standfirst" style="margin-top:24px">It may have been renamed, or the link is incomplete.</p>' +
-        '<p><a class="head-link" href="index.html">← Back to all engagements</a></p></section>';
+        '<p style="margin:24px auto 0;max-width:520px;font-style:italic;color:var(--mute)">It may have been renamed, or the link is incomplete.</p>' +
+        '<p style="margin-top:28px"><a class="head-link" href="index.html">← Back to all engagements</a></p></section>';
       document.title = "Not found — Engagement";
       return;
     }
@@ -393,8 +391,6 @@
 
     var hero = $("#storyHero");
     hero.innerHTML = '' +
-      '<div class="story-hero-frame" aria-hidden="true"></div>' +
-      '<span class="story-hero-note">Photo — replace</span>' +
       '<div class="story-hero-media"><img alt="" data-cover="assets/stories/' + s.slug + '/cover.jpg" ' +
         'data-alt="' + esc(s.title) + '"></div>' +
       '<div class="story-hero-inner">' +
@@ -403,14 +399,9 @@
         '<p class="story-sub">' + esc(s.summary) + "</p>" +
         '<p class="story-byline"><span>By Rattry Wu</span><span>' + esc(fullDate(s.date)) +
           "</span><span>" + esc(s.location) + "</span></p>" +
-      "</div>" +
-      '<span class="story-scroll">Read</span>';
+      "</div>";
     attachImage(hero, $("img[data-cover]", hero), $("img[data-cover]", hero).getAttribute("data-cover"));
 
-    var kicker = $("#storyMetaLine");
-    if (kicker) kicker.textContent = s.category + " · " + s.role + " · " + s.location;
-
-    $("#storyLead").textContent = s.lead;
     $("#storyBody").innerHTML = renderBody(s);
 
     var fig = $(".fig-frame");
