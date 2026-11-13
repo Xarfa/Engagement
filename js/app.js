@@ -76,15 +76,14 @@
 
   /* ---------------- images ---------------- */
 
-  function attachImage(frame, img, url, doneClass) {
+  function attachImage(frame, img, url, doneClass, priority) {
     if (!frame || !img || !url) return;
-    var probe = new window.Image();
-    probe.onload = function () {
-      img.src = url;
-      img.alt = img.getAttribute("data-alt") || "";
-      frame.classList.add(doneClass || "has-image");
-    };
-    probe.src = url;
+    img.setAttribute("decoding", "async");
+    if (priority) img.setAttribute("fetchpriority", "high");
+    var show = function () { frame.classList.add(doneClass || "has-image"); };
+    img.addEventListener("load", show, { once: true });
+    img.src = url;
+    if (img.complete && img.naturalWidth > 0) show();
   }
 
   /* ---------------- home ---------------- */
@@ -134,7 +133,8 @@
           '<div>' +
             '<label class="search-label" id="searchTitle" for="searchInput">Search the archive</label>' +
             '<input class="search-input" id="searchInput" type="search" autocomplete="off" ' +
-              'spellcheck="false" placeholder="Try “leadership”, “kitchen”, “Oxford”…">' +
+              'spellcheck="false" placeholder="Try “leadership”, “kitchen”, “Oxford”…" ' +
+              'role="combobox" aria-expanded="false" aria-controls="searchResults" aria-autocomplete="list">' +
           "</div>" +
           '<button class="search-close" type="button" aria-label="Close search">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
@@ -142,7 +142,7 @@
           "</button>" +
         "</div>" +
         '<p class="search-count" id="searchCount" aria-live="polite"></p>' +
-        '<div class="search-results" id="searchResults"></div>' +
+        '<div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>' +
         '<p class="search-hint"><kbd>/</kbd> to open · <kbd>↑</kbd><kbd>↓</kbd> to move · <kbd>Esc</kbd> to close</p>' +
       "</div>";
     document.body.appendChild(el);
@@ -224,11 +224,12 @@
     }
 
     list.innerHTML = results.map(function (s, i) {
-      return '<a class="search-result" href="' + storyHref(s) + '" data-i="' + i + '">' +
+      return '<a class="search-result" role="option" id="searchResult-' + i + '" aria-selected="false" ' +
+        'href="' + storyHref(s) + '" data-i="' + i + '">' +
         '<span class="search-num">' + pad(i + 1) + "</span>" +
         "<span>" +
           '<span class="search-title">' + mark(s.title, q) + "</span>" +
-          '<span class="search-meta">' + esc(s.category) + " — " + esc(s.location) + " · " +
+          '<span class="search-meta">' + esc(s.category) + " · " + esc(s.location) + " · " +
             mark(snippet(s, q), q) + "</span>" +
         "</span>" +
         '<span class="search-date">' + esc(s.dateLabel) + "</span>" +
@@ -236,13 +237,21 @@
     }).join("");
   }
 
-  function setActive(i) {
+  function setActive(i, scroll) {
     var items = $$(".search-result", $("#searchResults"));
     if (!items.length) return;
     i = (i + items.length) % items.length;
     searchState.active = i;
-    items.forEach(function (el, n) { el.classList.toggle("is-active", n === i); });
-    items[i].scrollIntoView({ block: "nearest" });
+    items.forEach(function (el, n) {
+      el.classList.toggle("is-active", n === i);
+      el.setAttribute("aria-selected", n === i ? "true" : "false");
+    });
+    var input = $("#searchInput");
+    if (input) {
+      if (i >= 0) input.setAttribute("aria-activedescendant", "searchResult-" + i);
+      else input.removeAttribute("aria-activedescendant");
+    }
+    if (scroll && items[i]) items[i].scrollIntoView({ block: "nearest" });
   }
 
   function setExpanded(open) {
@@ -255,12 +264,13 @@
     searchState.open = true;
     searchState.lastFocus = document.activeElement;
     var sbw = window.innerWidth - document.documentElement.clientWidth;
-    if (sbw > 0) document.body.style.paddingRight = sbw + "px";
+    if (sbw > 0) document.documentElement.style.setProperty("--sbw", sbw + "px");
     document.body.classList.add("is-locked");
     el.classList.add("is-open");
     el.setAttribute("aria-hidden", "false");
     setExpanded(true);
     var input = $("#searchInput");
+    input.setAttribute("aria-expanded", "true");
     input.value = "";
     renderResults("");
     window.setTimeout(function () { input.focus(); }, 60);
@@ -274,7 +284,12 @@
     el.setAttribute("aria-hidden", "true");
     setExpanded(false);
     document.body.classList.remove("is-locked");
-    document.body.style.paddingRight = "";
+    document.documentElement.style.removeProperty("--sbw");
+    var input = $("#searchInput");
+    if (input) {
+      input.setAttribute("aria-expanded", "false");
+      input.removeAttribute("aria-activedescendant");
+    }
     if (searchState.lastFocus && searchState.lastFocus.focus) searchState.lastFocus.focus();
   }
 
@@ -297,8 +312,8 @@
     });
 
     function move(e) {
-      if (e.key === "ArrowDown") { e.preventDefault(); setActive(searchState.active + 1); }
-      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(searchState.active - 1); }
+      if (e.key === "ArrowDown") { e.preventDefault(); setActive(searchState.active + 1, true); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(searchState.active - 1, true); }
       else if (e.key === "Enter") {
         var list = $$(".search-result");
         var pick = searchState.active >= 0 ? list[searchState.active] : list[0];
@@ -307,13 +322,13 @@
     }
     input.addEventListener("keydown", move);
     el.addEventListener("keydown", function (e) {
-      if (e.target !== input) move(e);
+      if (e.target !== input && (e.key === "ArrowDown" || e.key === "ArrowUp")) move(e);
     });
 
     $("#searchResults").addEventListener("mouseover", function (e) {
       var item = e.target.closest(".search-result");
       if (!item) return;
-      setActive(Number(item.getAttribute("data-i")));
+      setActive(Number(item.getAttribute("data-i")), false);
     });
 
     document.addEventListener("keydown", function (e) {
@@ -322,7 +337,7 @@
       if (e.key === "Escape" && searchState.open) { closeSearch(); return; }
       if ((e.key === "/" && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) {
         e.preventDefault();
-        openSearch();
+        if (searchState.open) closeSearch(); else openSearch();
       }
       if (!searchState.open || e.key !== "Tab") return;
       var focusables = [$(".search-input", el), $(".search-close", el)].concat($$(".search-result", el));
@@ -330,15 +345,20 @@
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
+
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted && searchState.open) closeSearch();
+    });
   }
 
   /* ---------------- story ---------------- */
 
-  function renderBody(s) {
+  function renderBody(s, idx) {
     var ps = (s.lead ? [s.lead] : []).concat(s.body || []);
     var out = [];
     var quoteAt = ps.length > 3 ? 2 : 1;
     var figAt = ps.length > 4 ? 3 : ps.length - 1;
+    var figVariant = (idx || 0) % 2 === 0 ? "variant-center" : "variant-left";
 
     ps.forEach(function (text, i) {
       out.push("<p>" + esc(text) + "</p>");
@@ -348,13 +368,33 @@
       }
       if (i === figAt - 1 && s.figure) {
         var url = "assets/stories/" + s.slug + "/body.jpg";
-        out.push('<figure><div class="fig-frame" data-fig="' + url + '">' +
+        out.push('<figure class="' + figVariant + '"><div class="fig-frame" data-fig="' + url + '">' +
           "<span>Photo</span>" +
           '<img alt="" loading="lazy" data-alt="' + esc(s.figure.caption || s.title) + '">' +
           "</div><figcaption>" + esc(s.figure.caption || "") + "</figcaption></figure>");
       }
     });
     return out.join("");
+  }
+
+  /* Scroll reveal at the reference's measured rhythm: 500ms / 10px / scale .99.
+     Class is only added when the observer will actually run, so no-JS never hides content. */
+  function initReveal() {
+    var targets = $$(".story-body > p, .story-body > blockquote, .story-body > figure, .story-end");
+    if (!targets.length) return;
+    if (!("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      targets.forEach(function (t) { t.classList.add("is-in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.classList.add("is-in");
+        io.unobserve(entries[i].target);
+      }
+    }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
+    targets.forEach(function (t) { t.classList.add("sr"); io.observe(t); });
   }
 
   function initStory() {
@@ -365,6 +405,7 @@
     var idx = STORIES.findIndex(function (s) { return s.slug === slug; });
 
     if (idx === -1) {
+      document.body.classList.add("is-plain");
       root.innerHTML = '<section class="story-main" style="text-align:center;padding-top:120px">' +
         '<p class="story-end-label" style="display:block;margin-bottom:14px">404 — Not found</p>' +
         '<h1 class="story-next-title" style="font-size:clamp(28px,4vw,48px)">This engagement does not exist.</h1>' +
@@ -397,12 +438,12 @@
         '<p class="story-kicker">' + esc(s.category) + "</p>" +
         '<h1 class="story-title">' + esc(s.title) + "</h1>" +
         '<p class="story-sub">' + esc(s.summary) + "</p>" +
-        '<p class="story-byline"><span>By Rattry Wu</span><span>' + esc(fullDate(s.date)) +
-          "</span><span>" + esc(s.location) + "</span></p>" +
-      "</div>";
-    attachImage(hero, $("img[data-cover]", hero), $("img[data-cover]", hero).getAttribute("data-cover"));
+      "</div>" +
+      '<p class="story-byline"><span>By Rattry Wu</span> <span>' + esc(fullDate(s.date)) +
+        "</span> <span>" + esc(s.location) + "</span></p>";
+    attachImage(hero, $("img[data-cover]", hero), $("img[data-cover]", hero).getAttribute("data-cover"), "has-image", true);
 
-    $("#storyBody").innerHTML = renderBody(s);
+    $("#storyBody").innerHTML = renderBody(s, idx);
 
     var fig = $(".fig-frame");
     if (fig) attachImage(fig, $("img", fig), fig.getAttribute("data-fig"));
@@ -410,6 +451,8 @@
     $("#nextStory").href = storyHref(next);
     $("#nextTitle").textContent = next.title;
     $("#nextMeta").textContent = next.category + " · " + next.dateLabel;
+
+    initReveal();
   }
 
   /* ---------------- boot ---------------- */
