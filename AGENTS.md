@@ -3,10 +3,11 @@
 **Engagement — Rattry Wu.** Personal editorial archive (volunteering / leadership /
 activities / classes). Static HTML+CSS+JS, no framework, no build step.
 Live: https://xarfa.github.io/Engagement/ · Repo: github.com/Xarfa/Engagement (push `main` = deploy).
-Working copy: `D:\Arborist\engagement-site`. A stale stepcode scaffold also exists at
+Working copy: `D:\联合国\Engagement` (moved here 2026-11-14 from D:\Arborist\engagement-site).
+A stale stepcode scaffold also exists at
 `E:\Arborist\Work Files\26.11.13 wffp portfolio website\engagement` — deprecated, do not edit.
 
-## Current state (2026-11-14, commit d22abee)
+## Current state (2026-11-14, commit 1c1d65c)
 
 - **Design system:** white paper + ink `#111` + single UN sky-blue accent `#009EDB`
   (deep `#0083C1`, small-text `#0072A8`). No gold/cream/red anywhere.
