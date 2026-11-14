@@ -251,7 +251,7 @@ body.is-locked:not(.story-page) .site-head {
   font-size: 0;
 }
 .logo-lockup img {
-  width: clamp(280px, 36vw, 500px);
+  width: clamp(300px, 41vw, 575px);
   height: auto;
   display: block;
 }
@@ -295,17 +295,16 @@ body.is-locked:not(.story-page) .site-head {
 @keyframes heroIn { to { opacity: 1; transform: none; } }
 
 .masthead-intro {
-  max-width: 620px;
-  margin: clamp(16px, 2.6vh, 26px) auto 0;
+  max-width: 1100px;
+  margin: clamp(14px, 2.2vh, 22px) auto 0;
   text-align: center;
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-intro);
-  text-wrap: balance;
 }
 
 .masthead-actions {
-  margin-top: clamp(16px, 2.6vh, 26px);
+  margin-top: clamp(22px, 3.5vh, 40px);
   display: flex;
   flex-direction: column;
   align-items: center;
