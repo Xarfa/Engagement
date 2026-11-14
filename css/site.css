@@ -194,6 +194,19 @@ body.is-locked:not(.story-page) .site-head {
 .social.is-off:hover { transform: none; }
 .social.is-off:hover img { filter: grayscale(1) brightness(0) opacity(.6); }
 
+/* LinkedIn: no public profile link — a plain name tag in the strip */
+.social-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #999;
+  transform: translateY(1px);
+}
+
 .head-back {
   display: inline-flex;
   align-items: center;
@@ -219,8 +232,19 @@ body.is-locked:not(.story-page) .site-head {
   padding: clamp(58px, 13vh, 132px) var(--pad) 0;
 }
 
-/* UN-logo-style lockup: RATTRY (small) / ENGAGEMENT (large), lines left-aligned
-   to each other, the whole block centered on the page */
+/* UN-logo-style lockup, artwork provided by the owner (blue emblem + wordmark) */
+.logo-lockup {
+  width: max-content;
+  margin: 0 auto;
+  font-size: 0;
+}
+.logo-lockup img {
+  width: clamp(320px, 46vw, 660px);
+  height: auto;
+  display: block;
+}
+
+/* text lockup (404 page) */
 .lockup {
   width: max-content;
   margin: 0 auto;

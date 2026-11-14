@@ -32,13 +32,19 @@
   /* ---------------- social marks ---------------- */
 
   var SOCIALS = [
-    { name: "Xiaohongshu", file: "xiaohongshu.svg", href: "", off: true },
-    { name: "LinkedIn", file: "linkedin.svg", href: "", off: true },
-    { name: "Cnblogs", file: "cnblogs.svg", href: "https://www.cnblogs.com/FibonacciHeap", off: false }
+    { name: "Xiaohongshu", file: "xiaohongshu.svg", href: "https://www.xiaohongshu.com/user/profile/65b21361000000000e00224f", off: false },
+    { name: "Facebook", file: "facebook.svg", href: "https://www.facebook.com/profile.php?id=61596610162807", off: false },
+    { name: "GitHub", file: "github.svg", href: "https://github.com/Xarfa", off: false },
+    { name: "LinkedIn", tag: "Rattry Wu" },
+    { name: "Cnblogs", file: "cnblogs.ico", href: "https://www.cnblogs.com/FibonacciHeap", off: false }
   ];
 
   function socialMarkup() {
     return SOCIALS.map(function (s) {
+      if (s.tag) {
+        return '<span class="social-tag" role="img" aria-label="LinkedIn — ' + esc(s.tag) +
+          '" title="LinkedIn — ' + esc(s.tag) + '">' + esc(s.tag) + "</span>";
+      }
       var inner = '<img src="assets/icons/' + s.file + '" alt="" width="18" height="18">';
       if (s.off) {
         return '<span class="social is-off" role="img" aria-label="' + esc(s.name) +
