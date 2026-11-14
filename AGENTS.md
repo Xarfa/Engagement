@@ -51,7 +51,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
 3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
    card (owner's marker ≈34% card width, ~7.5% from top). `logos.hero` = ALL logos
    stacked at the bottom-left of the story cover, listed BOTTOM-UP (first entry
-   renders lowest); sized to stay clear of text baked into the cover art.
+   renders lowest); sized to stay clear of text baked into the cover art. Optional
+   per-logo `w` (% of column, default 100) balances optical mass across marks of
+   different aspect ratios — neither same-width nor same-height; match dominant
+   elements (emblem ≈ mark) and review a zoomed corner screenshot before pushing.
    CSS: `.card-logo`, `.story-hero-logos`.
 4. **Hiding** a story: `hidden: true` on its data object — dropped from grid,
    search and story pages without deleting data/assets. The five 2026-11-14

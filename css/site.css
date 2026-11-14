@@ -644,22 +644,22 @@ body.is-locked:not(.story-page) .site-head {
 
 /* engagement logos stacked at the bottom-left of the cover
    (per story: data.js `logos.hero`, listed bottom-up — first entry sits lowest).
-   Sized to the owner's marker (~11% vw) and kept clear of any date line
-   baked into the cover artwork itself. */
+   Each logo's render width comes from data (`w`, % of column) so marks with
+   different aspect ratios keep a similar optical mass — not same-width,
+   not same-height. Column width follows the owner's marker. */
 .story-hero-logos {
   position: absolute;
   z-index: 3;
   left: clamp(16px, 2.6vw, 44px);
   bottom: clamp(24px, 4.5vh, 48px);
-  width: clamp(72px, 11.4vw, 168px);
+  width: clamp(72px, 12.4vw, 176px);
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  gap: 14px;
+  gap: clamp(10px, 1.8vh, 14px);
   pointer-events: none;
 }
 .story-hero-logos img {
-  width: 100%;
   height: auto;
   filter: drop-shadow(0 1px 14px rgba(0, 0, 0, .45));
 }

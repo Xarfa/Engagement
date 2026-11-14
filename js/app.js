@@ -587,7 +587,10 @@
         'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(L.title) + '"></div>' +
       (heroLogos.length
         ? '<div class="story-hero-logos">' + heroLogos.map(function (lg) {
-            return '<img src="assets/stories/' + s.slug + '/' + esc(lg.file) + '" alt="' + esc(lg.alt || "") + '">';
+            /* lg.w = width as % of the column: equal-AREA optical balance across
+               marks of different aspect ratios (100 = column width) */
+            var w = lg.w != null ? lg.w : 100;
+            return '<img src="assets/stories/' + s.slug + '/' + esc(lg.file) + '" alt="' + esc(lg.alt || "") + '" style="width:' + w + '%">';
           }).join("") + "</div>"
         : "") +
       '<div class="story-hero-inner">' +
