@@ -251,7 +251,7 @@ body.is-locked:not(.story-page) .site-head {
   font-size: 0;
 }
 .logo-lockup img {
-  width: clamp(340px, 48vw, 690px);
+  width: clamp(340px, 42vw, 600px);
   height: auto;
   display: block;
 }
@@ -338,8 +338,8 @@ body.is-locked:not(.story-page) .site-head {
 
 /* visitor cities map (dot-matrix world, adapted from wffp) — compact, inside the masthead */
 .visitors {
-  margin: clamp(10px, 1.8vh, 18px) auto 0;
-  max-width: 350px;
+  margin: clamp(12px, 2vh, 20px) auto 0;
+  max-width: 420px;
   text-align: center;
 }
 .visitors svg { width: 100%; height: auto; display: block; }
