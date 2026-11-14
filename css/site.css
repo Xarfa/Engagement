@@ -194,18 +194,30 @@ body.is-locked:not(.story-page) .site-head {
 .social.is-off:hover { transform: none; }
 .social.is-off:hover img { filter: grayscale(1) brightness(0) opacity(.6); }
 
-/* LinkedIn: no public profile link — a plain name tag in the strip */
-.social-tag {
-  display: inline-flex;
-  align-items: center;
+/* LinkedIn has no public link: icon stays, hover/focus reveals a name tag */
+.social { position: relative; }
+.is-tip .tip {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: -6px;
+  background: #141414;
+  color: #fff;
   font-family: var(--sans);
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #999;
-  transform: translateY(1px);
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  pointer-events: none;
+  z-index: 70;
 }
+.is-tip:hover .tip,
+.is-tip:focus .tip { opacity: 1; transform: none; }
 
 .head-back {
   display: inline-flex;
@@ -229,7 +241,7 @@ body.is-locked:not(.story-page) .site-head {
   width: 100%;
   max-width: calc(var(--max) + 2 * var(--pad));
   margin: 0 auto;
-  padding: clamp(58px, 13vh, 132px) var(--pad) 0;
+  padding: clamp(30px, 5vh, 52px) var(--pad) 0;
 }
 
 /* UN-logo-style lockup, artwork provided by the owner (blue emblem + wordmark) */
@@ -239,7 +251,7 @@ body.is-locked:not(.story-page) .site-head {
   font-size: 0;
 }
 .logo-lockup img {
-  width: clamp(320px, 46vw, 660px);
+  width: clamp(280px, 36vw, 500px);
   height: auto;
   display: block;
 }
@@ -283,26 +295,26 @@ body.is-locked:not(.story-page) .site-head {
 @keyframes heroIn { to { opacity: 1; transform: none; } }
 
 .masthead-intro {
-  max-width: 660px;
-  margin: clamp(26px, 4.5vh, 42px) auto 0;
+  max-width: 620px;
+  margin: clamp(16px, 2.6vh, 26px) auto 0;
   text-align: center;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-intro);
   text-wrap: balance;
 }
 
 .masthead-actions {
-  margin-top: clamp(26px, 4.5vh, 42px);
+  margin-top: clamp(16px, 2.6vh, 26px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .btn-solid {
   display: inline-block;
-  padding: 15px 32px;
+  padding: 13px 30px;
   background: #141414;
   color: #fff;
   font-family: var(--sans);
@@ -325,14 +337,15 @@ body.is-locked:not(.story-page) .site-head {
   color: var(--mute);
 }
 
-/* visitor cities map (dot-matrix world, adapted from wffp) */
+/* visitor cities map (dot-matrix world, adapted from wffp) — compact, inside the masthead */
 .visitors {
-  margin: clamp(28px, 5vh, 52px) auto 0;
-  max-width: 720px;
+  margin: clamp(10px, 1.8vh, 18px) auto 0;
+  max-width: 350px;
   text-align: center;
 }
 .visitors svg { width: 100%; height: auto; display: block; }
 .visitors .v-cities {
+  display: none;
   margin: 14px 0 0;
   font-family: var(--serif);
   font-size: 13px;
@@ -344,7 +357,7 @@ body.is-locked:not(.story-page) .site-head {
 /* ================= STORY GRID ================= */
 
 .grid-section {
-  padding: clamp(48px, 7.5vh, 84px) 0 clamp(64px, 10vh, 120px);
+  padding: clamp(28px, 4.5vh, 52px) 0 clamp(56px, 8vh, 96px);
 }
 
 .story-grid {
