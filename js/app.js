@@ -32,11 +32,12 @@
   /* ---------------- social marks ---------------- */
 
   var SOCIALS = [
+    { name: "Cnblogs", file: "cnblogs.ico", href: "https://www.cnblogs.com/FibonacciHeap", off: false },
+    { name: "GitHub", file: "github.svg", href: "https://github.com/Xarfa", off: false },
+    { name: "ResearchGate", file: "researchgate.svg", href: "https://www.researchgate.net/profile/Wu-Rattry?ev=hdr_xprf", off: false },
     { name: "Xiaohongshu", file: "xiaohongshu.svg", href: "https://www.xiaohongshu.com/user/profile/65b21361000000000e00224f", off: false },
     { name: "Facebook", file: "facebook.svg", href: "https://www.facebook.com/profile.php?id=61596610162807", off: false },
-    { name: "GitHub", file: "github.svg", href: "https://github.com/Xarfa", off: false },
-    { name: "LinkedIn", file: "linkedin.svg", tip: "Rattry Wu" },
-    { name: "Cnblogs", file: "cnblogs.ico", href: "https://www.cnblogs.com/FibonacciHeap", off: false }
+    { name: "LinkedIn", file: "linkedin.svg", tip: "Rattry Wu" }
   ];
 
   function socialMarkup() {

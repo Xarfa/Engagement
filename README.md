@@ -63,9 +63,8 @@ Add an entry to add a card; remove one to delete it. The first card is the newes
 
 ## Links
 
-- CONTACT: `mailto:2234545188@qq.com` (in `index.html` and `story.html`)
-- Xiaohongshu / LinkedIn: intentionally inactive for now — set `href` and `off: false` in the `SOCIALS` array in `js/app.js`
-- Cnblogs: https://www.cnblogs.com/FibonacciHeap
+- Contact form: FormSubmit → `2234545188@qq.com` (in the `#contact` section of `index.html`)
+- Social strip (order set in the `SOCIALS` array in `js/app.js`): Cnblogs, GitHub, ResearchGate, Xiaohongshu, Facebook; LinkedIn renders as a "Rattry Wu" hover tag (no public profile link)
 
 ## Preview locally
 
