@@ -13,14 +13,14 @@ Hand-built HTML + CSS + a little vanilla JavaScript. No framework, no build step
 |---|---|
 | `index.html` | Home — masthead lockup, three-column archive, contact form, visitor map |
 | `story.html` | Story template, read by `?slug=` |
-| `js/data.js` | All five stories in English and German + UI strings (`SITE.i18n`) |
+| `js/data.js` | All stories — visible and hidden — in English and German + UI strings (`SITE.i18n`) |
 | `js/app.js` | Language switch, grid, search, story rendering, scroll reveal, cover drift, socials |
 | `css/site.css` | Design system and layouts (tokens at the top) |
 | `css/fonts.css` | Self-hosted EB Garamond + Instrument Sans (no Google CDN) |
 | `assets/logo-masthead.png` | The RATTRY / ENGAGEMENT lockup artwork |
 | `assets/byline-avatar.png` | Story byline avatar (self-hosted — never hotlink GitHub) |
 | `assets/visitors.js` | Dot-matrix visitor-cities world map (revived from wffp) |
-| `assets/stories/<slug>/` | `cover.jpg` (+`cover-960.jpg`), `fig-1.jpg`, `fig-2.jpg` per story |
+| `assets/stories/<slug>/` | `cover.jpg` (+`cover-960.jpg`), `fig-N.jpg` figures, `logo-*.png` marks per story |
 | `tools/` | `gen_og.py` (og card), `gen_images.py` (AI placeholder photos), `fetch_commons.py` (Wikimedia Commons sourcing) |
 
 ## Design system (final)
@@ -51,14 +51,18 @@ form are shared between languages. To edit translations, change the `de` blocks 
 
 ## Photos — sources and placeholders
 
-Story images come from two sources:
+Story images come from three sources:
 
+- **Owner-supplied material** — the real screenshots, handbook pages and artwork from
+  each engagement's source folder (e.g. the ATOX story). Marks baked into supplied
+  cover art can be cleaned with a YuRen image edit (see "Adding a story").
 - **Wikimedia Commons** (freely licensed — PD/CC0/CC BY/CC BY-SA). Credits appear in the
   figure captions where the license requires them (`tools/fetch_commons.py` searches and
   records license + author).
 - **AI-generated placeholders** (YuRen API, documentary style, no faces, no logos —
-  `tools/gen_images.py`). These are **not photos of the real events**; replace them with
-  real, permission-cleared photographs, same filenames:
+  `tools/gen_images.py`). These are **not photos of the real events**; they back the five
+  hidden example stories. Replace them with real, permission-cleared photographs, same
+  filenames:
 
 ```
 assets/stories/<slug>/cover.jpg      # card + hero (landscape works best)
@@ -87,19 +91,71 @@ Stories live in `js/data.js`:
 
 ```js
 {
-  slug: "tedx-nanjing-2026",
+  slug: "atox-ai4climate-hackathon",
   category: "Volunteer",          // Volunteer / Leadership / Engagement / Classes
-  date: "2026-10-25",             // ISO date, used for sorting; labels via Intl
-  location: { en: "Nanjing", de: "Nanjing" },
-  figures: [                      // 0-2 inline figures, placed between paragraphs
-    { file: "fig-1.jpg", en: "Caption.", de: "Bildunterschrift.", credit: "…" }
+  date: "2026-11-12",             // ISO start date, used for sorting; labels via Intl
+  location: { en: "Online", de: "Online" },
+  hidden: true,                   // optional — drops the story from grid, search and story pages
+  logos: {                        // optional — see "Adding a story"
+    card: { file: "logo-atox.png", alt: "ATOX" },                        // white mark, top-centre of the home card
+    hero: [ { file: "logo-cop31.png", alt: "COP31 Türkiye", w: 200 } ]   // bottom-left of the cover; bottom-up order; w = % of column
+  },
+  figures: [                      // any number; spread across the paragraphs
+    { file: "fig-1.jpg", ratio: "1000/1413", en: "Caption.", de: "Bildunterschrift.", credit: "…" }
   ],
   en: { title: "…", summary: "…", body: ["…"], quote: { text: "…", by: "…" } },
   de: { title: "…", summary: "…", body: ["…"], quote: { text: "…", by: "…" } }
 }
 ```
 
-Add an entry to add a card; remove one to delete it.
+`figure.ratio` (e.g. `"1000/1413"`) keeps portrait documents and screenshots
+un-cropped — without it the frame is a 4:3 landscape and `object-fit: cover`
+slices tall images. Captions are concise EN/DE lines describing what the image
+shows. With more than two figures the renderer spreads them evenly over the
+paragraph boundaries instead of stacking them all at the end.
+
+## Adding a story — the working paradigm (fixed 2026-11-14, ATOX story)
+
+Each engagement lives in a dated source folder at the repo root
+(`YYYY.MM.DD[~DD] <name>/`, git-ignored via `20*/`) holding the owner's raw
+material: `content.md`, a cover image, photos/screenshots, logos. One commit
+publishes one engagement:
+
+1. **Assets** → `assets/stories/<slug>/`: `cover.jpg` (1536w) + `cover-960.jpg`
+   from the cover image, `fig-N.jpg` for the story figures, `logo-*.png` for the
+   marks (owner supplies them white and background-removed when possible).
+2. **Data** → one object in `js/data.js` (schema above). Body text comes from
+   `content.md` **verbatim** — fix small grammar/spelling only, add or remove
+   nothing, and report anything major to the owner. The title comes from
+   `content.md` when the owner writes one. The `de` blocks are a full
+   translation under the same rule.
+3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the
+   home card (≈34% card width, ~7.5% from the top). `logos.hero` = marks
+   stacked at the bottom-left of the story cover, listed BOTTOM-UP (first
+   entry renders lowest); per-logo `w` (% of the column, default 100) scales
+   each mark individually.
+4. **Cover cleanup**: marks baked into a supplied cover (corner logos,
+   "organized by" lines) are removed with a YuRen image edit
+   (`/v1/images/edits`, `gpt-image-2.5`): letterbox the cover onto a
+   1536×1024 black canvas to preserve its aspect ratio, send an opaque mask
+   with transparent rectangles over the marks, then crop the letterbox bars
+   back off. Generate two candidates and let the owner pick one.
+5. **Verify before pushing** (local server + browser with cache disabled):
+   the first screen shows ≥30–40% of the first card row, cover logos stay
+   clear of text baked into the artwork, EN + DE both render, then commit and
+   push.
+
+### Logo lessons (from the ATOX story)
+
+- Two marks of very different aspect ratios (a wide wordmark vs an emblem)
+  never balance visually: same-width, same-height and equal-area all read as
+  mismatched. When in doubt, ask the owner — the ATOX story ended up showing
+  COP31 **alone** at ~2× column width, which is what the owner chose.
+- The global `img { max-width: 100% }` silently caps any logo beyond the
+  column width; `.story-hero-logos img` carries `max-width: none` so `w > 100`
+  actually renders.
+- Keep logos clear of text baked into the cover artwork (date lines, credits)
+  — clean the cover or resize the mark instead of overlapping.
 
 ## Preview / deploy
 
@@ -110,10 +166,19 @@ python -m http.server 8765     # then open http://localhost:8765
 Push to `main` → GitHub Pages serves the repo root (`.nojekyll` present). Check status:
 `gh api repos/Xarfa/Engagement/pages/builds/latest --jq '{status, commit: .commit[:7]}'`.
 
+**Cache gotcha:** GitHub Pages sends `Cache-Control: max-age=600` for JS/CSS —
+a plain F5 can serve stale files for up to 10 minutes. Whenever `js/data.js`,
+`js/app.js` or `css/site.css` change, bump the `?v=` param on their includes in
+**both** `index.html` and `story.html` so returning visitors pick up the new
+version on a normal refresh. When auditing locally, disable the browser cache
+or you will judge stale files.
+
 ## Legal / content checklist
 
 - [x] No Exposure CSS/JS copied; layout patterns and measured values only
 - [x] GT Walsheim font files not embedded (Instrument Sans stand-in; Adobe slot ready)
-- [x] Volunteer titles accurate — `Online Volunteer` ≠ `UN Volunteer`; no org logos or endorsements
-- [ ] Replace AI placeholder photos with real, permission-cleared photographs
+- [x] Volunteer titles accurate — `Online Volunteer` ≠ `UN Volunteer`; org logos appear
+      only as per-story card/cover overlays (see "Adding a story"), never in the masthead
+- [ ] Replace the AI placeholder photos of the five hidden example stories with real,
+      permission-cleared photographs
 - [x] Footer keeps "views are my own" framing (`© Rattry Wu · Nanjing, China`)
