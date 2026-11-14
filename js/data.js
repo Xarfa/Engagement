@@ -1,146 +1,239 @@
-/* Sample editorial copy — replace names, dates and details with your own.
-   Photos are auto-detected at:
-     assets/stories/<slug>/cover.jpg   (square-ish for the card + hero)
-     assets/stories/<slug>/body.jpg    (4:3 for the in-story figure)
-   Missing files fall back to the paper placeholder, so nothing breaks. */
+/* Engagement — Rattry Wu. Content in English and German.
+   UI strings: SITE.i18n · Category labels: SITE.categories
+   Stories: SITE.stories (each carries `en` and `de` text blocks).
+   Figure images in assets/stories/<slug>/ are freely licensed
+   (Wikimedia Commons — credit in the caption where required).
+   The language switch is stored in localStorage("engagement-lang"). */
 
-window.ENGAGEMENTS = [
-  {
-    slug: "the-checklist-nobody-reads",
-    title: "The Checklist Nobody Reads",
-    category: "Leadership",
-    date: "2026-03-14",
-    dateLabel: "March 2026",
-    location: "Shanghai, China",
-    role: "Delegation coordinator",
-    summary: "Forty delegates, two microphones, and a schedule that survived exactly eleven minutes.",
-    lead: "The most useful document I made that week was a one-page checklist that almost nobody read. It was for me.",
-    quote: {
-      text: "A good chair is felt, not heard.",
-      by: "A note left on my desk by the outgoing coordinator"
+window.SITE = {
+  defaultLang: "en",
+
+  i18n: {
+    en: {
+      nav_contact: "Contact",
+      back_all: "All engagements",
+      intro: "A written record of the engagements behind my CV — six assignments between 2024 and 2026, from conference booths to community classrooms.",
+      btn_contact: "Contact me",
+      contact_label: "Contact",
+      contact_title: "Send a message.",
+      form_email: "Email",
+      form_message: "Message",
+      form_send: "Send message",
+      by: "By",
+      next_label: "Next engagement",
+      back_link: "Back to the archive",
+      search_label: "Search the archive",
+      search_ph: "Try “leadership”, “booth”…",
+      hint_open: "to open",
+      hint_move: "to move",
+      hint_close: "to close",
+      count_for: "{n} engagements for “{q}”",
+      count_total: "{n} engagements",
+      empty_1: "Nothing under ",
+      empty_2: " yet. Try a category, a place, or a word from a story.",
+      err_title: "This engagement does not exist.",
+      err_body: "It may have been renamed, or the link is incomplete.",
+      err_back: "Back to all engagements"
     },
-    figure: { caption: "The one-page run sheet, revised four times before lunch." },
-    body: [
-      "The conference began at nine. By 9:11 the projector had rejected the laptop, the opening speaker had been redirected to the wrong hall, and two delegates were standing in the corridor holding name badges for people who had not arrived. I remember feeling strangely calm. The checklist in my pocket was already obsolete, but the habit of writing it was not.",
-      "Planning had started six weeks earlier. Forty delegates, four rooms, one closing plenary, and a budget that assumed nobody would need lunch twice. I built the schedule in a spreadsheet, walked the venue with a clipboard, and taped signs to doors that I would later learn were the wrong doors. The work was unglamorous and intensely specific: who has the key, when does the caterer arrive, which microphone actually works.",
-      "What I had not planned for was the human weather. A delegate withdrew the night before. A panel moderator lost her voice. Two sessions ran long because the questions were better than the agenda. Leadership, I learned, is mostly removing friction for other people while remaining calm enough that they do not notice the friction was there.",
-      "By the afternoon we had moved a panel, rewritten the closing remarks, and quietly abandoned two items nobody would miss. The day ended on time. Almost no one commented on that. It was the highest compliment the event could have paid us.",
-      "I kept the checklist. It is folded in half and covered in pencil. When I look at it now, I do not see a plan that worked. I see a record of attention — a way of caring for a room full of people before they arrived."
-    ]
+    de: {
+      nav_contact: "Kontakt",
+      back_all: "Alle Engagements",
+      intro: "Ein schriftliches Protokoll der Engagements hinter meinem Lebenslauf — sechs Einsätze zwischen 2024 und 2026, von Konferenzständen bis zu Klassenzimmern.",
+      btn_contact: "Kontakt aufnehmen",
+      contact_label: "Kontakt",
+      contact_title: "Schreiben Sie mir.",
+      form_email: "E-Mail",
+      form_message: "Nachricht",
+      form_send: "Nachricht senden",
+      by: "Von",
+      next_label: "Nächstes Engagement",
+      back_link: "Zurück zum Archiv",
+      search_label: "Das Archiv durchsuchen",
+      search_ph: "Stichwort eingeben …",
+      hint_open: "öffnen",
+      hint_move: "auswählen",
+      hint_close: "schließen",
+      count_for: "{n} Engagements für „{q}“",
+      count_total: "{n} Engagements",
+      empty_1: "Noch nichts unter ",
+      empty_2: " gefunden. Versuchen Sie eine Kategorie, einen Ort oder ein Wort.",
+      err_title: "Dieses Engagement existiert nicht.",
+      err_body: "Es wurde möglicherweise umbenannt oder der Link ist unvollständig.",
+      err_back: "Zurück zu allen Engagements"
+    }
   },
-  {
-    slug: "three-time-zones-one-seminar",
-    title: "Three Time Zones, One Seminar",
-    category: "Classes",
-    date: "2026-02-07",
-    dateLabel: "February 2026",
-    location: "Online — Oxford / Nanjing",
-    role: "Learner",
-    summary: "A course that began at 11 p.m. and ended with me taking notes in the kitchen.",
-    lead: "I signed up because the reading list looked impossible. I stayed because the seminar made me slower, in the best way.",
-    quote: {
-      text: "It was not the answers that changed me. It was the quality of the questions I was willing to ask out loud.",
-      by: "From my final reflection, week eight"
-    },
-    figure: { caption: "Seminar notes, week four: 23:40, kitchen table." },
-    body: [
-      "The course ran for eight weeks across three time zones. My seminar met at eleven at night in Nanjing; the tutor was in Oxford, one classmate in Nairobi, another in Toronto. For the first session I spent most of the hour muted, nodding at a screen and hoping nobody would ask me to summarize the reading.",
-      "The subject was the politics of sustainability, which turned out to mean reading about trade-offs rather than solutions. Sixty pages a week, a discussion board, and a short response paper due every Sunday. I learned to read with a pencil again, underlining the sentences I did not believe and writing questions in the margin.",
-      "The discomfort was useful. In week three, a classmate asked who “we” referred to when I said “we need to act.” I had no answer. The question stayed with me for days, through lectures and bus rides and the ordinary business of being a student. It was the first time I understood that a good seminar does not resolve your assumptions; it makes them visible.",
-      "By week six I was speaking first. Not because I had become certain, but because I had learned to make my uncertainty specific. “I think the comparison fails because the two cities have different fiscal capacity” is a better sentence than “I am not sure.” Precision, it turns out, is a form of courage.",
-      "The final assignment was a two-thousand-word policy memo on provincial adaptation finance. I wrote it at the kitchen table, with the radiator ticking. It was the first piece of work in a long time where the grade felt secondary to the question."
-    ]
+
+  categories: {
+    en: { Volunteer: "Volunteer", Engagement: "Engagement", Leadership: "Leadership", Classes: "Classes" },
+    de: { Volunteer: "Ehrenamt", Engagement: "Engagement", Leadership: "Leitung", Classes: "Kurse" }
   },
-  {
-    slug: "the-hour-before-dinner",
-    title: "The Hour Before Dinner",
-    category: "Volunteer",
-    date: "2025-10-18",
-    dateLabel: "October 2025",
-    location: "Nanjing, China",
-    role: "Volunteer teacher",
-    summary: "Twelve chairs, one whiteboard, and an hour that belonged to nobody but us.",
-    lead: "Every Thursday at five, the community room filled with the sound of chairs being dragged across the floor. That was how I knew the lesson had begun.",
-    quote: {
-      text: "The room was small. The permission inside it was not.",
-      by: "Notes from the last session"
+
+  stories: [
+    {
+      slug: "two-online-rooms",
+      category: "Volunteer",
+      date: "2026-11-12",
+      location: { en: "Online", de: "Online" },
+      figures: [
+        { file: "fig-1.jpg", en: "Notes between sessions.", de: "Notizen zwischen den Sitzungen." },
+        { file: "fig-2.jpg", en: "The session interface, cameras off.", de: "Die Sitzungsoberfläche, Kameras aus." }
+      ],
+      en: {
+        title: "Two Online Rooms",
+        summary: "Two online meetings in one evening — a climate-and-AI conference and a FAO youth session — and what registers from each.",
+        body: [
+          "Two online meetings in one evening, on two platforms. The first was a conference on climate and artificial intelligence: breakout groups assigned by discipline, and mine was physics — three weeks of vocabulary I do not have, spoken at speed.",
+          "What salvaged the hour was a segment later in the session in my own language, and the realisation that the difficulty was not the science but the register. Everyone spoke in abbreviations for projects and models they assumed the room already knew. Conference English is a dialect. It is learned the way any dialect is — by sitting in rooms where it is the only currency.",
+          "The second meeting, for an FAO youth programme, ran at the same hour: screens shared, cameras off, a facilitator counting hands before each question.",
+          "A colleague recorded one of the sessions so the other could be attended properly. By the end I understood that attending two rooms at once teaches the same lesson twice: arrive early, read the agenda twice, and be the person who writes things down."
+        ],
+        quote: { text: "Conference English is a dialect. It is learned by sitting in rooms where it is the only currency.", by: "From the evening’s notes" }
+      },
+      de: {
+        title: "Zwei Online-Räume",
+        summary: "Zwei Online-Sitzungen an einem Abend — eine Klima-KI-Konferenz und eine FAO-Jugendsession — und was von beiden hängen bleibt.",
+        body: [
+          "Zwei Online-Sitzungen an einem Abend, auf zwei Plattformen. Die erste war eine Konferenz zu Klima und künstlicher Intelligenz: Arbeitsgruppen nach Fachrichtung, meine war Physik — drei Wochen Wortschatz, die ich nicht habe, schnell gesprochen.",
+          "Gerettet hat die Stunde ein Abschnitt später in der Sitzung, in meiner eigenen Sprache, und die Erkenntnis, dass die Schwierigkeit nicht die Wissenschaft war, sondern das Register. Alle sprachen in Abkürzungen für Projekte und Modelle, die der Raum angeblich kannte. Konferenzenglisch ist ein Dialekt. Man lernt ihn so wie jeden Dialekt — indem man in Räumen sitzt, in denen er die einzige Währung ist.",
+          "Die zweite Sitzung, für ein FAO-Jugendprogramm, lief zur selben Stunde: geteilte Bildschirme, Kameras aus, eine Moderatorin, die vor jeder Frage die Hände zählte.",
+          "Eine Kollegin hat eine der Sitzungen aufgezeichnet, damit die andere besucht werden konnte. Am Ende hatte ich verstanden, dass zwei Räume gleichzeitig dieselbe Lektion zweimal unterrichten: früh da sein, die Agenda zweimal lesen und die Person sein, die mitschreibt."
+        ],
+        quote: { text: "Konferenzenglisch ist ein Dialekt. Man lernt ihn, indem man in Räumen sitzt, in denen er die einzige Währung ist.", by: "Aus den Notizen des Abends" }
+      }
     },
-    figure: { caption: "The whiteboard after the last session, October 2025." },
-    body: [
-      "The class was called “conversation practice,” which meant we talked about whatever the students had carried in that day. Most were middle-school students. A few were parents who came with their children and stayed, sitting at the back with their coats on their laps.",
-      "I had prepared a lesson about travel. We spent twenty minutes on the word “somewhere.” One girl said she wanted to go somewhere with a window. The room went quiet in the way rooms do when someone has said something accidentally true.",
-      "Teaching English here was not really about grammar. It was about giving people a low-stakes room to be wrong out loud. I learned to wait four seconds before rescuing a sentence. Those four seconds were usually enough for the student to find the word, or to laugh, or to try again.",
-      "There were hard evenings. A boy came in angry and refused to speak for forty minutes. We drew a map instead. By the end he had labeled three streets and asked me how to say “corner.” I do not think the lesson fixed anything. It made the hour survivable.",
-      "On the last week, a student who had barely spoken all term wrote on the board: “Thank you for not laughing.” I have not taught a class since without thinking of that sentence. I still have the attendance sheet — twelve names, some crossed out, some added in different pens."
-    ]
-  },
-  {
-    slug: "field-notes-from-a-rice-terrace",
-    title: "Field Notes From a Rice Terrace",
-    category: "Engagement",
-    date: "2025-07-26",
-    dateLabel: "July 2025",
-    location: "Jiangsu, China",
-    role: "Field research assistant",
-    summary: "Seven days of mud, measurement, and learning how little I knew about a place I had read about.",
-    lead: "The first thing the farmers told us was that our questionnaire was wrong. They were right.",
-    quote: {
-      text: "They did not need our questions. They needed us to stay long enough to ask better ones.",
-      by: "Field notebook, day five"
+
+    {
+      slug: "un-careers-season",
+      category: "Engagement",
+      date: "2026-11-06",
+      location: { en: "Suzhou & Nanjing", de: "Suzhou und Nanjing" },
+      figures: [
+        { file: "fig-1.jpg", en: "A meeting room at the United Nations headquarters.", de: "Ein Sitzungssaal im Hauptquartier der Vereinten Nationen.", credit: "Photo: Patrick Gruban (CC BY-SA 2.0), Wikimedia Commons" },
+        { file: "fig-2.jpg", en: "An audience between sessions.", de: "Das Publikum zwischen den Sitzungen.", credit: "Photo: Gangulybiswarup (CC BY 4.0), Wikimedia Commons" }
+      ],
+      en: {
+        title: "A Season of UN Career Events",
+        summary: "Three events about working inside the UN system in six weeks — what recurs at all of them, and what it costs.",
+        body: [
+          "Between late October and early November I attended three events about careers in international organizations: an outreach day with presentations from FAO and WFP, an evening on the One-Health approach with FAO staff, and a lecture by a WTO counselor for students in an internship pipeline.",
+          "The agencies describe themselves against each other. WFP moves food to emergencies; FAO works upstream, on the systems that produce it. The FAO presenter read out the specialisms the organisation recruits for, and agronomy was on most lines.",
+          "At the WFP table the conversation was shorter: convoys, warehouses, deadlines. Between sessions, three routes into the system came up again and again — a year-long internship taken mid-degree, a master’s at the UN University, or entry after a doctorate. None of them are short, and all were described by people already inside, with the calm of someone reading a timetable.",
+          "At the WTO lecture the counselor noted that the internship pipeline for economics graduates is richer than the agricultural agencies’, simply because the funding is richer. The coordinator running our pipeline had placed twelve of fifteen candidates that year. The number was offered plainly, without the usual encouragement.",
+          "What stays is not enthusiasm. It is a schedule: one language to finish, one application to write, one thesis to complete first."
+        ],
+        quote: { text: "The distance between a student desk and the system is measured in years, not kilometres.", by: "From the season’s notes" }
+      },
+      de: {
+        title: "Eine Saison voller UN-Karriereveranstaltungen",
+        summary: "Drei Veranstaltungen zum Arbeiten im UN-System in sechs Wochen — was sich wiederholt und was es kostet.",
+        body: [
+          "Zwischen Ende Oktober und Anfang November besuchte ich drei Veranstaltungen zum Arbeiten in internationalen Organisationen: einen Outreach-Tag mit Präsentationen von FAO und WFP, einen Abend zum One-Health-Ansatz mit FAO-Mitarbeitenden und einen Vortrag einer WTO-Botschafterin für Studierende in einem Praktikumsprogramm.",
+          "Die Organisationen beschreiben sich gegeneinander. Das WFP bringt Lebensmittel in Notgebiete; die FAO arbeitet flussaufwärts, an den Systemen, die sie hervorbringen. Die FAO-Referentin las die Fachrichtungen vor, für die die Organisation rekrutiert — Agronomie stand auf fast jeder Zeile.",
+          "Am WFP-Tisch fiel das Gespräch kürzer aus: Konvois, Lagerhäuser, Fristen. Zwischen den Sitzungen kamen drei Wege ins System immer wieder vor — ein einjähriges Praktikum mitten im Studium, ein Master an der UN-Universität oder der Einstieg nach der Promotion. Keiner ist kurz, und alle wurden von Leuten beschrieben, die schon drin sind, mit der Ruhe von Menschen, die einen Fahrplan vorlesen.",
+          "Beim WTO-Vortrag bemerkte die Botschafterin, dass die Praktikumspipeline für Ökonomie-Absolventen reicher ist als die der Agrarorganisationen — schlicht, weil die Finanzierung reicher ist. Die Koordinatorin unserer Pipeline hatte in diesem Jahr zwölf von fünfzehn Kandidaten platziert. Die Zahl wurde schlicht genannt, ohne die übliche Ermunterung.",
+          "Was bleibt, ist keine Begeisterung. Es ist ein Fahrplan: eine Sprache zu Ende bringen, einen Antrag schreiben, zuerst eine Abschlussarbeit fertigstellen."
+        ],
+        quote: { text: "Der Abstand zwischen einem Studiertisch und dem System wird in Jahren gemessen, nicht in Kilometern.", by: "Aus den Notizen der Saison" }
+      }
     },
-    figure: { caption: "Water levels and a sketch of the eastern bund, day three." },
-    body: [
-      "I joined a summer field team documenting water management in a rice-growing village. I had read the literature. I had a clipboard, a soil probe, and a confidence that did not survive the first morning.",
-      "We walked the terraces at six, measured water levels before the heat arrived, and interviewed households in the afternoon. The questionnaire asked about the “adoption of efficient irrigation.” Nobody used that phrase. People talked about the price of diesel, the neighbor who shared a pump, the year the canal was dredged, the stretch of ditch that always collapsed in August.",
-      "On the third day I stopped reading the questions and started asking people to show me. We stood at the edge of a field while a farmer explained which bund he opened first and why. He drew the answer in the mud with a stick. The data got better immediately.",
-      "The deliverable was a short report and a cleaned dataset. The real output was a correction to my own confidence. A category like “efficient irrigation” can hide the entire social life of water: who shares, who pays, who waits, who has the standing to open a gate.",
-      "I think about that village when I read policy papers now. The map is not the terrace. The category is not the farm. And a week is barely long enough to learn how much you do not know."
-    ]
-  },
-  {
-    slug: "a-seat-at-the-table",
-    title: "A Seat at the Table",
-    category: "Leadership",
-    date: "2025-05-10",
-    dateLabel: "May 2025",
-    location: "Nanjing, China",
-    role: "Student coordinator",
-    summary: "What I learned from running a meeting where nobody agreed, including me.",
-    lead: "The agenda had eleven items. We got through three, and it was the most productive meeting of the year.",
-    quote: {
-      text: "Consensus is not everyone agreeing. It is everyone understanding what they are agreeing to.",
-      by: "The note I wrote after the third meeting"
+
+    {
+      slug: "innofair-stuttgart",
+      category: "Engagement",
+      date: "2026-10-28",
+      location: { en: "Trade-fair grounds", de: "Messegelände" },
+      figures: [
+        { file: "fig-1.jpg", en: "Stands before the doors open.", de: "Stände, bevor die Türen öffnen." },
+        { file: "fig-2.jpg", en: "Between two meetings on the floor.", de: "Zwischen zwei Gesprächen auf der Messe." }
+      ],
+      en: {
+        title: "Three Days at a China–EU Trade Fair",
+        summary: "One volunteer day at the sixth InnoFair, a China–EU cross-border exchange fair — interpreting, repetition, and the seam between two groups.",
+        body: [
+          "The sixth InnoFair is a China–EU cross-border exchange fair organised with a German trade-fair group. I volunteered for one of its days: doors at nine, interpreters moving between stands, students from three universities on the floor.",
+          "I was placed with a Bulgarian software company looking for Chinese biomedical-hardware partners. Most of the work was repetition — explaining the same need a dozen times in two languages, walking the same aisles, reintroducing the same people to each other. Interpreting at a fair is less about language than about stamina.",
+          "One observation was hard to avoid: the European delegations mostly talked to themselves, closing into circles of four or five, while Chinese visitors circulated around them without ever meeting. The purpose of the fair was the seam between the two groups, and the seam stayed narrow all afternoon.",
+          "By evening I had a list of introductions that had worked, a fair amount of vocabulary I did not own at breakfast, and one Bulgarian greeting I can still pronounce."
+        ],
+        quote: { text: "The purpose of the fair was the seam between the two groups.", by: "Volunteer’s notes" }
+      },
+      de: {
+        title: "Drei Tage auf einer China-EU-Messe",
+        summary: "Ein Freiwilligentag auf der sechsten InnoFair, einer China-EU-Austauschmesse — Dolmetschen, Wiederholung und die Nahtstelle zwischen zwei Gruppen.",
+        body: [
+          "Die sechste InnoFair ist eine China-EU-Austauschmesse, organisiert mit einer deutschen Messegesellschaft. Ich habe einen ihrer Tage als Freiwilliger begleitet: Türen um neun, Dolmetscher zwischen den Ständen, Studierende von drei Universitäten auf dem Gelände.",
+          "Ich war einer bulgarischen Softwarefirma zugeteilt, die chinesische Partner für Biomedizintechnik suchte. Die meiste Arbeit war Wiederholung — dasselbe Anliegen ein Dutzend Mal in zwei Sprachen erklären, dieselben Gänge entlanggehen, dieselben Menschen einander erneut vorstellen. Dolmetschen auf einer Messe ist weniger eine Frage der Sprache als der Ausdauer.",
+          "Eine Beobachtung ließ sich nicht vermeiden: Die europäischen Delegationen redeten meist mit sich selbst und schlossen sich zu Kreisen von vier oder fünf, während chinesische Besucher um sie herumliefen, ohne einander je zu begegnen. Der Sinn der Messe war die Naht zwischen den beiden Gruppen — und die Naht blieb den ganzen Nachmittag schmal.",
+          "Am Abend hatte ich eine Liste der gelungenen Kontakte, eine Menge Vokabeln, die mir zum Frühstück noch nicht gehört hatten, und eine bulgarische Begrüßung, die ich immer noch aussprechen kann."
+        ],
+        quote: { text: "Der Sinn der Messe war die Naht zwischen den beiden Gruppen.", by: "Notizen des Freiwilligen" }
+      }
     },
-    figure: { caption: "Two columns, one budget, no winners." },
-    body: [
-      "I was elected coordinator of a student working group in my second year. I thought leadership meant having the answers. The first meeting disabused me of that in about forty minutes.",
-      "The group had a real conflict: two teams wanted the same budget line, and both had good arguments. I tried to split the difference. It satisfied nobody, and it postponed the decision without making it any easier.",
-      "A senior member took me aside afterwards. “Your job is not to decide faster,” she said. “It is to make sure the right people are in the room and that they can hear each other.” We restructured the meeting into two smaller sessions and brought a written proposal to the third. The proposal was two pages. The argument was shorter because it had a shape.",
-      "The budget still went to one team. But the other team stayed, and the following semester we ran the project jointly. That was the win — not the allocation, but the fact that disagreement did not end the relationship.",
-      "I keep a note on my desk: “Process is a product.” It sounds like a slogan. It is also the only way I know to make disagreement useful. A meeting is not a performance of harmony. It is a tool for deciding what to do next, together, with the information everyone actually has."
-    ]
-  },
-  {
-    slug: "six-oclock-second-serving",
-    title: "Six O’Clock, Second Serving",
-    category: "Volunteer",
-    date: "2024-12-21",
-    dateLabel: "December 2024",
-    location: "Nanjing, China",
-    role: "Kitchen volunteer",
-    summary: "A winter of chopping vegetables, washing trays, and learning the rhythm of a kitchen that feeds strangers.",
-    lead: "The kitchen opened at six. By five-thirty there was already a line, and the first thing they handed me was a knife.",
-    quote: {
-      text: "Nobody remembers who chopped the cabbage. That is the point.",
-      by: "The head cook, on my last shift"
+
+    {
+      slug: "tedx-nanjing-2026",
+      category: "Volunteer",
+      date: "2026-10-25",
+      location: { en: "Nanjing", de: "Nanjing" },
+      figures: [
+        { file: "fig-1.jpg", en: "The audience between sessions.", de: "Das Publikum zwischen den Sitzungen.", credit: "Photo: Gangulybiswarup (CC BY 4.0), Wikimedia Commons" },
+        { file: "fig-2.jpg", en: "The stage before the first talk.", de: "Die Bühne vor dem ersten Vortrag." }
+      ],
+      en: {
+        title: "One Day at TEDxNanjing",
+        summary: "On-site volunteer at TEDxNanjing 2026 — badges, timing slips, and two talks that survived the week.",
+        body: [
+          "Volunteered at TEDxNanjing 2026: badges at the door, direction signs, timing slips for the stage manager — the invisible work that lets a programme run on schedule.",
+          "Two talks stayed with me. One argued for computational biology as infrastructure: virtual cells, designed proteins, research moving from the bench to the terminal. The speaker was a founder; the slide deck was calm, and the ambition was not.",
+          "The other was by an industrial designer, on how Chinese design might stop quoting inherited symbols and start quoting its own mechanical past — clockwork, gear trains, the ingenuity of its own eighteenth century. Whether or not the audience agreed, the question was the right one.",
+          "What a volunteer sees that the audience does not: the speakers before they go on. They pace, they check their notes, they ask what time it is. The composure on stage is assembled in the corridor, the same way the event itself is."
+        ],
+        quote: { text: "The composure on stage is assembled in the corridor.", by: "Volunteer’s notes" }
+      },
+      de: {
+        title: "Ein Tag bei TEDxNanjing",
+        summary: "Vor-Ort-Freiwilliger bei der TEDxNanjing 2026 — Ausweise, Timing-Zettel und zwei Vorträge, die die Woche überlebt haben.",
+        body: [
+          "Freiwilliger bei der TEDxNanjing 2026: Ausweise an der Tür, Wegweiser, Timing-Zettel für die Bühnenleitung — die unsichtbare Arbeit, die dafür sorgt, dass ein Programm nach Plan läuft.",
+          "Zwei Vorträge sind mir geblieben. Einer plädierte für computational biology als Infrastruktur: virtuelle Zellen, designte Proteine, Forschung, die von der Werkbank ins Terminal wandert. Der Sprecher war Gründer; der Folienstapel war ruhig, der Ehrgeiz nicht.",
+          "Der andere kam von einem Industriedesigner — darüber, wie chinesisches Design aufhören könnte, geerbte Symbole zu zitieren, und anfangen könnte, die eigene mechanische Vergangenheit zu zitieren: Uhrwerke, Zahnradgetriebe, der Erfindungsgeist des eigenen achtzehnten Jahrhunderts. Ob das Publikum zustimmte oder nicht — die Frage war die richtige.",
+          "Was ein Freiwilliger sieht und das Publikum nicht: die Sprecher, bevor sie rausgehen. Sie laufen auf und ab, prüfen ihre Notizen, fragen nach der Uhrzeit. Die Fassung auf der Bühne wird im Flur zusammengesetzt — genauso wie die Veranstaltung selbst."
+        ],
+        quote: { text: "Die Fassung auf der Bühne wird im Flur zusammengesetzt.", by: "Notizen des Freiwilligen" }
+      }
     },
-    figure: { caption: "The prep table before service, December 2024." },
-    body: [
-      "I volunteered at a community kitchen that served a hot dinner six nights a week. My shift was prep: vegetables, rice, trays. I had never cooked for more than four people, and I had certainly never cooked for a line that formed before the door opened.",
-      "The head cook was a woman in her sixties who gave me three instructions: cut evenly, keep the board dry, and do not talk to her before the first pot boiled. I followed all three. The knife was heavier than the one in my apartment, and the first twenty minutes were mostly me learning to slow down.",
-      "The people who came were older men, delivery workers, a family with two children. Nobody asked why they were there. The rule of the room was simple: eat, rest, leave when you are ready. There was no story required, no gratitude performed. That felt important.",
-      "I learned that service is mostly repetition. The same forty kilos of cabbage, the same stack of trays, the same slow accumulation of trust. The glamorous version of helping people does not exist at six in the evening. What exists is a warm room, a full plate, and a dish rack that needs emptying again.",
-      "On my last shift, the cook handed me a container of soup and said, “For the road.” I walked home in the cold holding it with both hands. I have not forgotten the weight of it."
-    ]
-  }
-];
+
+    {
+      slug: "wcss-fao-booth",
+      category: "Volunteer",
+      date: "2026-06-12",
+      location: { en: "Nanjing", de: "Nanjing" },
+      figures: [
+        { file: "fig-1.jpg", en: "Congress corridors in the morning.", de: "Kongressflure am Morgen." },
+        { file: "fig-2.jpg", en: "Soil, on display.", de: "Boden, ausgestellt." }
+      ],
+      en: {
+        title: "Six Days at the FAO Booth",
+        summary: "Six days of booth duty and interpreting at the 23rd World Congress of Soil Science.",
+        body: [
+          "The 23rd World Congress of Soil Science met for a week. I volunteered six days at the FAO exhibition booth: set-up, scheduling, and interpreting between delegates and FAO staff when English stalled.",
+          "The work was rhythm more than content. Doors at eight; the booth swept and stocked before the first session; the afternoon’s handouts counted twice. Delegates arrived from a long list of countries, and most conversations at the booth began the same way — one sentence about soil, and then the part where two people find out how much of their field they share.",
+          "Interpreting for specialists is humbling in a specific way. The vocabulary is learnable in a day; the assumptions underneath it are not. I learned to slow down, to ask the delegate to say the same thing differently, and to let a silence do some of the work.",
+          "By the last afternoon the booth felt less like an assignment and more like a place with regulars. That is the part I would keep."
+        ],
+        quote: { text: "The vocabulary is learnable in a day; the assumptions underneath it are not.", by: "Interpreting notes" }
+      },
+      de: {
+        title: "Sechs Tage am FAO-Stand",
+        summary: "Sechs Tage Stelldienst und Dolmetschen auf dem 23. Weltbodenkongress.",
+        body: [
+          "Der 23. Weltbodenkongress tagte eine Woche lang. Ich habe sechs Tage am Ausstellungsstand der FAO als Freiwilliger geholfen: Aufbau, Ablaufplanung und Dolmetschen zwischen Delegierten und FAO-Mitarbeitenden, wenn Englisch nicht reichte.",
+          "Die Arbeit war Rhythmus mehr als Inhalt. Türen um acht; der Stand gekehrt und aufgefüllt, bevor die erste Session begann; die Handouts für den Nachmittag doppelt gezählt. Die Delegierten kamen aus einer langen Liste von Ländern, und die meisten Gespräche am Stand begannen gleich — ein Satz über Boden, dann der Teil, in dem zwei Leute herausfinden, wie viel ihres Fachs sie teilen.",
+          "Dolmetschen für Fachleute ist auf eine bestimmte Weise ernüchternd. Das Vokabular lernt man an einem Tag; die Annahmen darunter nicht. Ich habe gelernt, langsamer zu werden, die Delegierten zu bitten, dasselbe anders zu sagen, und eine Pause etwas Arbeit leisten zu lassen.",
+          "Am letzten Nachmittag fühlte sich der Stand weniger wie ein Auftrag an und mehr wie ein Ort mit Stammgästen. Das ist der Teil, den ich behalten würde."
+        ],
+        quote: { text: "Das Vokabular lernt man an einem Tag; die Annahmen darunter nicht.", by: "Dolmetsch-Notizen" }
+      }
+    }
+  ]
+};

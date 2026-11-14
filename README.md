@@ -13,14 +13,15 @@ Hand-built HTML + CSS + a little vanilla JavaScript. No framework, no build step
 |---|---|
 | `index.html` | Home — masthead lockup, three-column archive, contact form, visitor map |
 | `story.html` | Story template, read by `?slug=` |
-| `js/data.js` | All six stories: title, category, date, copy, captions |
-| `js/app.js` | Grid, search overlay, story rendering, scroll reveal, cover drift, socials |
+| `js/data.js` | All five stories in English and German + UI strings (`SITE.i18n`) |
+| `js/app.js` | Language switch, grid, search, story rendering, scroll reveal, cover drift, socials |
 | `css/site.css` | Design system and layouts (tokens at the top) |
 | `css/fonts.css` | Self-hosted EB Garamond + Instrument Sans (no Google CDN) |
 | `assets/logo-masthead.png` | The RATTRY / ENGAGEMENT lockup artwork |
+| `assets/byline-avatar.png` | Story byline avatar (self-hosted — never hotlink GitHub) |
 | `assets/visitors.js` | Dot-matrix visitor-cities world map (revived from wffp) |
-| `assets/stories/<slug>/` | `cover.jpg` (+`cover-960.jpg`), `body.jpg` per story |
-| `tools/` | `gen_og.py` (og card), `gen_images.py` (AI placeholder photos) |
+| `assets/stories/<slug>/` | `cover.jpg` (+`cover-960.jpg`), `fig-1.jpg`, `fig-2.jpg` per story |
+| `tools/` | `gen_og.py` (og card), `gen_images.py` (AI placeholder photos), `fetch_commons.py` (Wikimedia Commons sourcing) |
 
 ## Design system (final)
 
@@ -40,16 +41,29 @@ Hand-built HTML + CSS + a little vanilla JavaScript. No framework, no build step
 kit `<link>` where marked in `index.html` and `story.html` (search for "Adobe Fonts").
 Until then Instrument Sans serves.
 
-## Photos — currently AI placeholders
+## Languages (EN / DE)
 
-All images in `assets/stories/` are **AI-generated placeholders** (YuRen API, documentary
-style, no faces, no logos — see `tools/gen_images.py`). They are **not photos of the real
-events**. Replace them with real photographs, same filenames:
+The header switch (`EN · DE`) swaps all UI strings and story content. The choice is
+stored in `localStorage("engagement-lang")` (first visit follows the browser language).
+German is a full translation of the UI and every story; images, links and the contact
+form are shared between languages. To edit translations, change the `de` blocks in
+`js/data.js` and `SITE.i18n` — the switcher reloads the page after storing.
+
+## Photos — sources and placeholders
+
+Story images come from two sources:
+
+- **Wikimedia Commons** (freely licensed — PD/CC0/CC BY/CC BY-SA). Credits appear in the
+  figure captions where the license requires them (`tools/fetch_commons.py` searches and
+  records license + author).
+- **AI-generated placeholders** (YuRen API, documentary style, no faces, no logos —
+  `tools/gen_images.py`). These are **not photos of the real events**; replace them with
+  real, permission-cleared photographs, same filenames:
 
 ```
-assets/stories/<slug>/cover.jpg     # card + hero (landscape works best)
-assets/stories/<slug>/cover-960.jpg # card-size variant (regenerate or delete)
-assets/stories/<slug>/body.jpg      # 4:3 figure inside the story
+assets/stories/<slug>/cover.jpg      # card + hero (landscape works best)
+assets/stories/<slug>/cover-960.jpg  # card-size variant (regenerate or delete)
+assets/stories/<slug>/fig-1.jpg      # figures inside the story (fig-2.jpg …)
 ```
 
 Recommended: 1600px wide, JPEG quality 80. If a file is missing the card falls back to a
@@ -73,18 +87,15 @@ Stories live in `js/data.js`:
 
 ```js
 {
-  slug: "the-hour-before-dinner",
-  title: "The Hour Before Dinner",
-  category: "Volunteer",       // Volunteer / Leadership / Engagement / Classes
-  date: "2025-10-18",          // used for sorting
-  dateLabel: "October 2025",   // shown on the card
-  location: "Nanjing, China",
-  role: "Volunteer teacher",
-  summary: "One sentence under the title.",
-  lead: "Opening paragraph (merged into the body).",
-  quote: { text: "…", by: "…" },
-  figure: { caption: "Caption for body.jpg" },
-  body: ["Paragraph one.", "Paragraph two.", "…"]
+  slug: "tedx-nanjing-2026",
+  category: "Volunteer",          // Volunteer / Leadership / Engagement / Classes
+  date: "2026-10-25",             // ISO date, used for sorting; labels via Intl
+  location: { en: "Nanjing", de: "Nanjing" },
+  figures: [                      // 0-2 inline figures, placed between paragraphs
+    { file: "fig-1.jpg", en: "Caption.", de: "Bildunterschrift.", credit: "…" }
+  ],
+  en: { title: "…", summary: "…", body: ["…"], quote: { text: "…", by: "…" } },
+  de: { title: "…", summary: "…", body: ["…"], quote: { text: "…", by: "…" } }
 }
 ```
 

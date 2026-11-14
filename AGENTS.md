@@ -50,3 +50,6 @@ Working copy: `D:\Arborist\engagement-site`. A stale stepcode scaffold also exis
   `role="option"` anchors or Enter-on-close-button traps fixed in e1fffd5/2f46fac.
 - Owner's text rules: generalized masthead copy only (no project names on the homepage),
   volunteer titles stay accurate (`Online Volunteer` ≠ `UN Volunteer`), no org logos.
+- Bilingual (EN/DE): every story carries `en` and `de` blocks in `js/data.js`; UI strings
+  live in `SITE.i18n`; the header switch stores `localStorage("engagement-lang")` and
+  reloads. Never hotlink GitHub assets; date labels come from `Intl` (no `dateLabel`).

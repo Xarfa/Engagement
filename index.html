@@ -38,9 +38,10 @@
         <circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.4 4.4"/>
       </svg>
     </button>
-    <a class="head-link" href="#contact">Contact</a>
+    <a class="head-link" href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
   <div class="head-right">
+    <div class="lang-switch" role="group" aria-label="Language"></div>
     <div class="socials" data-socials role="group" aria-label="Social links"></div>
   </div>
 </header>
@@ -50,9 +51,9 @@
     <h1 class="logo-lockup" aria-label="Rattry Wu — Engagement">
       <img src="assets/logo-masthead.png" alt="Rattry — Engagement" width="1534" height="350">
     </h1>
-    <p class="masthead-intro">A written record of the engagements behind my CV — six assignments between 2024 and 2026, from conference booths to community classrooms.</p>
+    <p class="masthead-intro" data-i18n="intro">A written record of the engagements behind my CV — six assignments between 2024 and 2026, from conference booths to community classrooms.</p>
     <div class="masthead-actions">
-      <a class="btn-solid" href="#contact">Contact me</a>
+      <a class="btn-solid" href="#contact" data-i18n="btn_contact">Contact me</a>
       <p class="site-url">xarfa.github.io/Engagement</p>
     </div>
     <div class="visitors" id="visitors"></div>
@@ -69,21 +70,21 @@
   </section>
 
   <section class="contact-block" id="contact" aria-label="Contact">
-    <p class="contact-label">Contact</p>
-    <h2 class="contact-title">Send a message.</h2>
+    <p class="contact-label" data-i18n="contact_label">Contact</p>
+    <h2 class="contact-title" data-i18n="contact_title">Send a message.</h2>
     <form action="https://formsubmit.co/2234545188@qq.com" method="POST">
       <input type="hidden" name="_subject" value="New message from xarfa.github.io/Engagement">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <div class="form-row">
-        <label for="c-email">Email</label>
+        <label for="c-email" data-i18n="form_email">Email</label>
         <input id="c-email" type="email" name="email" autocomplete="email" required>
       </div>
       <div class="form-row">
-        <label for="c-msg">Message</label>
+        <label for="c-msg" data-i18n="form_message">Message</label>
         <textarea id="c-msg" name="message" rows="5" required></textarea>
       </div>
-      <button class="btn-solid" type="submit">Send message</button>
+      <button class="btn-solid" type="submit" data-i18n="form_send">Send message</button>
     </form>
   </section>
 </main>

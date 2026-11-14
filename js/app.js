@@ -1,9 +1,36 @@
 /* Engagement — Rattry Wu
-   Static, data-driven, no framework. */
+   Static, data-driven, no framework. English / German via the header switch. */
 (function () {
   "use strict";
 
-  var STORIES = (window.ENGAGEMENTS || []).slice().sort(function (a, b) {
+  var SITE = window.SITE || { stories: [], i18n: { en: {} }, categories: { en: {} }, defaultLang: "en" };
+
+  /* ---------------- language ---------------- */
+
+  var LANG_KEY = "engagement-lang";
+  var LANG = "en";
+  try {
+    var stored = localStorage.getItem(LANG_KEY);
+    if (stored === "en" || stored === "de") LANG = stored;
+    else LANG = (navigator.language || "en").toLowerCase().indexOf("de") === 0 ? "de" : "en";
+  } catch (e) { LANG = SITE.defaultLang || "en"; }
+
+  var LOCALE = LANG === "de" ? "de-DE" : "en-US";
+
+  function t(key) {
+    var pack = SITE.i18n[LANG] || SITE.i18n.en;
+    return pack[key] != null ? pack[key] : (SITE.i18n.en[key] != null ? SITE.i18n.en[key] : key);
+  }
+  function catLabel(c) {
+    var pack = SITE.categories[LANG] || SITE.categories.en;
+    return pack[c] || c;
+  }
+  function T(block) { /* per-language story block with en fallback */
+    if (!block) return {};
+    return block[LANG] || block.en || {};
+  }
+
+  var STORIES = (SITE.stories || []).slice().sort(function (a, b) {
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
@@ -20,14 +47,44 @@
 
   function pad(n) { return n < 10 ? "0" + n : String(n); }
 
+  function fmtMonthYear(iso) {
+    var d = new Date(iso + "T12:00:00");
+    return new Intl.DateTimeFormat(LOCALE, { month: "long", year: "numeric" }).format(d);
+  }
   function fullDate(iso) {
     var d = new Date(iso + "T12:00:00");
-    return new Intl.DateTimeFormat("en-US", {
-      month: "long", day: "numeric", year: "numeric"
-    }).format(d);
+    return new Intl.DateTimeFormat(LOCALE, { month: "long", day: "numeric", year: "numeric" }).format(d);
   }
 
   function storyHref(s) { return "story.html?slug=" + encodeURIComponent(s.slug); }
+
+  function applyChrome() {
+    document.documentElement.lang = LANG;
+    document.title = "Engagement — Rattry Wu";
+    $$("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
+    $$("[data-i18n-ph]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-ph"))); });
+    $$(".lang-switch button").forEach(function (b) {
+      var on = b.getAttribute("data-lang") === LANG;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  function buildLangSwitch() {
+    $$(".lang-switch").forEach(function (box) {
+      box.innerHTML = '<button type="button" data-lang="en" aria-label="English">EN</button>' +
+        '<span aria-hidden="true">·</span>' +
+        '<button type="button" data-lang="de" aria-label="Deutsch">DE</button>';
+      $$("button", box).forEach(function (b) {
+        b.addEventListener("click", function () {
+          var l = b.getAttribute("data-lang");
+          if (l === LANG) return;
+          try { localStorage.setItem(LANG_KEY, l); } catch (e) {}
+          location.reload();
+        });
+      });
+    });
+  }
 
   /* ---------------- social marks ---------------- */
 
@@ -98,10 +155,11 @@
 
   function cardMarkup(s, i) {
     var slug = "assets/stories/" + s.slug;
+    var L = T(s);
     var late = i >= 6; // below the fold: scroll-reveal instead of load-stagger
     return '' +
       '<a class="card' + (late ? ' reveal-sr' : ' reveal') + '" href="' + storyHref(s) + '" style="--i:' + i + '" ' +
-        'aria-label="' + esc(s.title) + ' — ' + esc(s.dateLabel) + '">' +
+        'aria-label="' + esc(L.title) + ' — ' + esc(fmtMonthYear(s.date)) + '">' +
         '<div class="card-photo">' +
           '<img alt="" width="1536" height="1024" loading="lazy" decoding="async" ' +
             'srcset="' + slug + '/cover-960.jpg 960w, ' + slug + '/cover.jpg 1536w" ' +
@@ -109,25 +167,14 @@
         "</div>" +
         '<div class="card-scrim" aria-hidden="true"></div>' +
         '<div class="card-body">' +
-          '<h2 class="card-title">' + esc(s.title) + "</h2>" +
-          '<p class="card-deck">' + esc(s.summary) + "</p>" +
-          '<span class="card-date">' + esc(s.dateLabel) + "</span>" +
+          '<h2 class="card-title">' + esc(L.title) + "</h2>" +
+          '<p class="card-deck">' + esc(L.summary) + "</p>" +
+          '<span class="card-date">' + esc(fmtMonthYear(s.date)) + "</span>" +
         "</div>" +
       "</a>";
   }
 
-  function initHome() {
-    var grid = $("#storyGrid");
-    if (!grid) return;
-
-    grid.innerHTML = STORIES.map(cardMarkup).join("");
-    $$(".card", grid).forEach(function (card) {
-      var img = $("img[data-cover]", card);
-      attachImage(card, img, img.getAttribute("data-cover"));
-    });
-
-    /* below-fold cards reveal on scroll with the story-body rhythm */
-    var late = $$(".card.reveal-sr", grid);
+  function observeLate(late) {
     if (!late.length) return;
     if (!("IntersectionObserver" in window) ||
         window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -144,9 +191,21 @@
     late.forEach(function (t) { t.classList.add("sr"); io.observe(t); });
   }
 
+  function initHome() {
+    var grid = $("#storyGrid");
+    if (!grid) return;
+
+    grid.innerHTML = STORIES.map(cardMarkup).join("");
+    $$(".card", grid).forEach(function (card) {
+      var img = $("img[data-cover]", card);
+      attachImage(card, img, img.getAttribute("data-cover"));
+    });
+    observeLate($$(".card.reveal-sr", grid));
+  }
+
   /* ---------------- search ---------------- */
 
-  var searchState = { open: false, active: -1, lastFocus: null };
+  var searchState = { open: false, active: -1, lastFocus: null, focusTimer: null };
 
   function buildSearch() {
     var el = document.createElement("div");
@@ -154,14 +213,15 @@
     el.id = "searchPanel";
     el.setAttribute("role", "dialog");
     el.setAttribute("aria-modal", "true");
+    el.setAttribute("aria-hidden", "true");
     el.setAttribute("aria-labelledby", "searchTitle");
     el.innerHTML = '' +
       '<div class="search-inner">' +
         '<div class="search-top">' +
           '<div>' +
-            '<label class="search-label" id="searchTitle" for="searchInput">Search the archive</label>' +
+            '<label class="search-label" id="searchTitle" for="searchInput" data-i18n="search_label"></label>' +
             '<input class="search-input" id="searchInput" type="search" autocomplete="off" ' +
-              'spellcheck="false" placeholder="Try “leadership”, “kitchen”…" ' +
+              'spellcheck="false" data-i18n-ph="search_ph" ' +
               'role="combobox" aria-expanded="false" aria-controls="searchResults" aria-autocomplete="list">' +
           "</div>" +
           '<button class="search-close" type="button" aria-label="Close search">' +
@@ -172,7 +232,8 @@
         '<p class="search-count" id="searchCount" aria-live="polite"></p>' +
         '<div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>' +
         '<p class="search-empty" id="searchEmpty" hidden></p>' +
-        '<p class="search-hint"><kbd>/</kbd> to open · <kbd>↑</kbd><kbd>↓</kbd> to move · <kbd>Esc</kbd> to close</p>' +
+        '<p class="search-hint"><kbd>/</kbd> <span data-i18n="hint_open"></span> · <kbd>↑</kbd><kbd>↓</kbd> ' +
+          '<span data-i18n="hint_move"></span> · <kbd>ESC</kbd> <span data-i18n="hint_close"></span></p>' +
       "</div>";
     document.body.appendChild(el);
     return el;
@@ -184,14 +245,15 @@
 
   function scoreStory(s, q) {
     var score = 0;
-    var t = normalize(s.title), c = normalize(s.category), m = normalize(s.summary),
-        b = normalize((s.body || []).join(" ")), l = normalize(s.location), r = normalize(s.role);
+    var L = T(s);
+    var cat = normalize(catLabel(s.category));
+    var t = normalize(L.title), m = normalize(L.summary),
+        b = normalize((L.body || []).join(" ")), l = normalize(T(s.location) || "");
     if (!q) return 1;
     if (t.indexOf(q) !== -1) score += 8;
-    if (c.indexOf(q) !== -1) score += 5;
     if (m.indexOf(q) !== -1) score += 4;
+    if (cat.indexOf(q) !== -1) score += 5;
     if (l.indexOf(q) !== -1) score += 3;
-    if (r.indexOf(q) !== -1) score += 2;
     if (b.indexOf(q) !== -1) score += 1;
     return score;
   }
@@ -214,14 +276,13 @@
   }
 
   function snippet(s, q) {
-    var summary = s.summary || "";
+    var L = T(s);
+    var summary = L.summary || "";
     if (!q) return summary;
     if (normalize(summary).indexOf(q) !== -1) return summary;
-
-    var body = (s.body || []).join(" ");
+    var body = (L.body || []).join(" ");
     var at = body.toLowerCase().indexOf(q);
     if (at === -1) return summary;
-
     var start = Math.max(0, at - 50);
     if (start > 0) {
       var space = body.indexOf(" ", start);
@@ -230,7 +291,6 @@
     var end = Math.min(body.length, at + q.length + 100);
     var next = body.indexOf(" ", end);
     if (next !== -1) end = next;
-
     return (start > 0 ? "…" : "") + body.slice(start, end).trim() + "…";
   }
 
@@ -243,11 +303,9 @@
     searchState.active = -1;
     if (input) input.removeAttribute("aria-activedescendant");
 
-    var years = STORIES.map(function (s) { return s.date.slice(0, 4); }).sort();
-    var span = years.length ? years[0] + "—" + years[years.length - 1] : "";
     count.textContent = q
-      ? results.length + (results.length === 1 ? " engagement" : " engagements") + " for “" + q + "”"
-      : results.length + " engagements" + (span ? " · " + span : "");
+      ? t("count_for").replace("{n}", results.length).replace("{q}", q)
+      : t("count_total").replace("{n}", results.length);
 
     if (input) input.setAttribute("aria-expanded", results.length ? "true" : "false");
 
@@ -255,23 +313,23 @@
       list.innerHTML = "";
       if (empty) {
         empty.hidden = false;
-        empty.innerHTML = 'Nothing under <strong>“' + esc(q) + "”</strong> yet. " +
-          "Try a category, a place, or a word from a story.";
+        empty.innerHTML = t("empty_1") + "<strong>“" + esc(q) + "”</strong>" + t("empty_2");
       }
       return;
     }
     if (empty) empty.hidden = true;
 
     list.innerHTML = results.map(function (s, i) {
+      var L = T(s);
       return '<a class="search-result" role="option" id="searchResult-' + i + '" aria-selected="false" ' +
         'tabindex="-1" href="' + storyHref(s) + '" data-i="' + i + '">' +
         '<span class="search-num">' + pad(i + 1) + "</span>" +
         "<span>" +
-          '<span class="search-title">' + mark(s.title, q) + "</span>" +
-          '<span class="search-meta">' + esc(s.category) + " · " + esc(s.location) + " · " +
+          '<span class="search-title">' + mark(L.title, q) + "</span>" +
+          '<span class="search-meta">' + esc(catLabel(s.category)) + " · " + esc(T(s.location) || "") + " · " +
             mark(snippet(s, q), q) + "</span>" +
         "</span>" +
-        '<span class="search-date">' + esc(s.dateLabel) + "</span>" +
+        '<span class="search-date">' + esc(fmtMonthYear(s.date)) + "</span>" +
       "</a>";
     }).join("");
   }
@@ -337,7 +395,7 @@
 
   function initSearch() {
     var el = buildSearch();
-    el.setAttribute("aria-hidden", "true");
+    applyChrome(); // fill the overlay strings just injected
     var input = $("#searchInput");
 
     $$("[data-search-open]").forEach(function (btn) {
@@ -395,25 +453,36 @@
 
   /* ---------------- story ---------------- */
 
-  function renderBody(s, idx) {
-    var ps = (s.lead ? [s.lead] : []).concat(s.body || []);
+  function renderBody(s) {
+    var L = T(s);
+    var ps = L.body || [];
+    var figs = s.figures || [];
     var out = [];
     var quoteAt = ps.length > 3 ? 2 : 1;
-    var figAt = ps.length > 4 ? 3 : ps.length - 1;
-    var figVariant = (idx || 0) % 2 === 0 ? "variant-center" : "variant-left";
+    var figPositions = {};
+    figs.forEach(function (f, i) {
+      var pos = figs.length === 1 ? Math.min(2, ps.length - 1) : (i === 0 ? 2 : 4);
+      if (pos > ps.length) pos = ps.length;
+      figPositions[pos] = f;
+    });
 
     ps.forEach(function (text, i) {
       out.push("<p>" + esc(text) + "</p>");
-      if (i === quoteAt - 1 && s.quote) {
-        out.push('<blockquote><p>“' + esc(s.quote.text) + "”</p>" +
-          (s.quote.by ? "<cite>" + esc(s.quote.by) + "</cite>" : "") + "</blockquote>");
+      if (i === quoteAt - 1 && L.quote) {
+        out.push('<blockquote><p>“' + esc(L.quote.text) + "”</p>" +
+          (L.quote.by ? "<cite>" + esc(L.quote.by) + "</cite>" : "") + "</blockquote>");
       }
-      if (i === figAt - 1 && s.figure) {
-        var url = "assets/stories/" + s.slug + "/body.jpg";
-        out.push('<figure class="' + figVariant + '"><div class="fig-frame" data-fig="' + url + '">' +
-          "<span>Photo</span>" +
-          '<img alt="" width="1600" height="1067" loading="lazy" decoding="async" data-alt="' + esc(s.figure.caption || s.title) + '">' +
-          "</div><figcaption>" + esc(s.figure.caption || "") + "</figcaption></figure>");
+      var fig = figPositions[i + 1];
+      if (fig) {
+        var url = "assets/stories/" + s.slug + "/" + fig.file;
+        out.push('<figure class="' + (i % 2 === 0 ? "variant-center" : "variant-left") + '">' +
+          '<div class="fig-frame" data-fig="' + url + '">' +
+            "<span>Photo</span>" +
+            '<img alt="" width="1200" height="800" loading="lazy" decoding="async" ' +
+              'data-alt="' + esc(T(fig) || "") + '">' +
+          "</div>" +
+          '<figcaption>' + esc(T(fig) || "") + (fig.credit ? ' <span class="credit">' + esc(fig.credit) + "</span>" : "") + "</figcaption>" +
+          "</figure>");
       }
     });
     return out.join("");
@@ -466,59 +535,61 @@
     if (idx === -1) {
       document.body.classList.add("is-plain");
       root.innerHTML = '<section class="story-main" style="text-align:center;padding-top:120px">' +
-        '<p class="story-end-label" style="display:block;margin-bottom:14px">404 — Not found</p>' +
-        '<h1 class="story-next-title" style="font-size:clamp(28px,4vw,48px)">This engagement does not exist.</h1>' +
-        '<p style="margin:24px auto 0;max-width:520px;font-style:italic;color:var(--mute)">It may have been renamed, or the link is incomplete.</p>' +
-        '<p style="margin-top:28px"><a class="head-link" href="index.html">← Back to all engagements</a></p></section>';
+        '<p class="story-end-label" style="display:block;margin-bottom:14px">404</p>' +
+        '<h1 class="story-next-title" style="font-size:clamp(28px,4vw,48px)">' + t("err_title") + "</h1>" +
+        '<p style="margin:24px auto 0;max-width:520px;font-style:italic;color:var(--mute)">' + t("err_body") + "</p>" +
+        '<p style="margin-top:28px"><a class="head-link" href="index.html">← ' + t("err_back") + "</a></p></section>";
       document.title = "Not found — Engagement";
       return;
     }
 
     var s = STORIES[idx];
+    var L = T(s);
     var next = STORIES[(idx + 1) % STORIES.length];
+    var LN = T(next);
 
-    document.title = s.title + " — Engagement · Rattry Wu";
+    document.title = L.title + " — Engagement · Rattry Wu";
     var meta = $('meta[name="description"]');
-    if (meta) meta.setAttribute("content", s.summary);
+    if (meta) meta.setAttribute("content", L.summary);
     var ogTitle = $('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", s.title + " — Engagement");
+    if (ogTitle) ogTitle.setAttribute("content", L.title + " — Engagement");
     var ogDesc = $('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", s.summary);
+    if (ogDesc) ogDesc.setAttribute("content", L.summary);
     var canonical = $('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", window.location.href);
+    if (canonical) canonical.setAttribute("href", window.location.href.split("?")[0]);
     var ogUrl = $('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", window.location.href);
+    if (ogUrl) ogUrl.setAttribute("content", window.location.href.split("?")[0]);
 
     var hero = $("#storyHero");
     hero.innerHTML = '' +
       '<div class="story-hero-media"><img alt="" width="1536" height="1024" ' +
-        'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(s.title) + '"></div>' +
+        'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(L.title) + '"></div>' +
       '<div class="story-hero-inner">' +
-        '<h1 class="story-title">' + esc(s.title) + "</h1>" +
-        '<p class="story-sub">' + esc(s.summary) + "</p>" +
-        '<p class="story-kicker">' + esc(s.category) + "</p>" +
+        '<h1 class="story-title">' + esc(L.title) + "</h1>" +
+        '<p class="story-sub">' + esc(L.summary) + "</p>" +
+        '<p class="story-kicker">' + esc(catLabel(s.category)) + "</p>" +
       "</div>" +
       '<div class="story-byline">' +
         '<img class="byline-avatar" alt="" width="80" height="80" src="assets/byline-avatar.png">' +
-        '<p class="byline-name"><span class="by">By</span><span class="nm">Rattry Wu</span></p>' +
+        '<p class="byline-name"><span class="by">' + esc(t("by")) + '</span><span class="nm">Rattry Wu</span></p>' +
         '<p class="byline-date">' + esc(fullDate(s.date)) +
-          '<span class="sep">·</span>' + esc(s.location) + "</p>" +
+          '<span class="sep">·</span>' + esc(T(s.location) || "") + "</p>" +
       "</div>";
     attachImage(hero, $("img[data-cover]", hero), $("img[data-cover]", hero).getAttribute("data-cover"), "has-image", true);
 
     var avatar = $(".byline-avatar", hero);
     if (avatar && avatar.complete && avatar.naturalWidth > 0) hero.classList.add("has-avatar");
-    else avatar.addEventListener("load", function () { hero.classList.add("has-avatar"); }, { once: true });
-    avatar.addEventListener("error", function () { avatar.style.display = "none"; }, { once: true });
+    else if (avatar) avatar.addEventListener("load", function () { hero.classList.add("has-avatar"); }, { once: true });
+    if (avatar) avatar.addEventListener("error", function () { avatar.style.display = "none"; }, { once: true });
 
-    $("#storyBody").innerHTML = renderBody(s, idx);
+    $("#storyBody").innerHTML = renderBody(s);
 
     var fig = $(".fig-frame");
     if (fig) attachImage(fig, $("img", fig), fig.getAttribute("data-fig"));
 
     $("#nextStory").href = storyHref(next);
-    $("#nextTitle").textContent = next.title;
-    $("#nextMeta").textContent = next.category + " · " + next.dateLabel;
+    $("#nextTitle").textContent = LN.title;
+    $("#nextMeta").textContent = catLabel(next.category) + " · " + fmtMonthYear(next.date);
 
     initReveal();
     initHeroDrift();
@@ -527,6 +598,8 @@
   /* ---------------- boot ---------------- */
 
   function boot() {
+    buildLangSwitch();
+    applyChrome();
     paintSocials();
     initHeader();
     initSearch();
