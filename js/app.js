@@ -584,8 +584,9 @@
 
     $("#storyBody").innerHTML = renderBody(s);
 
-    var fig = $(".fig-frame");
-    if (fig) attachImage(fig, $("img", fig), fig.getAttribute("data-fig"));
+    $$(".fig-frame", root).forEach(function (f) {
+      attachImage(f, $("img", f), f.getAttribute("data-fig"));
+    });
 
     $("#nextStory").href = storyHref(next);
     $("#nextTitle").textContent = LN.title;
