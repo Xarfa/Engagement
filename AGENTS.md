@@ -33,10 +33,39 @@ A stale stepcode scaffold also exists at
   "Instrument Sans"(self-hosted) → Helvetica`. Serif: EB Garamond (self-hosted).
   Kit link goes where "Adobe Fonts" is marked in index.html / story.html.
 
+## Story-commit paradigm (fixed 2026-11-14 with the ATOX story)
+
+Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
+(untracked; ignored via `20*/`). One commit per engagement:
+
+1. **Assets** → `assets/stories/<slug>/` (short kebab-case slug): `cover.jpg`
+   (1536w) + `cover-960.jpg` from the folder's cover image; `fig-N.jpg` figures;
+   `logo-*.png` — owner supplies logos white and background-removed when possible.
+2. **Story data** in `js/data.js`: `slug` / `category` / `date` (= start date) /
+   `location` / `figures` (concise EN+DE captions the agent writes from what each
+   image shows; optional `ratio: "w/h"` keeps portrait documents un-cropped) /
+   `en` + `de` blocks / `logos`. Body text = owner's content.md VERBATIM: fix small
+   grammar/spelling only, no additions or deletions, report anything major. The
+   German translation of the owner's text is part of every commit. Title comes from
+   content.md when the owner writes one.
+3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
+   card (owner's marker ≈34% card width, ~7.5% from top). `logos.hero` = ALL logos
+   stacked at the bottom-left of the story cover, listed BOTTOM-UP (first entry
+   renders lowest); sized to stay clear of text baked into the cover art.
+   CSS: `.card-logo`, `.story-hero-logos`.
+4. **Hiding** a story: `hidden: true` on its data object — dropped from grid,
+   search and story pages without deleting data/assets. The five 2026-11-14
+   example stories are hidden this way.
+5. **Verify** locally (`python -m http.server` + ego-browser, cache disabled):
+   first-screen card ratio ≥30–40%, hero logos clear of baked cover text,
+   EN + DE reload both fine. Then one commit, push via proxy.
+
 ## Non-obvious gotchas
 
-- `assets/stories/**` images are **AI placeholders** (YuRen API, see `tools/gen_images.py`)
-  — not real event photos. Real photos replace them by filename; no code change needed.
+- `assets/stories/**` images for the five hidden example stories are **AI
+  placeholders** (YuRen API, see `tools/gen_images.py`) — not real event photos.
+  Real stories (e.g. ATOX) commit their owner-supplied assets into
+  `assets/stories/<slug>/` directly.
 - `tools/gen_og.py` / `tools/gen_images.py` regenerate og.png / placeholder photos;
   paths are repo-relative.
 - `ch` CSS units misbehave with Instrument Sans (wide `0`) — use `em`.
@@ -50,7 +79,8 @@ A stale stepcode scaffold also exists at
 - Search overlay is a combobox (aria-activedescendant); don't reintroduce focusable
   `role="option"` anchors or Enter-on-close-button traps fixed in e1fffd5/2f46fac.
 - Owner's text rules: generalized masthead copy only (no project names on the homepage),
-  volunteer titles stay accurate (`Online Volunteer` ≠ `UN Volunteer`), no org logos.
+  volunteer titles stay accurate (`Online Volunteer` ≠ `UN Volunteer`). Org logos appear
+  only as per-story card/cover overlays (see story-commit paradigm), never in the masthead.
 - Bilingual (EN/DE): every story carries `en` and `de` blocks in `js/data.js`; UI strings
   live in `SITE.i18n`; the header switch stores `localStorage("engagement-lang")` and
   reloads. Never hotlink GitHub assets; date labels come from `Intl` (no `dateLabel`).

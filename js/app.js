@@ -30,7 +30,7 @@
     return block[LANG] || block.en || {};
   }
 
-  var STORIES = (SITE.stories || []).slice().sort(function (a, b) {
+  var STORIES = (SITE.stories || []).filter(function (s) { return !s.hidden; }).sort(function (a, b) {
     return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
   });
 
@@ -156,6 +156,7 @@
   function cardMarkup(s, i) {
     var slug = "assets/stories/" + s.slug;
     var L = T(s);
+    var cardLogo = s.logos && s.logos.card;
     var late = i >= 6; // below the fold: scroll-reveal instead of load-stagger
     return '' +
       '<a class="card' + (late ? ' reveal-sr' : ' reveal') + '" href="' + storyHref(s) + '" style="--i:' + i + '" ' +
@@ -166,6 +167,8 @@
             'sizes="(min-width: 700px) 448px, 92vw" data-cover="' + slug + '/cover-960.jpg">' +
         "</div>" +
         '<div class="card-scrim" aria-hidden="true"></div>' +
+        (cardLogo ? '<img class="card-logo" src="' + slug + '/' + esc(cardLogo.file) +
+          '" alt="' + esc(cardLogo.alt || "") + '" loading="lazy" decoding="async">' : "") +
         '<div class="card-body">' +
           '<h2 class="card-title">' + esc(L.title) + "</h2>" +
           '<p class="card-deck">' + esc(L.summary) + "</p>" +
@@ -459,31 +462,48 @@
     var figs = s.figures || [];
     var out = [];
     var quoteAt = ps.length > 3 ? 2 : 1;
-    var figPositions = {};
-    figs.forEach(function (f, i) {
-      var pos = figs.length === 1 ? Math.min(2, ps.length - 1) : (i === 0 ? 2 : 4);
-      if (pos > ps.length) pos = ps.length;
-      figPositions[pos] = f;
-    });
 
+    /* Figures render after a paragraph. With 1–2 figures keep the original
+       placement (after ¶2, then ¶4); with more, spread them evenly over the
+       paragraph boundaries — earlier paragraphs take the remainder.
+       fig.ratio (e.g. "1000/1413") keeps portrait documents un-cropped. */
+    var figSlots = {};
+    if (figs.length === 1) {
+      figSlots[Math.max(1, Math.min(2, ps.length - 1))] = [figs[0]];
+    } else if (figs.length === 2) {
+      var atA = Math.min(2, ps.length), atB = Math.min(4, ps.length);
+      (figSlots[atA] = figSlots[atA] || []).push(figs[0]);
+      (figSlots[atB] = figSlots[atB] || []).push(figs[1]);
+    } else if (figs.length) {
+      var per = Math.floor(figs.length / ps.length), rem = figs.length % ps.length, k = 0;
+      for (var p = 1; p <= ps.length; p++) {
+        var take = per + (p <= rem ? 1 : 0);
+        if (!take) continue;
+        figSlots[p] = figs.slice(k, k + take);
+        k += take;
+      }
+    }
+
+    var figIndex = 0;
     ps.forEach(function (text, i) {
       out.push("<p>" + esc(text) + "</p>");
       if (i === quoteAt - 1 && L.quote) {
         out.push('<blockquote><p>“' + esc(L.quote.text) + "”</p>" +
           (L.quote.by ? "<cite>" + esc(L.quote.by) + "</cite>" : "") + "</blockquote>");
       }
-      var fig = figPositions[i + 1];
-      if (fig) {
+      (figSlots[i + 1] || []).forEach(function (fig) {
         var url = "assets/stories/" + s.slug + "/" + fig.file;
-        out.push('<figure class="' + (i % 2 === 0 ? "variant-center" : "variant-left") + '">' +
-          '<div class="fig-frame" data-fig="' + url + '">' +
+        out.push('<figure class="' + (figIndex % 2 === 0 ? "variant-center" : "variant-left") + '">' +
+          '<div class="fig-frame" data-fig="' + url + '"' +
+            (fig.ratio ? ' style="aspect-ratio:' + fig.ratio + '"' : "") + ">" +
             "<span>Photo</span>" +
             '<img alt="" width="1200" height="800" loading="lazy" decoding="async" ' +
               'data-alt="' + esc(T(fig) || "") + '">' +
           "</div>" +
           '<figcaption>' + esc(T(fig) || "") + (fig.credit ? ' <span class="credit">' + esc(fig.credit) + "</span>" : "") + "</figcaption>" +
           "</figure>");
-      }
+        figIndex++;
+      });
     });
     return out.join("");
   }
@@ -561,9 +581,15 @@
     if (ogUrl) ogUrl.setAttribute("content", window.location.href.split("?")[0]);
 
     var hero = $("#storyHero");
+    var heroLogos = (s.logos && s.logos.hero) || [];
     hero.innerHTML = '' +
       '<div class="story-hero-media"><img alt="" width="1536" height="1024" ' +
         'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(L.title) + '"></div>' +
+      (heroLogos.length
+        ? '<div class="story-hero-logos">' + heroLogos.map(function (lg) {
+            return '<img src="assets/stories/' + s.slug + '/' + esc(lg.file) + '" alt="' + esc(lg.alt || "") + '">';
+          }).join("") + "</div>"
+        : "") +
       '<div class="story-hero-inner">' +
         '<h1 class="story-title">' + esc(L.title) + "</h1>" +
         '<p class="story-sub">' + esc(L.summary) + "</p>" +

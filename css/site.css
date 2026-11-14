@@ -489,6 +489,19 @@ body.is-locked:not(.story-page) .site-head {
   text-decoration-color: rgba(255, 255, 255, .65);
 }
 
+/* organiser mark overlaid top-centre of the card (per story: data.js `logos.card`) */
+.card-logo {
+  position: absolute;
+  z-index: 2;
+  top: 7.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 12px rgba(0, 0, 0, .38));
+}
+
 /* load-in stagger — hidden state only when JS is known to run (.js on <html>) */
 @keyframes revealIn {
   to { opacity: 1; transform: none; }
@@ -628,6 +641,28 @@ body.is-locked:not(.story-page) .site-head {
   transition: opacity .9s var(--ease), transform 1.1s var(--ease);
 }
 .story-hero.has-image .story-hero-media img { opacity: 1; transform: scale(1); }
+
+/* engagement logos stacked at the bottom-left of the cover
+   (per story: data.js `logos.hero`, listed bottom-up — first entry sits lowest).
+   Sized to the owner's marker (~11% vw) and kept clear of any date line
+   baked into the cover artwork itself. */
+.story-hero-logos {
+  position: absolute;
+  z-index: 3;
+  left: clamp(16px, 2.6vw, 44px);
+  bottom: clamp(24px, 4.5vh, 48px);
+  width: clamp(72px, 11.4vw, 168px);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 14px;
+  pointer-events: none;
+}
+.story-hero-logos img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1px 14px rgba(0, 0, 0, .45));
+}
 
 .story-hero-inner {
   position: relative;
@@ -1151,6 +1186,7 @@ body.is-locked:not(.story-page) .site-head {
   .story-byline { bottom: clamp(22px, 4vh, 36px); gap: 8px; }
   .story-sub { font-size: 18px; }
   .byline-avatar { width: 64px; height: 64px; }
+  .story-hero-logos { width: clamp(56px, 15vw, 84px); gap: 10px; }
   .byline-name { font-size: 14.5px; }
   .byline-name .by { font-size: 15.5px; }
   .byline-date { font-size: 13.5px; }

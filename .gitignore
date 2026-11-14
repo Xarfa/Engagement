@@ -2,3 +2,6 @@ Thumbs.db
 .DS_Store
 desktop.ini
 tools/commons-cache/
+
+# owner's local source-material folders (dated, one per engagement)
+20*/
