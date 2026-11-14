@@ -83,8 +83,7 @@ window.SITE = {
       logos: {
         card: { file: "logo-atox.png", alt: "ATOX" },
         hero: [
-          { file: "logo-atox.png", alt: "ATOX", w: 100 },
-          { file: "logo-cop31.png", alt: "COP31 Türkiye", w: 80 }
+          { file: "logo-cop31.png", alt: "COP31 Türkiye" }
         ]
       },
       figures: [
