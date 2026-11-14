@@ -168,7 +168,10 @@
         "</div>" +
         '<div class="card-scrim" aria-hidden="true"></div>' +
         (cardLogo ? '<img class="card-logo" src="' + slug + '/' + esc(cardLogo.file) +
-          '" alt="' + esc(cardLogo.alt || "") + '" loading="lazy" decoding="async">' : "") +
+          '" alt="' + esc(cardLogo.alt || "") + '" loading="lazy" decoding="async"' +
+          /* cardLogo.w = width as % of card width (34 = CSS default) — square
+             emblems need less width or they run into 3–4 line titles */
+          (cardLogo.w != null ? ' style="width:' + cardLogo.w + '%"' : "") + '>' : "") +
         '<div class="card-body">' +
           '<h2 class="card-title">' + esc(L.title) + "</h2>" +
           '<p class="card-deck">' + esc(L.summary) + "</p>" +

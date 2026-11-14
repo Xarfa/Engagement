@@ -49,14 +49,16 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    German translation of the owner's text is part of every commit. Title comes from
    content.md when the owner writes one.
 3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
-   card (owner's marker ≈34% card width, ~7.5% from top). `logos.hero` = logos
-   stacked at the bottom-left of the story cover, listed BOTTOM-UP (first entry
-   renders lowest); sized to stay clear of text baked into the cover art. Optional
-   per-logo `w` (% of column, default 100). LESSON (ATOX story): two marks of very
-   different aspect ratios (wide wordmark vs emblem) never balance cleanly —
-   same-width, same-height and optical-area all read as 悬殊 to the owner; when in
-   doubt ask, or fall back to the single mark the owner picks (ATOX ended with
-   COP31 alone). CSS: `.card-logo`, `.story-hero-logos`.
+   card (owner's marker ≈34% card width, ~7.5% from top; optional `w` = % of card
+   width for square emblems — at 34% they run into 3–4 line titles, blind-school
+   emblem uses 22). `logos.hero` = logos stacked at the bottom-left of the story
+   cover, listed BOTTOM-UP (first entry renders lowest); sized to stay clear of
+   text baked into the cover art. Optional per-logo `w` (% of column, default 100).
+   LESSON (ATOX story): two marks of very different aspect ratios (wide wordmark
+   vs emblem) never balance cleanly — same-width, same-height and optical-area
+   all read as 悬殊 to the owner; when in doubt ask, or fall back to the single
+   mark the owner picks (ATOX ended with COP31 alone). CSS: `.card-logo`,
+   `.story-hero-logos`.
 4. **Hiding** a story: `hidden: true` on its data object — dropped from grid,
    search and story pages without deleting data/assets. The five 2026-11-14
    example stories are hidden this way.

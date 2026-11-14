@@ -18,7 +18,7 @@ window.SITE = {
     en: {
       nav_contact: "Contact",
       back_all: "All engagements",
-      intro: "A written record of the engagements behind my CV — six assignments between 2024 and 2026, from conference booths to community classrooms.",
+      intro: "A written record of the engagements behind my CV — seven assignments between 2023 and 2026, from conference booths to community classrooms.",
       btn_contact: "Contact me",
       contact_label: "Contact",
       contact_title: "Send a message.",
@@ -44,7 +44,7 @@ window.SITE = {
     de: {
       nav_contact: "Kontakt",
       back_all: "Alle Engagements",
-      intro: "Ein schriftliches Protokoll der Engagements hinter meinem Lebenslauf — sechs Einsätze zwischen 2024 und 2026, von Konferenzständen bis zu Klassenzimmern.",
+      intro: "Ein schriftliches Protokoll der Engagements hinter meinem Lebenslauf — sieben Einsätze zwischen 2023 und 2026, von Konferenzständen bis zu Klassenzimmern.",
       btn_contact: "Kontakt aufnehmen",
       contact_label: "Kontakt",
       contact_title: "Schreiben Sie mir.",
@@ -282,6 +282,44 @@ window.SITE = {
           "Am letzten Nachmittag fühlte sich der Stand weniger wie ein Auftrag an und mehr wie ein Ort mit Stammgästen. Das ist der Teil, den ich behalten würde."
         ],
         quote: { text: "Das Vokabular lernt man an einem Tag; die Annahmen darunter nicht.", by: "Dolmetsch-Notizen" }
+      }
+    },
+
+    {
+      slug: "nanjing-blind-school",
+      category: "Volunteer",
+      date: "2023-11-10",
+      location: { en: "Nanjing", de: "Nanjing" },
+      logos: {
+        card: { file: "logo-njsb.svg", alt: "Nanjing School for the Blind", w: 22 },
+        hero: [
+          { file: "logo-njsb.svg", alt: "Nanjing School for the Blind", w: 60 }
+        ]
+      },
+      figures: [
+        { file: "fig-1.jpg", ratio: "1200/798", en: "Rain on the bus window on the way to the school.", de: "Regen am Busfenster auf dem Weg zur Schule." },
+        { file: "fig-2.jpg", ratio: "1200/786", en: "The school’s emblem plaque on the wall.", de: "Das Emblemschild der Schule an der Wand." },
+        { file: "fig-3.jpg", ratio: "1200/866", en: "A corridor with tactile paving and handrails.", de: "Ein Flur mit Leitstreifen und Handläufen." },
+        { file: "fig-4.jpg", ratio: "1200/800", en: "In the classroom, desks already filled with bags.", de: "Im Klassenzimmer, die Tische schon voller Tüten." },
+        { file: "fig-5.jpg", ratio: "1200/811", en: "A student at a desk beside stacks of braille books.", de: "Ein Schüler am Tisch neben Stapeln von Braille-Büchern." },
+        { file: "fig-6.jpg", ratio: "1200/810", en: "Faces around a table in the half-dark.", de: "Gesichter um einen Tisch im Halbdunkel." },
+        { file: "fig-7.jpg", ratio: "1200/794", en: "Small things passed around a table.", de: "Kleine Dinge, die am Tisch herumgereicht werden." }
+      ],
+      en: {
+        title: "Volunteer in Nanjing School for the Blind",
+        summary: "An autumn outing with the Nanjing School for the Blind, held by the NJAU Youth Association — a freshman’s day, shot on a Zorki-C.",
+        body: [
+          "An autumn outing activity for Nanjing School for the Blind. It was held by NJAU Youth Association. Almost all the members in our class have participated (Perhaps it’s because we were freshmen haha).",
+          "Shot on Zorki-C, the Soviet Barnack cameras."
+        ]
+      },
+      de: {
+        title: "Freiwilligendienst an der Nanjing School for the Blind",
+        summary: "Ein Herbstausflug mit der Nanjing School for the Blind, veranstaltet von der Jugendvereinigung der NJAU — ein Tag im ersten Semester, fotografiert mit einer Zorki-C.",
+        body: [
+          "Eine Herbstausflugsaktion für die Nanjing School for the Blind, veranstaltet von der Jugendvereinigung der NJAU. Fast alle aus meiner Klasse haben mitgemacht (vermutlich, weil wir Erstsemester waren haha).",
+          "Aufgenommen mit einer Zorki-C, einer sowjetischen Barnack-Kamera."
+        ]
       }
     }
   ]
