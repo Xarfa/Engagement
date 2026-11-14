@@ -661,6 +661,7 @@ body.is-locked:not(.story-page) .site-head {
 }
 .story-hero-logos img {
   height: auto;
+  max-width: none; /* lg.w may exceed the column (e.g. 200) — let it through */
   filter: drop-shadow(0 1px 14px rgba(0, 0, 0, .45));
 }
 
