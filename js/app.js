@@ -499,8 +499,7 @@
         '<p class="story-kicker">' + esc(s.category) + "</p>" +
       "</div>" +
       '<div class="story-byline">' +
-        '<img class="byline-avatar" alt="" width="80" height="80" ' +
-          'src="https://github.com/Xarfa.png" referrerpolicy="no-referrer">' +
+        '<img class="byline-avatar" alt="" width="80" height="80" src="assets/byline-avatar.png">' +
         '<p class="byline-name"><span class="by">By</span><span class="nm">Rattry Wu</span></p>' +
         '<p class="byline-date">' + esc(fullDate(s.date)) +
           '<span class="sep">·</span>' + esc(s.location) + "</p>" +
@@ -510,6 +509,7 @@
     var avatar = $(".byline-avatar", hero);
     if (avatar && avatar.complete && avatar.naturalWidth > 0) hero.classList.add("has-avatar");
     else avatar.addEventListener("load", function () { hero.classList.add("has-avatar"); }, { once: true });
+    avatar.addEventListener("error", function () { avatar.style.display = "none"; }, { once: true });
 
     $("#storyBody").innerHTML = renderBody(s, idx);
 

@@ -43,6 +43,9 @@ Working copy: `D:\Arborist\engagement-site`. A stale stepcode scaffold also exis
   cache via `Network.setCacheDisabled` or you will audit stale files.
 - GitHub push from this machine needs the local proxy (`127.0.0.1:7897`) alive; it
   sometimes dies — `git -c http.proxy=http://127.0.0.1:7897 push origin main`, retry.
+- Never hotlink GitHub resources (`github.com/*.png`, avatars) — they fail for visitors
+  in China and the element silently stays invisible. The byline avatar is self-hosted at
+  `assets/byline-avatar.png` (240×240, fetched from avatars.githubusercontent.com).
 - Search overlay is a combobox (aria-activedescendant); don't reintroduce focusable
   `role="option"` anchors or Enter-on-close-button traps fixed in e1fffd5/2f46fac.
 - Owner's text rules: generalized masthead copy only (no project names on the homepage),
