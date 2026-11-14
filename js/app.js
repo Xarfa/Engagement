@@ -486,13 +486,22 @@
       '<div class="story-hero-media"><img alt="" width="1536" height="1024" ' +
         'data-cover="assets/stories/' + s.slug + '/cover.jpg" data-alt="' + esc(s.title) + '"></div>' +
       '<div class="story-hero-inner">' +
-        '<p class="story-kicker">' + esc(s.category) + "</p>" +
         '<h1 class="story-title">' + esc(s.title) + "</h1>" +
         '<p class="story-sub">' + esc(s.summary) + "</p>" +
+        '<p class="story-kicker">' + esc(s.category) + "</p>" +
       "</div>" +
-      '<p class="story-byline"><span>By Rattry Wu</span> <span>' + esc(fullDate(s.date)) +
-        "</span> <span>" + esc(s.location) + "</span></p>";
+      '<div class="story-byline">' +
+        '<img class="byline-avatar" alt="" width="80" height="80" ' +
+          'src="https://github.com/Xarfa.png" referrerpolicy="no-referrer">' +
+        '<p class="byline-name"><span class="by">By</span><span class="nm">Rattry Wu</span></p>' +
+        '<p class="byline-date">' + esc(fullDate(s.date)) +
+          '<span class="sep">·</span>' + esc(s.location) + "</p>" +
+      "</div>";
     attachImage(hero, $("img[data-cover]", hero), $("img[data-cover]", hero).getAttribute("data-cover"), "has-image", true);
+
+    var avatar = $(".byline-avatar", hero);
+    if (avatar && avatar.complete && avatar.naturalWidth > 0) hero.classList.add("has-avatar");
+    else avatar.addEventListener("load", function () { hero.classList.add("has-avatar"); }, { once: true });
 
     $("#storyBody").innerHTML = renderBody(s, idx);
 

@@ -22,6 +22,8 @@
 <link rel="preload" href="assets/fonts/EBGaramond-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/InstrumentSans-var.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js");</script>
+<!-- GT Walsheim via Adobe Fonts: after adding the family at fonts.adobe.com,
+     paste your kit link here, e.g. <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/site.css">
 </head>
@@ -36,7 +38,7 @@
         <circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.4 4.4"/>
       </svg>
     </button>
-    <a class="head-link" href="mailto:2234545188@qq.com?subject=Hello%20Rattry">Contact</a>
+    <a class="head-link" href="#contact">Contact</a>
   </div>
   <div class="head-right">
     <div class="socials" data-socials role="group" aria-label="Social links"></div>
@@ -45,9 +47,16 @@
 
 <main id="main" tabindex="-1">
   <section class="masthead">
-    <p class="masthead-label">Engagement <span class="dot">·</span> 2024—2026</p>
-    <h1 class="wordmark" aria-label="Rattry Wu — Engagement"><span class="ln"><span>Rattry Wu</span></span></h1>
-    <p class="masthead-intro">A record of the hours spent showing up — in classrooms, on committees, in fields, and in rooms that asked me to listen first.</p>
+    <h1 class="lockup" aria-label="Rattry Wu — Engagement">
+      <span class="ln lockup-top"><span>Rattry</span></span>
+      <span class="ln"><span>Engagement</span></span>
+    </h1>
+    <p class="masthead-intro">A written record of the engagements behind my CV — six assignments between 2024 and 2026: FAO booth interpreting at the World Congress of Soil Science, ATOX climate facilitation, TEDx speaker outreach, and weekly community teaching in Nanjing.</p>
+    <div class="masthead-actions">
+      <a class="btn-solid" href="#contact">Contact me</a>
+      <p class="site-url">xarfa.github.io/Engagement</p>
+    </div>
+    <div class="visitors" id="visitors"></div>
   </section>
 
   <section class="grid-section" aria-label="All engagements">
@@ -59,6 +68,25 @@
       </p>
     </noscript>
   </section>
+
+  <section class="contact-block" id="contact" aria-label="Contact">
+    <p class="contact-label">Contact</p>
+    <h2 class="contact-title">Send a message.</h2>
+    <form action="https://formsubmit.co/2234545188@qq.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from xarfa.github.io/Engagement">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div class="form-row">
+        <label for="c-email">Email</label>
+        <input id="c-email" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" name="message" rows="5" required></textarea>
+      </div>
+      <button class="btn-solid" type="submit">Send message</button>
+    </form>
+  </section>
 </main>
 
 <footer class="site-foot">
@@ -69,6 +97,7 @@
   <div class="socials" data-socials role="group" aria-label="Social links"></div>
 </footer>
 
+<script src="assets/visitors.js?v=20261114" defer></script>
 <script src="js/data.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
