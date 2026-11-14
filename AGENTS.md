@@ -62,6 +62,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
 5. **Verify** locally (`python -m http.server` + ego-browser, cache disabled):
    first-screen card ratio ≥30–40%, hero logos clear of baked cover text,
    EN + DE reload both fine. Then one commit, push via proxy.
+6. **Cache-busting**: when `js/data.js`, `js/app.js` or `css/site.css` change,
+   bump the `?v=` param on their includes in index.html AND story.html
+   (GitHub Pages sends max-age=600 — without the bump, returning visitors see
+   the old version on plain F5 for up to 10 minutes).
 
 ## Non-obvious gotchas
 
