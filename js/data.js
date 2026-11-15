@@ -274,35 +274,55 @@ window.SITE = {
 
     {
       slug: "tedx-nanjing-2026",
-      hidden: true,
       category: "Volunteer",
       date: "2026-10-25",
       location: { en: "Nanjing", de: "Nanjing" },
+      logos: {
+        card: { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 34, top: 7 },
+        hero: [
+          { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 60 }
+        ]
+      },
       figures: [
-        { file: "fig-1.jpg", en: "The audience between sessions.", de: "Das Publikum zwischen den Sitzungen.", credit: "Photo: Gangulybiswarup (CC BY 4.0), Wikimedia Commons" },
-        { file: "fig-2.jpg", en: "The stage before the first talk.", de: "Die Bühne vor dem ersten Vortrag." }
+        { file: "fig-1.jpg?v=2", at: 1, en: "At the theme wall with this year’s visitor sign.", de: "Vor der Themenwand mit dem Besucherschild des Jahres." },
+        { file: "fig-2.jpg?v=2", at: 1, en: "The auditorium at setup — a rehearsal deck already on the screen.", de: "Der Saal beim Aufbau — ein Probefoliensatz schon auf der Leinwand." },
+        { file: "fig-3.jpg", at: 2, en: "The stage ready: the red circle and the TEDxNanjing letters.", de: "Die fertige Bühne: der rote Kreis und die TEDxNanjing-Buchstaben." },
+        { file: "fig-4.jpg", at: 2, privacy: true, en: "The crew in the empty auditorium, an hour before doors.", de: "Das Team im leeren Saal, eine Stunde vor dem Einlass." },
+        { file: "fig-5.jpg", at: 2, privacy: true, en: "The check-in desk opens at 13:30.", de: "Der Check-in öffnet um 13:30." },
+        { file: "fig-6.jpg", at: 2, en: "Rehearsal on the red circle, hours before doors.", de: "Probe auf dem roten Kreis, Stunden vor dem Einlass." },
+        { file: "fig-7.jpg", at: 2, en: "The hosts open the afternoon.", de: "Die Moderation eröffnet den Nachmittag." },
+        { file: "fig-8.jpg", at: 2, en: "Duan Xinxing, TEDxNanjing’s founder, on stage.", de: "Duan Xinxing, Gründer von TEDxNanjing, auf der Bühne." },
+        { file: "fig-9.jpg", at: 2, en: "A talk under way, the hall dark around the stage.", de: "Ein Vortrag läuft, der Saal dunkel um die Bühne." },
+        { file: "fig-10.jpg", at: 2, en: "A wall of references: mythology, Jung, hand-drawn sheets.", de: "Eine Wand aus Referenzen: Mythologie, Jung, handgezeichnete Blätter." },
+        { file: "fig-11.jpg", at: 2, en: "“What do you do when you go shopping?” — from the design talk.", de: "„Was machst du, wenn du einkaufen gehst?“ — aus dem Design-Vortrag." },
+        { file: "fig-12.jpg", at: 2, en: "Overtones — from personal expression to collective resonance, on cello.", de: "Obertöne — vom persönlichen Ausdruck zur kollektiven Resonanz, am Cello." },
+        { file: "fig-13.jpg", at: 2, en: "A speaker against the burning-eye projection.", de: "Ein Sprecher vor der Projektion des brennenden Auges." },
+        { file: "fig-14.jpg", at: 2, en: "The virtual-cell talk on the big screen.", de: "Der Vortrag über virtuelle Zellen auf der großen Leinwand." },
+        { file: "fig-15.jpg", at: 3, privacy: true, en: "Volunteers taking their own keepsake photo, shot on a DV camera.", de: "Freiwillige beim eigenen Erinnerungsfoto, mit einer DV-Kamera." },
+        { file: "fig-16.jpg", at: 3, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
+        { file: "fig-17.jpg", at: 3, privacy: true, en: "The whole team behind the TEDxNanjing letters.", de: "Das ganze Team hinter den TEDxNanjing-Buchstaben." },
+        { file: "fig-18.jpg", at: 3, privacy: true, en: "Speakers and certificates at the final call on stage.", de: "Sprecher und Zertifikate beim letzten Auftritt auf der Bühne." },
+        { file: "fig-19.jpg", at: 3, privacy: true, center: true, ratio: "1280/1818", en: "The volunteer certificate, issued by the TEDxNanjing team on 25 October 2026.", de: "Das Freiwilligenzertifikat, ausgestellt vom TEDxNanjing-Team am 25. Oktober 2026." }
       ],
       en: {
-        title: "One Day at TEDxNanjing",
-        summary: "On-site volunteer at TEDxNanjing 2026 — badges, timing slips, and two talks that survived the week.",
+        title: "Volunteer in TEDxNanjing 2026",
+        summary: "Inviting speakers and helping on site at TEDxNanjing 2026 — an afternoon of “All Kinds of Possibilities” in Nanjing, run entirely by volunteers.",
         body: [
-          "Volunteered at TEDxNanjing 2026: badges at the door, direction signs, timing slips for the stage manager — the invisible work that lets a programme run on schedule.",
-          "Two talks stayed with me. One argued for computational biology as infrastructure: virtual cells, designed proteins, research moving from the bench to the terminal. The speaker was a founder; the slide deck was calm, and the ambition was not.",
-          "The other was by an industrial designer, on how Chinese design might stop quoting inherited symbols and start quoting its own mechanical past — clockwork, gear trains, the ingenuity of its own eighteenth century. Whether or not the audience agreed, the question was the right one.",
-          "What a volunteer sees that the audience does not: the speakers before they go on. They pace, they check their notes, they ask what time it is. The composure on stage is assembled in the corridor, the same way the event itself is."
+          "TEDx is a global program of local, independently organized events that offer a TED-like experience. Organizers obtain a free license from TED and follow its guidelines, but curation and production are run by local volunteer teams. Speakers are chosen for their ideas rather than credentials, speaking is never paid for, and events are multidisciplinary.",
+          "TEDxNanjing is the local TEDx organization in Nanjing, Jiangsu, China. Founded on March 19, 2011, by university students led by Duan Xinxing, it was the first officially licensed TEDx event in Jiangsu Province. It is non-profit and volunteer-run. Its mission is to discover local talent and spark creativity in Nanjing, an ancient city with rich cultural heritage. It hosts salons, video screenings, and annual conferences featuring speakers from technology, design, the arts, humanities, and other fields. TEDxNanjing has also served as a Senior TEDx Ambassador hub in China, supporting early TEDx communities. Its annual conferences have explored themes such as “All Kinds of Possibilities,” drawing diverse audiences and speakers.",
+          "I was responsible for inviting speakers and providing on-site assistance in this process. Of the two speakers I invited, one is Geng, who focuses on the field of biology, and the other is a developer of open-source game engines (we met once at a hackathon held by StepFun). During this period, I also met Mr. Tan, who is also a botanist (specializing in language learning), and Mr. Liu Kang from BGI."
         ],
-        quote: { text: "The composure on stage is assembled in the corridor.", by: "Volunteer’s notes" }
+        quote: { text: "Speakers are chosen for their ideas rather than credentials, speaking is never paid for, and events are multidisciplinary.", by: "The TEDx format" }
       },
       de: {
-        title: "Ein Tag bei TEDxNanjing",
-        summary: "Vor-Ort-Freiwilliger bei der TEDxNanjing 2026 — Ausweise, Timing-Zettel und zwei Vorträge, die die Woche überlebt haben.",
+        title: "Freiwilliger bei TEDxNanjing 2026",
+        summary: "Sprechereinladungen und Hilfe vor Ort bei der TEDxNanjing 2026 — ein Nachmittag voller „All Kinds of Possibilities“ in Nanjing, ganz getragen von Freiwilligen.",
         body: [
-          "Freiwilliger bei der TEDxNanjing 2026: Ausweise an der Tür, Wegweiser, Timing-Zettel für die Bühnenleitung — die unsichtbare Arbeit, die dafür sorgt, dass ein Programm nach Plan läuft.",
-          "Zwei Vorträge sind mir geblieben. Einer plädierte für computational biology als Infrastruktur: virtuelle Zellen, designte Proteine, Forschung, die von der Werkbank ins Terminal wandert. Der Sprecher war Gründer; der Folienstapel war ruhig, der Ehrgeiz nicht.",
-          "Der andere kam von einem Industriedesigner — darüber, wie chinesisches Design aufhören könnte, geerbte Symbole zu zitieren, und anfangen könnte, die eigene mechanische Vergangenheit zu zitieren: Uhrwerke, Zahnradgetriebe, der Erfindungsgeist des eigenen achtzehnten Jahrhunderts. Ob das Publikum zustimmte oder nicht — die Frage war die richtige.",
-          "Was ein Freiwilliger sieht und das Publikum nicht: die Sprecher, bevor sie rausgehen. Sie laufen auf und ab, prüfen ihre Notizen, fragen nach der Uhrzeit. Die Fassung auf der Bühne wird im Flur zusammengesetzt — genauso wie die Veranstaltung selbst."
+          "TEDx ist ein globales Programm aus lokalen, unabhängig organisierten Veranstaltungen, die ein TED-ähnliches Erlebnis bieten. Die Organisatoren erhalten eine kostenlose Lizenz von TED und folgen dessen Richtlinien, doch Kuratierung und Produktion liegen bei lokalen Freiwilligenteams. Die Sprecher werden nach ihren Ideen ausgewählt, nicht nach ihren Titeln; für das Sprechen wird nie bezahlt, und die Veranstaltungen sind multidisziplinär.",
+          "TEDxNanjing ist die lokale TEDx-Organisation in Nanjing, Jiangsu, China. Gegründet am 19. März 2011 von Studierenden unter der Leitung von Duan Xinxing, war sie die erste offiziell lizenzierte TEDx-Veranstaltung in der Provinz Jiangsu. Sie ist gemeinnützig und wird ehrenamtlich getragen. Ihre Mission ist es, lokales Talent zu entdecken und in Nanjing, einer alten Stadt mit reichem kulturellem Erbe, Kreativität zu entfachen. Sie veranstaltet Salons, Videovorführungen und jährliche Konferenzen mit Sprechern aus Technologie, Design, den Künsten, den Geisteswissenschaften und anderen Feldern. TEDxNanjing hat zudem als Senior-TEDx-Botschafter-Hub in China gedient und frühe TEDx-Communities unterstützt. Die jährlichen Konferenzen haben Themen wie „All Kinds of Possibilities“ erkundet und damit vielfältige Publika und Sprecher angezogen.",
+          "Ich war in diesem Prozess verantwortlich für die Einladung der Sprecher und die Begleitung vor Ort. Von den zwei Sprechern, die ich eingeladen habe, beschäftigt sich einer, Geng, mit dem Fachgebiet Biologie; der andere ist ein Entwickler von Open-Source-Game-Engines (wir haben uns einmal bei einem Hackathon von StepFun getroffen). In dieser Zeit habe ich außerdem Herrn Tan kennengelernt, der ebenfalls Botaniker ist (mit dem Schwerpunkt Sprachlernen), sowie Herrn Liu Kang von BGI."
         ],
-        quote: { text: "Die Fassung auf der Bühne wird im Flur zusammengesetzt.", by: "Notizen des Freiwilligen" }
+        quote: { text: "Die Sprecher werden nach ihren Ideen ausgewählt, nicht nach ihren Titeln; für das Sprechen wird nie bezahlt, und die Veranstaltungen sind multidisziplinär.", by: "Das TEDx-Format" }
       }
     },
 
