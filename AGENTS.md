@@ -58,7 +58,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    group photos — always `privacy: true`, plus `center: true` (82% centred so
    the reveal reads big). Group-photo privacy is the owner's per-story call,
    NOT automatic — TEDxNanjing 2026 (2026-11-15) went live with only its first
-   and last figures private; every group photo stayed public. Brighten
+   and last figures private; every group photo stayed public — but the
+   volunteer-credits slide (a roster of names) went private, and so did the
+   owner's own portrait at the theme wall, which the owner moved to the very
+   end of the figure run. Brighten
    certificate scans when the owner marks the
    source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
    the paper tone and the owner rejected it, as did a plain RGB Brightness

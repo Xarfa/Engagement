@@ -284,7 +284,6 @@ window.SITE = {
         ]
       },
       figures: [
-        { file: "fig-1.jpg?v=2", at: 1, privacy: true, en: "At the theme wall with this year’s visitor sign.", de: "Vor der Themenwand mit dem Besucherschild des Jahres." },
         { file: "fig-2.jpg?v=2", at: 1, en: "The auditorium at setup — a rehearsal deck already on the screen.", de: "Der Saal beim Aufbau — ein Probefoliensatz schon auf der Leinwand." },
         { file: "fig-3.jpg", at: 2, en: "The stage ready: the red circle and the TEDxNanjing letters.", de: "Die fertige Bühne: der rote Kreis und die TEDxNanjing-Buchstaben." },
         { file: "fig-4.jpg", at: 2, en: "The crew in the empty auditorium, an hour before doors.", de: "Das Team im leeren Saal, eine Stunde vor dem Einlass." },
@@ -299,10 +298,11 @@ window.SITE = {
         { file: "fig-13.jpg", at: 2, en: "A speaker against the burning-eye projection.", de: "Ein Sprecher vor der Projektion des brennenden Auges." },
         { file: "fig-14.jpg", at: 2, en: "The virtual-cell talk on the big screen.", de: "Der Vortrag über virtuelle Zellen auf der großen Leinwand." },
         { file: "fig-15.jpg", at: 3, en: "Volunteers taking their own keepsake photo, shot on a DV camera.", de: "Freiwillige beim eigenen Erinnerungsfoto, mit einer DV-Kamera." },
-        { file: "fig-16.jpg", at: 3, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
+        { file: "fig-16.jpg", at: 3, privacy: true, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
         { file: "fig-17.jpg", at: 3, en: "The whole team behind the TEDxNanjing letters.", de: "Das ganze Team hinter den TEDxNanjing-Buchstaben." },
         { file: "fig-18.jpg", at: 3, en: "Speakers and certificates at the final call on stage.", de: "Sprecher und Zertifikate beim letzten Auftritt auf der Bühne." },
-        { file: "fig-19.jpg?v=3", at: 3, privacy: true, center: true, ratio: "1280/1818", en: "The volunteer certificate, issued by the TEDxNanjing team on 25 October 2026.", de: "Das Freiwilligenzertifikat, ausgestellt vom TEDxNanjing-Team am 25. Oktober 2026." }
+        { file: "fig-19.jpg?v=3", at: 3, privacy: true, center: true, ratio: "1280/1818", en: "The volunteer certificate, issued by the TEDxNanjing team on 25 October 2026.", de: "Das Freiwilligenzertifikat, ausgestellt vom TEDxNanjing-Team am 25. Oktober 2026." },
+        { file: "fig-1.jpg?v=2", at: 3, privacy: true, en: "Me at the theme wall, holding this year’s sign.", de: "Ich vor der Themenwand, mit dem diesjährigen Schild." }
       ],
       en: {
         title: "Volunteer in TEDxNanjing 2026",
