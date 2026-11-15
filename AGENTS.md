@@ -47,10 +47,16 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    `en` + `de` blocks / `logos`. Body text = owner's content.md VERBATIM: fix small
    grammar/spelling only, no additions or deletions, report anything major. The
    German translation of the owner's text is part of every commit. Title comes from
-   content.md when the owner writes one.
+   content.md when the owner writes one. Figure extras (InnoFair 2026 story):
+   `at: N` pins a figure after the Nth paragraph (1-based) instead of the even
+   spread, and `privacy: true` renders it frosted — blurred with a "private" pill
+   until the pointer approaches / keyboard focus / tap (touch); styles in
+   `.fig-privacy` (site.css), strings `privacy_*` in SITE.i18n. NOTE: the fig-frame
+   placeholder rules must stay scoped as `.fig-frame > span`, or they hide the veil.
 3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
-   card (owner's marker ≈34% card width, ~7.5% from top; optional `w` = % of card
-   width for square emblems — at 34% they run into 3–4 line titles, blind-school
+   card (owner's marker ≈34% card width; card-logo top is 5% since the InnoFair
+   story — taller square marks otherwise run into 3-line titles; optional `w` = % of
+   card width for square emblems — at 34% they run into 3–4 line titles, blind-school
    emblem uses 22). `logos.hero` = logos stacked at the bottom-left of the story
    cover, listed BOTTOM-UP (first entry renders lowest); sized to stay clear of
    text baked into the cover art. Optional per-logo `w` (% of column, default 100).
