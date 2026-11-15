@@ -96,8 +96,8 @@ window.SITE = {
         { file: "fig-1.jpg", ratio: "1000/1413", en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
         { file: "fig-2.jpg", ratio: "1000/1413", en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
         { file: "fig-3.jpg", ratio: "1000/1413", en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
-        { file: "fig-4.jpg", ratio: "1000/1127", en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
-        { file: "fig-5.jpg", ratio: "1000/1193", en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." }
+        { file: "fig-4.jpg", ratio: "1000/1127", privacy: true, en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
+        { file: "fig-5.jpg", ratio: "1000/1193", privacy: true, en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." }
       ],
       en: {
         title: "Volunteer in AI4Climate hackathon during COP31",
