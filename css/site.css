@@ -493,7 +493,7 @@ body.is-locked:not(.story-page) .site-head {
 .card-logo {
   position: absolute;
   z-index: 2;
-  top: 7.5%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   width: 34%;
@@ -819,7 +819,7 @@ body.is-locked:not(.story-page) .site-head {
   overflow: hidden;
   background: var(--wash);
 }
-.story-body .fig-frame span {
+.story-body .fig-frame > span {
   position: absolute;
   inset: 0;
   display: grid;
@@ -843,7 +843,50 @@ body.is-locked:not(.story-page) .site-head {
   transition: opacity .6s var(--ease), transform 1.2s var(--ease);
 }
 .story-body .fig-frame.has-image img { opacity: 1; transform: none; }
-.story-body .fig-frame.has-image span { display: none; }
+.story-body .fig-frame.has-image > span { display: none; }
+/* Private figures (data flag `privacy: true`) — frosted glass until the
+   pointer approaches, the frame is focused, or it is tapped on touch.
+   The blur is cosmetic only: the reader explicitly asks to see. */
+.story-body .fig-privacy .fig-frame img {
+  filter: saturate(.86) blur(22px);
+  transform: scale(1.08);
+  transition: opacity .6s var(--ease), transform 1.2s var(--ease), filter .45s var(--ease);
+}
+.story-body .fig-privacy .fig-frame.has-image img { opacity: 1; transform: scale(1.08); }
+.story-body .fig-privacy .fig-frame.is-open img { filter: saturate(.86); transform: none; }
+.story-body .fig-privacy .fig-frame:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.fig-veil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .16);
+  transition: opacity .35s var(--ease);
+  pointer-events: none;
+}
+.fig-veil-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .93);
+  border: 1px solid rgba(17, 17, 17, .14);
+  box-shadow: 0 6px 24px rgba(17, 17, 17, .12);
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.fig-veil-pill svg { width: 11px; height: 11px; flex: none; }
+.fig-veil .pt { display: none; }
+@media (hover: none) {
+  .fig-veil .ph { display: none; }
+  .fig-veil .pt { display: inline; }
+}
+.story-body .fig-privacy .fig-frame.is-open .fig-veil { opacity: 0; }
 .story-body figcaption {
   margin-top: 12px;
   font-family: var(--serif);

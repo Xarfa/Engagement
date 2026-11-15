@@ -469,20 +469,29 @@
     /* Figures render after a paragraph. With 1–2 figures keep the original
        placement (after ¶2, then ¶4); with more, spread them evenly over the
        paragraph boundaries — earlier paragraphs take the remainder.
+       fig.at = 1-based paragraph number pins a figure to that spot explicitly.
        fig.ratio (e.g. "1000/1413") keeps portrait documents un-cropped. */
     var figSlots = {};
-    if (figs.length === 1) {
+    var pinned = [], loose = [];
+    figs.forEach(function (f) {
+      if (f.at != null) pinned.push(f); else loose.push(f);
+    });
+    pinned.forEach(function (f) {
+      var at = Math.max(1, Math.min(f.at, ps.length));
+      (figSlots[at] = figSlots[at] || []).push(f);
+    });
+    if (figs.length === 1 && !pinned.length) {
       figSlots[Math.max(1, Math.min(2, ps.length - 1))] = [figs[0]];
-    } else if (figs.length === 2) {
+    } else if (figs.length === 2 && !pinned.length) {
       var atA = Math.min(2, ps.length), atB = Math.min(4, ps.length);
       (figSlots[atA] = figSlots[atA] || []).push(figs[0]);
       (figSlots[atB] = figSlots[atB] || []).push(figs[1]);
-    } else if (figs.length) {
-      var per = Math.floor(figs.length / ps.length), rem = figs.length % ps.length, k = 0;
+    } else if (loose.length) {
+      var per = Math.floor(loose.length / ps.length), rem = loose.length % ps.length, k = 0;
       for (var p = 1; p <= ps.length; p++) {
         var take = per + (p <= rem ? 1 : 0);
         if (!take) continue;
-        figSlots[p] = figs.slice(k, k + take);
+        figSlots[p] = (figSlots[p] || []).concat(loose.slice(k, k + take));
         k += take;
       }
     }
@@ -496,12 +505,22 @@
       }
       (figSlots[i + 1] || []).forEach(function (fig) {
         var url = "assets/stories/" + s.slug + "/" + fig.file;
-        out.push('<figure class="' + (figIndex % 2 === 0 ? "variant-center" : "variant-left") + '">' +
+        var priv = !!fig.privacy;
+        out.push('<figure class="' + (figIndex % 2 === 0 ? "variant-center" : "variant-left") + (priv ? " fig-privacy" : "") + '">' +
           '<div class="fig-frame" data-fig="' + url + '"' +
-            (fig.ratio ? ' style="aspect-ratio:' + fig.ratio + '"' : "") + ">" +
+            (fig.ratio ? ' style="aspect-ratio:' + fig.ratio + '"' : "") +
+            (priv ? ' tabindex="0" role="button" aria-pressed="false" aria-label="' + esc(t("privacy_aria")) + '"' : "") + ">" +
             "<span>Photo</span>" +
             '<img alt="" width="1200" height="800" loading="lazy" decoding="async" ' +
               'data-alt="' + esc(T(fig) || "") + '">' +
+            (priv ? '<div class="fig-veil" aria-hidden="true">' +
+              '<span class="fig-veil-pill">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<rect x="4.5" y="10.5" width="15" height="10" rx="2.2"></rect>' +
+              '<path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"></path></svg>' +
+              '<span class="ph">' + esc(t("privacy_hint_hover")) + "</span>" +
+              '<span class="pt">' + esc(t("privacy_hint_tap")) + "</span>" +
+              "</span></div>" : "") +
           "</div>" +
           '<figcaption>' + esc(T(fig) || "") + (fig.credit ? ' <span class="credit">' + esc(fig.credit) + "</span>" : "") + "</figcaption>" +
           "</figure>");
@@ -618,6 +637,22 @@
 
     $$(".fig-frame", root).forEach(function (f) {
       attachImage(f, $("img", f), f.getAttribute("data-fig"));
+    });
+
+    /* Private figures: frosted until the reader's pointer approaches the
+       frame — or it is focused (keyboard) / tapped (touch). */
+    $$(".fig-privacy .fig-frame", root).forEach(function (f) {
+      var set = function (open) {
+        f.classList.toggle("is-open", open);
+        f.setAttribute("aria-pressed", open ? "true" : "false");
+      };
+      f.addEventListener("pointerenter", function (e) { if (e.pointerType !== "touch") set(true); });
+      f.addEventListener("pointerleave", function () { set(false); });
+      f.addEventListener("focus", function () { set(true); });
+      f.addEventListener("blur", function () { set(false); });
+      f.addEventListener("click", function () {
+        if (window.matchMedia("(hover: none)").matches) set(!f.classList.contains("is-open"));
+      });
     });
 
     $("#nextStory").href = storyHref(next);

@@ -39,7 +39,10 @@ window.SITE = {
       empty_2: " yet. Try a category, a place, or a word from a story.",
       err_title: "This engagement does not exist.",
       err_body: "It may have been renamed, or the link is incomplete.",
-      err_back: "Back to all engagements"
+      err_back: "Back to all engagements",
+      privacy_aria: "Private photo — activate to view",
+      privacy_hint_hover: "Private · hover to view",
+      privacy_hint_tap: "Private · tap to view"
     },
     de: {
       nav_contact: "Kontakt",
@@ -65,7 +68,10 @@ window.SITE = {
       empty_2: " gefunden. Versuchen Sie eine Kategorie, einen Ort oder ein Wort.",
       err_title: "Dieses Engagement existiert nicht.",
       err_body: "Es wurde möglicherweise umbenannt oder der Link ist unvollständig.",
-      err_back: "Zurück zu allen Engagements"
+      err_back: "Zurück zu allen Engagements",
+      privacy_aria: "Privates Foto — zum Ansehen aktivieren",
+      privacy_hint_hover: "Privat · zum Ansehen darüberfahren",
+      privacy_hint_tap: "Privat · zum Ansehen tippen"
     }
   },
 
@@ -110,6 +116,55 @@ window.SITE = {
           "Vor Beginn des Hackathons veranstalteten die Organisatoren zwei Online-Treffen. Das erste war eine Aufwärmrunde: Wir richteten sieben Breakrooms zu verschiedenen Themen ein (Thema 1 und 2 waren meine — 1, Climate Adaptation & Resilience; 2, Clean Energy & Low-Carbon Transition). Diese Breakrooms zu moderieren war für mich eine echte Herausforderung — nicht nur wegen des „reinen“ Englisch, sondern auch wegen eines Fachgebiets, das meinem eigenen völlig fernliegt (mein Studiengang ist Agrarwissenschaft)."
         ],
         quote: { text: "ATOX ist eine Hackathon-Vereinigung von Studierenden der Tsinghua- und der Peking-Universität, mit starken Gen-Z-Genen.", by: "Erste Eindrücke von ATOX" }
+      }
+    },
+
+    {
+      slug: "innofair-2026",
+      category: "Volunteer",
+      date: "2026-10-28",
+      location: { en: "Nanjing", de: "Nanjing" },
+      logos: {
+        card: { file: "logo-messe.svg", alt: "Messe Stuttgart", w: 22 },
+        hero: [
+          { file: "logo-messe.svg", alt: "Messe Stuttgart", w: 60 }
+        ]
+      },
+      figures: [
+        { file: "fig-1.jpg", at: 1, en: "The exhibition centre at dusk.", de: "Das Messegelände in der Dämmerung." },
+        { file: "fig-2.jpg", at: 1, ratio: "16/9", en: "The fair plan — participating enterprises across the halls.", de: "Der Messeplan — die teilnehmenden Unternehmen der Hallen." },
+        { file: "fig-9.jpg", at: 1, ratio: "3/4", en: "A calligraphy robot at work.", de: "Ein Kalligraphie-Roboter bei der Arbeit." },
+        { file: "fig-3.jpg", at: 2, ratio: "3/4", en: "MY SYNERGY’s flyer: OEM / ODM partnerships for biomedical software.", de: "Der Flyer von MY SYNERGY: OEM-/ODM-Partnerschaften für biomedizinische Software." },
+        { file: "fig-4.jpg", at: 2, privacy: true, en: "With Mladen Georgiev, CTO of MY SYNERGY, at the Bulgaria booth.", de: "Mit Mladen Georgiev, CTO von MY SYNERGY, am Bulgarien-Stand." },
+        { file: "fig-5.jpg", at: 3, ratio: "3/4", en: "The Spain zone — energy, power and environmental protection.", de: "Der Spanien-Bereich — Energie, Strom und Umweltschutz." },
+        { file: "fig-6.jpg", at: 3, en: "A Cyprus University of Technology key ring from the CUTech stand.", de: "Ein Schlüsselanhänger der Cyprus University of Technology vom CUTech-Stand." },
+        { file: "fig-7.jpg", at: 3, en: "Robotic hands and VR simulation gloves among the emerging technologies.", de: "Robotische Hände und VR-Simulationshandschuhe unter den neuen Technologien." },
+        { file: "fig-8.jpg", at: 3, en: "A land-air ‘Transformer’ aircraft on the fair floor.", de: "Ein Land-Luft-‚Transformer‘-Fluggerät auf der Messe." },
+        { file: "fig-10.jpg", at: 5, privacy: true, en: "The volunteer table between shifts.", de: "Der Freiwilligentisch zwischen den Schichten." },
+        { file: "fig-11.jpg", at: 5, privacy: true, en: "With the volunteer team and new acquaintances from the stands.", de: "Mit dem Freiwilligenteam und neuen Bekannten von den Ständen." },
+        { file: "fig-12.jpg", at: 5, ratio: "1400/1980", en: "The volunteer certificate, issued by Messe Stuttgart.", de: "Das Freiwilligenzertifikat der Messe Stuttgart." }
+      ],
+      en: {
+        title: "Volunteer in 2026 Innovation Fair, Nanjing",
+        summary: "Booth translator for Bulgaria’s MY SYNERGY at the 6th Innovation Fair in Nanjing — and the classmates heading the same way.",
+        body: [
+          "The 6th Innovation Fair took place from 26 to 30 October 2026. The fair promotes international business development, uncovers sourcing opportunities, and provides access to the Chinese market while allowing opportunities for the representation and distribution of Chinese businesses in Europe.",
+          "I was the booth translator for MY SYNERGY, a software company from Bulgaria. They offer biomedical software services and were looking for OEM / ODM (similar to a medical device contract manufacturer) partnerships. I had a friendly exchange with the chief technology officer, Mladen Georgiev.",
+          "At the fair, I communicated with many institutions, such as Cyprus University of Technology (CUTech — I've learned about their PhD program and collaboration with Hangzhou Dianzi University). Certainly, there were lots of manufacturing enterprises and emerging technologies.",
+          "Above all, I had an in-depth conversation with Huayue Cheng, a female classmate from our grade and major. I once knew her name from the list of students dispatched to UN recruitment (at Suzhou University) from the agricultural college. I wrote 'I possessed the experience of FAO volunteer' in the remarks while she wrote 'I went to the University of Alberta for an exchange' (it was a few days later that I came across this CSC project, while she had been preparing for it since her freshman year). We talked about the application for summer research internships abroad again, and both of us want to enter the programs of EPFL and ISTA.",
+          "Besides, I also met Ruoyu Liu, who was THE VOLUNTEER but slept until noon because of putting too much effort into volunteer work at the World Agriculture Awards Ceremony yesterday."
+        ]
+      },
+      de: {
+        title: "Freiwilliger bei der 2026 Innovation Fair, Nanjing",
+        summary: "Standdolmetscher für MY SYNERGY aus Bulgarien auf der 6. Innovation Fair in Nanjing — und Kommilitonen auf denselben Wegen.",
+        body: [
+          "Die 6. Innovation Fair fand vom 26. bis 30. Oktober 2026 statt. Die Messe fördert die internationale Geschäftsentwicklung, erschließt Beschaffungsmöglichkeiten und eröffnet den Zugang zum chinesischen Markt, während sie chinesischen Unternehmen zugleich Möglichkeiten zu Repräsentanz und Vertrieb in Europa eröffnet.",
+          "Ich war Standdolmetscher für MY SYNERGY, ein Softwareunternehmen aus Bulgarien. Es bietet biomedizinische Software-Dienstleistungen an und suchte OEM-/ODM-Partnerschaften (vergleichbar mit einem Lohnhersteller für Medizinprodukte). Mit dem Chief Technology Officer, Mladen Georgiev, verband mich ein freundlicher Austausch.",
+          "Auf der Messe kam ich mit vielen Institutionen ins Gespräch, etwa der Cyprus University of Technology (CUTech — ich habe von ihrem PhD-Programm und der Zusammenarbeit mit der Hangzhou Dianzi University erfahren). Natürlich gab es auch viele Fertigungsunternehmen und aufstrebende Technologien.",
+          "Vor allem hatte ich ein ausführliches Gespräch mit Huayue Cheng, einer Kommilitonin aus meinem Jahrgang und Studiengang. Ihren Namen kannte ich von der Liste der Studierenden, die vom agrarwissenschaftlichen College zur UN-Rekrutierung (an der Suzhou University) entsandt worden war. Ich hatte in der Bemerkung ‚I possessed the experience of FAO volunteer‘ geschrieben, während sie ‚I went to the University of Alberta for an exchange‘ schrieb (ein paar Tage später stieß ich auf dieses CSC-Projekt; sie bereitete sich seit ihrem ersten Studienjahr darauf vor). Wir sprachen erneut über Bewerbungen für sommerliche Forschungspraktika im Ausland, und beide wollen in die Programme von EPFL und ISTA.",
+          "Außerdem traf ich Ruoyu Liu, den schlechthin DER Freiwillige war — der aber bis mittags schlief, weil er am Vortag bei der World Agriculture Awards Ceremony zu viel Einsatz geleistet hatte."
+        ]
       }
     },
 
