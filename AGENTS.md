@@ -53,6 +53,14 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    until the pointer approaches / keyboard focus / tap (touch); styles in
    `.fig-privacy` (site.css), strings `privacy_*` in SITE.i18n. NOTE: the fig-frame
    placeholder rules must stay scoped as `.fig-frame > span`, or they hide the veil.
+   CERTIFICATES (owner rule, final 2026-11-15 — it reversed an earlier "no
+   effects" call the same day): certificates are private figures exactly like
+   group photos — always `privacy: true`, plus `center: true` (82% centred so
+   the reveal reads big). Brighten certificate scans when the owner marks the
+   source file 调亮 — a plain Brightness lift is too subtle; use
+   `ImageOps.autocontrast(cutoff=1)` + Brightness 1.03 (paper reads white,
+   seals/text survive). Cache-bust changed figure images via a query param in
+   `file` (e.g. `fig-8.jpg?v=2`) — the ?v= bumps only cover js/css.
 3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
    card (owner's marker ≈34% card width; card-logo top is 5% since the InnoFair
    story — taller square marks otherwise run into 3-line titles; optional `w` = % of
