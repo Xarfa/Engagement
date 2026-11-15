@@ -359,7 +359,7 @@ window.SITE = {
         { file: "fig-5.jpg", ratio: "1200/811", en: "A student at a desk beside stacks of braille books.", de: "Ein Schüler am Tisch neben Stapeln von Braille-Büchern." },
         { file: "fig-6.jpg", ratio: "1200/810", en: "Faces around a table in the half-dark.", de: "Gesichter um einen Tisch im Halbdunkel." },
         { file: "fig-7.jpg", ratio: "1200/794", en: "Small things passed around a table.", de: "Kleine Dinge, die am Tisch herumgereicht werden." },
-        { file: "fig-8.jpg?v=2", privacy: true, center: true, ratio: "1400/1920", en: "The volunteer certificate — ten hours at the autumn outing, issued by Nanjing School for the Blind.", de: "Das Freiwilligenzertifikat — zehn Stunden beim Herbstausflug, ausgestellt von der Nanjing School for the Blind." }
+        { file: "fig-8.jpg?v=3", privacy: true, center: true, ratio: "1400/1920", en: "The volunteer certificate — ten hours at the autumn outing, issued by Nanjing School for the Blind.", de: "Das Freiwilligenzertifikat — zehn Stunden beim Herbstausflug, ausgestellt von der Nanjing School for the Blind." }
       ],
       en: {
         title: "Volunteer in Nanjing School for the Blind",
