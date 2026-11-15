@@ -512,7 +512,10 @@
       (figSlots[i + 1] || []).forEach(function (fig) {
         var url = "assets/stories/" + s.slug + "/" + fig.file;
         var priv = !!fig.privacy;
-        out.push('<figure class="' + (figIndex % 2 === 0 ? "variant-center" : "variant-left") + (priv ? " fig-privacy" : "") + '">' +
+        /* fig.center forces the 82% centred variant — certificates go up big
+           and plain, never left-narrow or privacy-blurred */
+        var variant = fig.center ? "variant-center" : (figIndex % 2 === 0 ? "variant-center" : "variant-left");
+        out.push('<figure class="' + variant + (priv ? " fig-privacy" : "") + '">' +
           '<div class="fig-frame" data-fig="' + url + '"' +
             (fig.ratio ? ' style="aspect-ratio:' + fig.ratio + '"' : "") +
             (priv ? ' tabindex="0" role="button" aria-pressed="false" aria-label="' + esc(t("privacy_aria")) + '"' : "") + ">" +
