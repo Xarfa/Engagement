@@ -278,9 +278,9 @@ window.SITE = {
       date: "2026-10-25",
       location: { en: "Nanjing", de: "Nanjing" },
       logos: {
-        card: { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 28, top: 8.6 },
+        card: { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 22, top: 10.2 },
         hero: [
-          { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 60 }
+          { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 40 }
         ]
       },
       figures: [
