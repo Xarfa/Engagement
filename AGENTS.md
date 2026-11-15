@@ -6,6 +6,11 @@ Live: https://xarfa.github.io/Engagement/ · Repo: github.com/Xarfa/Engagement (
 Working copy: `D:\联合国\Engagement` (moved here 2026-11-14 from D:\Arborist\engagement-site).
 A stale stepcode scaffold also exists at
 `E:\Arborist\Work Files\26.11.13 wffp portfolio website\engagement` — deprecated, do not edit.
+Working materials also live OUTSIDE the repo: the ATOX story's folder is
+`E:\Arborist\Work Files\26.11.08 ATOX Climate\` (dated subfolders — 11.08 前期调研,
+11.12 预热活动, 11.14 hackathon start, 11.15 hackathon mentor meeting…). When the
+owner says "更新一下/我放了照片", look there first — the repo-root source folders
+are not the only source.
 
 ## Current state (2026-11-14, commit 1c1d65c)
 
