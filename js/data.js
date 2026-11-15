@@ -93,11 +93,26 @@ window.SITE = {
         ]
       },
       figures: [
-        { file: "fig-1.jpg", ratio: "1000/1413", en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
-        { file: "fig-2.jpg", ratio: "1000/1413", en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
-        { file: "fig-3.jpg", ratio: "1000/1413", en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
-        { file: "fig-4.jpg", ratio: "1000/1127", privacy: true, en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
-        { file: "fig-5.jpg", ratio: "1000/1193", privacy: true, en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." }
+        { file: "fig-1.jpg", at: 1, ratio: "1000/1413", en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
+        { file: "fig-2.jpg", at: 1, ratio: "1000/1413", en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
+        { file: "fig-3.jpg", at: 1, ratio: "1000/1413", en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
+        { file: "fig-4.jpg", at: 2, ratio: "1000/1127", privacy: true, en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
+        { file: "fig-5.jpg", at: 2, ratio: "1000/1193", privacy: true, en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." },
+        { file: "fig-6.jpg", at: 2, ratio: "1000/530", privacy: true, en: "The mentoring session opens — twenty participants, cameras mostly off.", de: "Die Mentoring-Session beginnt — zwanzig Teilnehmende, meist ohne Kamera." },
+        { file: "fig-7.jpg", at: 2, ratio: "1000/455", privacy: true, en: "In the breakout room with mentor Jasmeet Rai.", de: "Im Breakout-Room bei Mentorin Jasmeet Rai." },
+        { file: "fig-8.jpg", at: 2, ratio: "1000/1130", en: "Team P05’s demo: Proof API, an AI climate-action verifier.", de: "Das Demo von Team P05: Proof API, ein KI-Verifizierer für Klimaschutzaktionen." },
+        { file: "fig-9.jpg", at: 2, ratio: "1000/779", en: "Proof API’s analytics — score calibration and carbon reference factors.", de: "Proof APIs Analytics — Score-Kalibrierung und CO₂-Referenzfaktoren." },
+        { file: "fig-10.jpg", at: 2, ratio: "1000/1107", en: "Proof API’s home: local action, a clearer record.", de: "Proof APIs Startseite: lokale Aktionen, ein klareres Protokoll." },
+        { file: "fig-11.jpg", at: 2, ratio: "1000/1131", en: "A quieter breakout room, questions in the chat.", de: "Ein ruhigerer Breakout-Room, Fragen im Chat." },
+        { file: "fig-12.jpg", at: 2, ratio: "1000/880", privacy: true, en: "The Climate Adaptation & Resilience room, three of us.", de: "Der Raum zu Klimaanpassung und Resilienz, wir zu dritt." },
+        { file: "fig-13.jpg", at: 2, ratio: "1000/1294", en: "The review queue flags duplicate submissions with similarity scores.", de: "Die Review-Queue markiert doppelte Einreichungen mit Ähnlichkeitswerten." },
+        { file: "fig-14.jpg", at: 2, ratio: "1000/839", en: "The Climate Education room — a drought game, two rule-based farm agents over twelve years.", de: "Der Raum zu Klimabildung — ein Dürre-Spiel, zwei regelbasierte Farm-Agents über zwölf Jahre." },
+        { file: "fig-15.jpg", at: 2, ratio: "1000/1128", en: "Team P35’s roster — ASTER Climate, occupational safety under wildfire risk.", de: "Das Teamblatt von P35 — ASTER Climate, Arbeitsschutz bei Waldbrandgefahr." },
+        { file: "fig-16.jpg", at: 2, ratio: "1000/1165", en: "ASTER Climate’s pitch: every worker safe, in every workplace.", de: "Der Pitch von ASTER Climate: jeder Arbeiter sicher, an jedem Arbeitsplatz." },
+        { file: "fig-17.jpg", at: 2, ratio: "1000/1128", en: "The live prototype: a wildfire-risk briefing for a crew at Kemer.", de: "Der Live-Prototyp: eine Waldbrand-Briefing für eine Crew in Kemer." },
+        { file: "fig-18.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Pitch feedback in the room; the team coordinates on WhatsApp between sessions.", de: "Feedback zum Pitch im Raum; das Team koordiniert sich zwischendurch per WhatsApp." },
+        { file: "fig-19.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Mentor Jasmeet Rai: “that’s a really good pitch. Well done.”", de: "Mentorin Jasmeet Rai: ‚das ist ein wirklich guter Pitch. Gut gemacht.‘" },
+        { file: "fig-20.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Mentor Oliver Bonallack joins the room.", de: "Mentor Oliver Bonallack kommt in den Raum." }
       ],
       en: {
         title: "Volunteer in AI4Climate hackathon during COP31",
