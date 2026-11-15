@@ -57,10 +57,13 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    effects" call the same day): certificates are private figures exactly like
    group photos — always `privacy: true`, plus `center: true` (82% centred so
    the reveal reads big). Brighten certificate scans when the owner marks the
-   source file 调亮 — a plain Brightness lift is too subtle; use
-   `ImageOps.autocontrast(cutoff=1)` + Brightness 1.03 (paper reads white,
-   seals/text survive). Cache-bust changed figure images via a query param in
-   `file` (e.g. `fig-8.jpg?v=2`) — the ?v= bumps only cover js/css.
+   source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
+   the paper tone and the owner rejected it, as did a plain RGB Brightness
+   lift (too subtle to register). The accepted recipe works on the YCbCr
+   luminance channel only — `Y' = (Y-128)*1.18 + 140`, Cb/Cr untouched
+   (contrast + brightness in one pass, original colour preserved). Cache-bust
+   changed figure images via a query param in `file` (e.g. `fig-8.jpg?v=3`) —
+   the ?v= bumps only cover js/css.
 3. **Logos**: `logos.card` = white organiser mark overlaid top-centre on the home
    card (owner's marker ≈34% card width; card-logo top is 5% since the InnoFair
    story — taller square marks otherwise run into 3-line titles; optional `w` = % of
