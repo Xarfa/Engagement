@@ -56,9 +56,15 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    CERTIFICATES (owner rule, final 2026-11-15 — it reversed an earlier "no
    effects" call the same day): certificates are private figures exactly like
    group photos — always `privacy: true`, plus `center: true` (82% centred so
-   the reveal reads big). Group-photo privacy is the owner's per-story call,
-   NOT automatic — TEDxNanjing 2026 (2026-11-15) went live with only its first
-   and last figures private; every group photo stayed public — but the
+   the reveal reads big). PRIVACY RULE v2 (owner, 2026-11-15, supersedes the
+   earlier per-story-call note and the TEDx group-photos-public decision): ANY
+   figure with a detectable face goes `privacy: true` — automatic, never a
+   per-story judgement. A Haar-cascade pass (frontal + profile + mirrored
+   profile, OpenCV) over every visible story's figures flipped 17 more
+   (InnoFair 6, TEDx 9, blind-school 2); visually verified false positives
+   (empty dusk exterior, emblem plaque, corridor with backs only) stayed
+   public — confirm borderline detections by eye before flipping. Rerun the
+   pass on every story update. The
    volunteer-credits slide (a roster of names) went private, and so did the
    owner's own portrait at the theme wall, which the owner moved to the very
    end of the figure run. Brighten
