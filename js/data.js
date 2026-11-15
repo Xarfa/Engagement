@@ -278,13 +278,13 @@ window.SITE = {
       date: "2026-10-25",
       location: { en: "Nanjing", de: "Nanjing" },
       logos: {
-        card: { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 34, top: 7 },
+        card: { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 28, top: 8.6 },
         hero: [
           { file: "logo-tedx.svg", alt: "TEDxNanjing", w: 60 }
         ]
       },
       figures: [
-        { file: "fig-1.jpg?v=2", at: 1, en: "At the theme wall with this year’s visitor sign.", de: "Vor der Themenwand mit dem Besucherschild des Jahres." },
+        { file: "fig-1.jpg?v=2", at: 1, privacy: true, en: "At the theme wall with this year’s visitor sign.", de: "Vor der Themenwand mit dem Besucherschild des Jahres." },
         { file: "fig-2.jpg?v=2", at: 1, en: "The auditorium at setup — a rehearsal deck already on the screen.", de: "Der Saal beim Aufbau — ein Probefoliensatz schon auf der Leinwand." },
         { file: "fig-3.jpg", at: 2, en: "The stage ready: the red circle and the TEDxNanjing letters.", de: "Die fertige Bühne: der rote Kreis und die TEDxNanjing-Buchstaben." },
         { file: "fig-4.jpg", at: 2, privacy: true, en: "The crew in the empty auditorium, an hour before doors.", de: "Das Team im leeren Saal, eine Stunde vor dem Einlass." },
