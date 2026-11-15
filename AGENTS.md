@@ -56,7 +56,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    CERTIFICATES (owner rule, final 2026-11-15 — it reversed an earlier "no
    effects" call the same day): certificates are private figures exactly like
    group photos — always `privacy: true`, plus `center: true` (82% centred so
-   the reveal reads big). Brighten certificate scans when the owner marks the
+   the reveal reads big). Group-photo privacy is the owner's per-story call,
+   NOT automatic — TEDxNanjing 2026 (2026-11-15) went live with only its first
+   and last figures private; every group photo stayed public. Brighten
+   certificate scans when the owner marks the
    source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
    the paper tone and the owner rejected it, as did a plain RGB Brightness
    lift (too subtle to register). The accepted recipe works on the YCbCr
