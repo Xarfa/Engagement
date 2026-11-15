@@ -18,7 +18,7 @@ window.SITE = {
     en: {
       nav_contact: "Contact",
       back_all: "All engagements",
-      intro: "A written record of the engagements behind my CV — seven assignments between 2023 and 2026, from conference booths to community classrooms.",
+      intro: "A written record of the engagements behind my CV — from conference booths to community classrooms.",
       btn_contact: "Contact me",
       contact_label: "Contact",
       contact_title: "Send a message.",
@@ -47,7 +47,7 @@ window.SITE = {
     de: {
       nav_contact: "Kontakt",
       back_all: "Alle Engagements",
-      intro: "Ein schriftliches Protokoll der Engagements hinter meinem Lebenslauf — sieben Einsätze zwischen 2023 und 2026, von Konferenzständen bis zu Klassenzimmern.",
+      intro: "Ein schriftliches Protokoll der Engagements hinter meinem Lebenslauf — von Konferenzständen bis zu Klassenzimmern.",
       btn_contact: "Kontakt aufnehmen",
       contact_label: "Kontakt",
       contact_title: "Schreiben Sie mir.",
