@@ -280,8 +280,7 @@ window.SITE = {
       location: { en: "Nanjing", de: "Nanjing" },
       figures: [
         { file: "fig-1.jpg", en: "The audience between sessions.", de: "Das Publikum zwischen den Sitzungen.", credit: "Photo: Gangulybiswarup (CC BY 4.0), Wikimedia Commons" },
-        { file: "fig-2.jpg", en: "The stage before the first talk.", de: "Die Bühne vor dem ersten Vortrag." },
-        { file: "fig-3.jpg", at: 4, center: true, ratio: "1280/1818", en: "The TEDxNanjing 2026 volunteer certificate.", de: "Das Freiwilligenzertifikat der TEDxNanjing 2026." }
+        { file: "fig-2.jpg", en: "The stage before the first talk.", de: "Die Bühne vor dem ersten Vortrag." }
       ],
       en: {
         title: "One Day at TEDxNanjing",
