@@ -170,8 +170,14 @@
         (cardLogo ? '<img class="card-logo" src="' + slug + '/' + esc(cardLogo.file) +
           '" alt="' + esc(cardLogo.alt || "") + '" loading="lazy" decoding="async"' +
           /* cardLogo.w = width as % of card width (34 = CSS default) — square
-             emblems need less width or they run into 3–4 line titles */
-          (cardLogo.w != null ? ' style="width:' + cardLogo.w + '%"' : "") + '>' : "") +
+             emblems need less width or they run into 3–4 line titles.
+             cardLogo.top = top edge as % of card height (5 = CSS default) —
+             wide wordmarks sit lower so their optical centre lines up with
+             the taller square emblems beside them */
+          (cardLogo.w != null || cardLogo.top != null
+            ? ' style="' + (cardLogo.w != null ? "width:" + cardLogo.w + "%;" : "") +
+              (cardLogo.top != null ? "top:" + cardLogo.top + "%;" : "") + '"'
+            : "") + '>' : "") +
         '<div class="card-body">' +
           '<h2 class="card-title">' + esc(L.title) + "</h2>" +
           '<p class="card-deck">' + esc(L.summary) + "</p>" +

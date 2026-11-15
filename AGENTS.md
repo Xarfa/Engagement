@@ -57,13 +57,16 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    card (owner's marker ≈34% card width; card-logo top is 5% since the InnoFair
    story — taller square marks otherwise run into 3-line titles; optional `w` = % of
    card width for square emblems — at 34% they run into 3–4 line titles, blind-school
-   emblem uses 22). `logos.hero` = logos stacked at the bottom-left of the story
-   cover, listed BOTTOM-UP (first entry renders lowest); sized to stay clear of
-   text baked into the cover art. Optional per-logo `w` (% of column, default 100).
-   LESSON (ATOX story): two marks of very different aspect ratios (wide wordmark
-   vs emblem) never balance cleanly — same-width, same-height and optical-area
-   all read as 悬殊 to the owner; when in doubt ask, or fall back to the single
-   mark the owner picks (ATOX ended with COP31 alone). CSS: `.card-logo`,
+   emblem uses 22; optional `top` = % of card height for WIDE wordmarks — a 34%-wide
+   wordmark is only ~9% tall, so its optical centre sits far above the square
+   emblems' centre at top 5%: ATOX uses `top: 11.5` so all three visible cards'
+   logo centres align at ~16%). `logos.hero` = logos stacked at the bottom-left of
+   the story cover, listed BOTTOM-UP (first entry renders lowest); sized to stay
+   clear of text baked into the cover art. Optional per-logo `w` (% of column,
+   default 100). LESSON (ATOX story): two marks of very different aspect ratios
+   (wide wordmark vs emblem) never balance cleanly — same-width, same-height and
+   optical-area all read as 悬殊 to the owner; when in doubt ask, or fall back to
+   the single mark the owner picks (ATOX ended with COP31 alone). CSS: `.card-logo`,
    `.story-hero-logos`.
 4. **Hiding** a story: `hidden: true` on its data object — dropped from grid,
    search and story pages without deleting data/assets. The five 2026-11-14

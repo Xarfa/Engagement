@@ -87,7 +87,7 @@ window.SITE = {
       date: "2026-11-12",
       location: { en: "Online", de: "Online" },
       logos: {
-        card: { file: "logo-atox.png", alt: "ATOX" },
+        card: { file: "logo-atox.png", alt: "ATOX", top: 11.5 },
         hero: [
           { file: "logo-cop31.png", alt: "COP31 Türkiye", w: 200 }
         ]

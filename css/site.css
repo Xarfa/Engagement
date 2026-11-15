@@ -650,8 +650,8 @@ body.is-locked:not(.story-page) .site-head {
 .story-hero-logos {
   position: absolute;
   z-index: 3;
-  left: clamp(16px, 2.6vw, 44px);
-  bottom: clamp(24px, 4.5vh, 48px);
+  left: clamp(10px, 1.8vw, 30px);
+  bottom: clamp(14px, 2.8vh, 30px);
   width: clamp(72px, 12.4vw, 176px);
   display: flex;
   flex-direction: column-reverse;
