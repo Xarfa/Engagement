@@ -63,7 +63,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    profile, OpenCV) over every visible story's figures flipped 17 more
    (InnoFair 6, TEDx 9, blind-school 2); visually verified false positives
    (empty dusk exterior, emblem plaque, corridor with backs only) stayed
-   public — confirm borderline detections by eye before flipping. Rerun the
+   public — confirm borderline detections by eye before flipping. The cascade
+   also MISSES faces: small webcam tiles in dark frames (ATOX fig-4/5) read 0
+   and had to be flipped by eye — after the pass, glance at every remaining
+   public figure for missed faces before pushing. Rerun the
    pass on every story update. The
    volunteer-credits slide (a roster of names) went private, and so did the
    owner's own portrait at the theme wall, which the owner moved to the very
