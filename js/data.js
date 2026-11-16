@@ -379,9 +379,9 @@ window.SITE = {
       date: "2025-06-01",
       location: { en: "Nanjing", de: "Nanjing" },
       logos: {
-        card: { file: "logo-league-one.png", alt: "China League One", w: 22 },
+        card: { file: "logo-league-one.png", alt: "China League One", w: 16 },
         hero: [
-          { file: "logo-league-one.png", alt: "China League One", w: 60 }
+          { file: "logo-league-one.png", alt: "China League One", w: 42 }
         ]
       },
       figures: [
