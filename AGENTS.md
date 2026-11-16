@@ -68,7 +68,10 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    Everything else stays public: meeting/webcam screenshots, single-person
    portraits, volunteer-credits slides (name rosters), event scenes, talks,
    UI/browser screenshots. No automatic face pass — do not re-add privacy on
-   face-detection grounds; the owner sets any individual exception. Brighten
+   face-detection grounds; the owner sets any individual exception (story-level
+   exceptions override the default — WCSS 2026, 2026-11-16: 合影 **and**
+   个人照片 private, so its single-person portrait fig-26 is intentional; that
+   story's other event scenes stay public). Brighten
    certificate scans when the owner marks the
    source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
    the paper tone and the owner rejected it, as did a plain RGB Brightness
