@@ -96,23 +96,23 @@ window.SITE = {
         { file: "fig-1.jpg", at: 1, ratio: "1000/1413", en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
         { file: "fig-2.jpg", at: 1, ratio: "1000/1413", en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
         { file: "fig-3.jpg", at: 1, ratio: "1000/1413", en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
-        { file: "fig-4.jpg", at: 2, ratio: "1000/1127", privacy: true, en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
-        { file: "fig-5.jpg", at: 2, ratio: "1000/1193", privacy: true, en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." },
-        { file: "fig-6.jpg", at: 2, ratio: "1000/530", privacy: true, en: "The mentoring session opens — twenty participants, cameras mostly off.", de: "Die Mentoring-Session beginnt — zwanzig Teilnehmende, meist ohne Kamera." },
-        { file: "fig-7.jpg", at: 2, ratio: "1000/455", privacy: true, en: "In the breakout room with mentor Jasmeet Rai.", de: "Im Breakout-Room bei Mentorin Jasmeet Rai." },
+        { file: "fig-4.jpg", at: 2, ratio: "1000/1127", en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
+        { file: "fig-5.jpg", at: 2, ratio: "1000/1193", en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." },
+        { file: "fig-6.jpg", at: 2, ratio: "1000/530", en: "The mentoring session opens — twenty participants, cameras mostly off.", de: "Die Mentoring-Session beginnt — zwanzig Teilnehmende, meist ohne Kamera." },
+        { file: "fig-7.jpg", at: 2, ratio: "1000/455", en: "In the breakout room with mentor Jasmeet Rai.", de: "Im Breakout-Room bei Mentorin Jasmeet Rai." },
         { file: "fig-8.jpg", at: 2, ratio: "1000/1130", en: "Team P05’s demo: Proof API, an AI climate-action verifier.", de: "Das Demo von Team P05: Proof API, ein KI-Verifizierer für Klimaschutzaktionen." },
         { file: "fig-9.jpg", at: 2, ratio: "1000/779", en: "Proof API’s analytics — score calibration and carbon reference factors.", de: "Proof APIs Analytics — Score-Kalibrierung und CO₂-Referenzfaktoren." },
-        { file: "fig-10.jpg", at: 2, ratio: "1000/1107", privacy: true, en: "Proof API’s home: local action, a clearer record.", de: "Proof APIs Startseite: lokale Aktionen, ein klareres Protokoll." },
+        { file: "fig-10.jpg", at: 2, ratio: "1000/1107", en: "Proof API’s home: local action, a clearer record.", de: "Proof APIs Startseite: lokale Aktionen, ein klareres Protokoll." },
         { file: "fig-11.jpg", at: 2, ratio: "1000/1131", en: "A quieter breakout room, questions in the chat.", de: "Ein ruhigerer Breakout-Room, Fragen im Chat." },
-        { file: "fig-12.jpg", at: 2, ratio: "1000/880", privacy: true, en: "The Climate Adaptation & Resilience room, three of us.", de: "Der Raum zu Klimaanpassung und Resilienz, wir zu dritt." },
-        { file: "fig-13.jpg", at: 2, ratio: "1000/1294", privacy: true, en: "The review queue flags duplicate submissions with similarity scores.", de: "Die Review-Queue markiert doppelte Einreichungen mit Ähnlichkeitswerten." },
+        { file: "fig-12.jpg", at: 2, ratio: "1000/880", en: "The Climate Adaptation & Resilience room, three of us.", de: "Der Raum zu Klimaanpassung und Resilienz, wir zu dritt." },
+        { file: "fig-13.jpg", at: 2, ratio: "1000/1294", en: "Questions for mentor Jasmeet Rai in the Climate Adaptation & Resilience room.", de: "Fragen an Mentorin Jasmeet Rai im Raum Climate Adaptation & Resilience." },
         { file: "fig-14.jpg", at: 2, ratio: "1000/839", en: "The Climate Education room — a drought game, two rule-based farm agents over twelve years.", de: "Der Raum zu Klimabildung — ein Dürre-Spiel, zwei regelbasierte Farm-Agents über zwölf Jahre." },
         { file: "fig-15.jpg", at: 2, ratio: "1000/1128", en: "Team P35’s roster — ASTER Climate, occupational safety under wildfire risk.", de: "Das Teamblatt von P35 — ASTER Climate, Arbeitsschutz bei Waldbrandgefahr." },
         { file: "fig-16.jpg", at: 2, ratio: "1000/1165", en: "ASTER Climate’s pitch: every worker safe, in every workplace.", de: "Der Pitch von ASTER Climate: jeder Arbeiter sicher, an jedem Arbeitsplatz." },
         { file: "fig-17.jpg", at: 2, ratio: "1000/1128", en: "The live prototype: a wildfire-risk briefing for a crew at Kemer.", de: "Der Live-Prototyp: eine Waldbrand-Briefing für eine Crew in Kemer." },
-        { file: "fig-18.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Pitch feedback in the room; the team coordinates on WhatsApp between sessions.", de: "Feedback zum Pitch im Raum; das Team koordiniert sich zwischendurch per WhatsApp." },
-        { file: "fig-19.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Mentor Jasmeet Rai: “that’s a really good pitch. Well done.”", de: "Mentorin Jasmeet Rai: ‚das ist ein wirklich guter Pitch. Gut gemacht.‘" },
-        { file: "fig-20.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Mentor Oliver Bonallack joins the room.", de: "Mentor Oliver Bonallack kommt in den Raum." }
+        { file: "fig-18.jpg", at: 2, ratio: "1000/1128", en: "Pitch feedback in the room; the team coordinates on WhatsApp between sessions.", de: "Feedback zum Pitch im Raum; das Team koordiniert sich zwischendurch per WhatsApp." },
+        { file: "fig-19.jpg", at: 2, ratio: "1000/1128", en: "Oliver Bonallack answers the team’s questions.", de: "Oliver Bonallack beantwortet die Fragen des Teams." },
+        { file: "fig-20.jpg", at: 2, ratio: "1000/1128", en: "Mentor Oliver Bonallack joins the room.", de: "Mentor Oliver Bonallack kommt in den Raum." }
       ],
       en: {
         title: "Volunteer in AI4Climate hackathon during COP31",
@@ -148,13 +148,13 @@ window.SITE = {
       figures: [
         { file: "fig-1.jpg", at: 1, en: "The exhibition centre at dusk.", de: "Das Messegelände in der Dämmerung." },
         { file: "fig-2.jpg", at: 1, ratio: "16/9", en: "The fair plan — participating enterprises across the halls.", de: "Der Messeplan — die teilnehmenden Unternehmen der Hallen." },
-        { file: "fig-9.jpg", at: 1, ratio: "3/4", privacy: true, en: "A calligraphy robot at work.", de: "Ein Kalligraphie-Roboter bei der Arbeit." },
-        { file: "fig-3.jpg", at: 2, ratio: "3/4", privacy: true, en: "MY SYNERGY’s flyer: OEM / ODM partnerships for biomedical software.", de: "Der Flyer von MY SYNERGY: OEM-/ODM-Partnerschaften für biomedizinische Software." },
+        { file: "fig-9.jpg", at: 1, ratio: "3/4", en: "A calligraphy robot at work.", de: "Ein Kalligraphie-Roboter bei der Arbeit." },
+        { file: "fig-3.jpg", at: 2, ratio: "3/4", en: "MY SYNERGY’s flyer: OEM / ODM partnerships for biomedical software.", de: "Der Flyer von MY SYNERGY: OEM-/ODM-Partnerschaften für biomedizinische Software." },
         { file: "fig-4.jpg", at: 2, privacy: true, en: "With Mladen Georgiev, CTO of MY SYNERGY, at the Bulgaria booth.", de: "Mit Mladen Georgiev, CTO von MY SYNERGY, am Bulgarien-Stand." },
-        { file: "fig-5.jpg", at: 3, ratio: "3/4", privacy: true, en: "The Spain zone — energy, power and environmental protection.", de: "Der Spanien-Bereich — Energie, Strom und Umweltschutz." },
-        { file: "fig-6.jpg", at: 3, privacy: true, en: "A Cyprus University of Technology key ring from the CUTech stand.", de: "Ein Schlüsselanhänger der Cyprus University of Technology vom CUTech-Stand." },
-        { file: "fig-7.jpg", at: 3, privacy: true, en: "Robotic hands and VR simulation gloves among the emerging technologies.", de: "Robotische Hände und VR-Simulationshandschuhe unter den neuen Technologien." },
-        { file: "fig-8.jpg", at: 3, privacy: true, en: "A land-air ‘Transformer’ aircraft on the fair floor.", de: "Ein Land-Luft-‚Transformer‘-Fluggerät auf der Messe." },
+        { file: "fig-5.jpg", at: 3, ratio: "3/4", en: "The Spain zone — energy, power and environmental protection.", de: "Der Spanien-Bereich — Energie, Strom und Umweltschutz." },
+        { file: "fig-6.jpg", at: 3, en: "A Cyprus University of Technology key ring from the CUTech stand.", de: "Ein Schlüsselanhänger der Cyprus University of Technology vom CUTech-Stand." },
+        { file: "fig-7.jpg", at: 3, en: "Robotic hands and VR simulation gloves among the emerging technologies.", de: "Robotische Hände und VR-Simulationshandschuhe unter den neuen Technologien." },
+        { file: "fig-8.jpg", at: 3, en: "A land-air ‘Transformer’ aircraft on the fair floor.", de: "Ein Land-Luft-‚Transformer‘-Fluggerät auf der Messe." },
         { file: "fig-10.jpg", at: 4, privacy: true, en: "The volunteer table between shifts.", de: "Der Freiwilligentisch zwischen den Schichten." },
         { file: "fig-11.jpg", at: 4, privacy: true, en: "With the volunteer team and new acquaintances from the stands.", de: "Mit dem Freiwilligenteam und neuen Bekannten von den Ständen." },
         { file: "fig-12.jpg", at: 4, privacy: true, center: true, ratio: "1400/1980", en: "The volunteer certificate, issued by Messe Stuttgart.", de: "Das Freiwilligenzertifikat der Messe Stuttgart." }
@@ -300,22 +300,22 @@ window.SITE = {
         { file: "fig-2.jpg?v=2", at: 1, en: "The auditorium at setup — a rehearsal deck already on the screen.", de: "Der Saal beim Aufbau — ein Probefoliensatz schon auf der Leinwand." },
         { file: "fig-3.jpg", at: 2, en: "The stage ready: the red circle and the TEDxNanjing letters.", de: "Die fertige Bühne: der rote Kreis und die TEDxNanjing-Buchstaben." },
         { file: "fig-4.jpg", at: 2, en: "The crew in the empty auditorium, an hour before doors.", de: "Das Team im leeren Saal, eine Stunde vor dem Einlass." },
-        { file: "fig-5.jpg", at: 2, privacy: true, en: "The check-in desk opens at 13:30.", de: "Der Check-in öffnet um 13:30." },
-        { file: "fig-6.jpg", at: 2, privacy: true, en: "Rehearsal on the red circle, hours before doors.", de: "Probe auf dem roten Kreis, Stunden vor dem Einlass." },
+        { file: "fig-5.jpg", at: 2, en: "The check-in desk opens at 13:30.", de: "Der Check-in öffnet um 13:30." },
+        { file: "fig-6.jpg", at: 2, en: "Rehearsal on the red circle, hours before doors.", de: "Probe auf dem roten Kreis, Stunden vor dem Einlass." },
         { file: "fig-7.jpg", at: 2, en: "The hosts open the afternoon.", de: "Die Moderation eröffnet den Nachmittag." },
         { file: "fig-8.jpg", at: 2, en: "Duan Xinxing, TEDxNanjing’s founder, on stage.", de: "Duan Xinxing, Gründer von TEDxNanjing, auf der Bühne." },
-        { file: "fig-9.jpg", at: 2, privacy: true, en: "A talk under way, the hall dark around the stage.", de: "Ein Vortrag läuft, der Saal dunkel um die Bühne." },
-        { file: "fig-10.jpg", at: 2, privacy: true, en: "A wall of references: mythology, Jung, hand-drawn sheets.", de: "Eine Wand aus Referenzen: Mythologie, Jung, handgezeichnete Blätter." },
+        { file: "fig-9.jpg", at: 2, en: "A talk under way, the hall dark around the stage.", de: "Ein Vortrag läuft, der Saal dunkel um die Bühne." },
+        { file: "fig-10.jpg", at: 2, en: "A wall of references: mythology, Jung, hand-drawn sheets.", de: "Eine Wand aus Referenzen: Mythologie, Jung, handgezeichnete Blätter." },
         { file: "fig-11.jpg", at: 2, en: "“What do you do when you go shopping?” — from the design talk.", de: "„Was machst du, wenn du einkaufen gehst?“ — aus dem Design-Vortrag." },
-        { file: "fig-12.jpg", at: 2, privacy: true, en: "Overtones — from personal expression to collective resonance, on cello.", de: "Obertöne — vom persönlichen Ausdruck zur kollektiven Resonanz, am Cello." },
-        { file: "fig-13.jpg", at: 2, privacy: true, en: "A speaker against the burning-eye projection.", de: "Ein Sprecher vor der Projektion des brennenden Auges." },
+        { file: "fig-12.jpg", at: 2, en: "Overtones — from personal expression to collective resonance, on cello.", de: "Obertöne — vom persönlichen Ausdruck zur kollektiven Resonanz, am Cello." },
+        { file: "fig-13.jpg", at: 2, en: "A speaker against the burning-eye projection.", de: "Ein Sprecher vor der Projektion des brennenden Auges." },
         { file: "fig-14.jpg", at: 2, en: "The virtual-cell talk on the big screen.", de: "Der Vortrag über virtuelle Zellen auf der großen Leinwand." },
         { file: "fig-15.jpg", at: 3, privacy: true, en: "Volunteers taking their own keepsake photo, shot on a DV camera.", de: "Freiwillige beim eigenen Erinnerungsfoto, mit einer DV-Kamera." },
-        { file: "fig-16.jpg", at: 3, privacy: true, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
+        { file: "fig-16.jpg", at: 3, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
         { file: "fig-17.jpg", at: 3, privacy: true, en: "The whole team behind the TEDxNanjing letters.", de: "Das ganze Team hinter den TEDxNanjing-Buchstaben." },
         { file: "fig-18.jpg", at: 3, privacy: true, en: "Speakers and certificates at the final call on stage.", de: "Sprecher und Zertifikate beim letzten Auftritt auf der Bühne." },
         { file: "fig-19.jpg?v=3", at: 3, privacy: true, center: true, ratio: "1280/1818", en: "The volunteer certificate, issued by the TEDxNanjing team on 25 October 2026.", de: "Das Freiwilligenzertifikat, ausgestellt vom TEDxNanjing-Team am 25. Oktober 2026." },
-        { file: "fig-1.jpg?v=2", at: 3, privacy: true, en: "Me at the theme wall, holding this year’s sign.", de: "Ich vor der Themenwand, mit dem diesjährigen Schild." }
+        { file: "fig-1.jpg?v=2", at: 3, en: "Me at the theme wall, holding this year’s sign.", de: "Ich vor der Themenwand, mit dem diesjährigen Schild." }
       ],
       en: {
         title: "Volunteer in TEDxNanjing 2026",
@@ -374,6 +374,48 @@ window.SITE = {
     },
 
     {
+      slug: "nanjing-city-football",
+      category: "Volunteer",
+      date: "2025-06-01",
+      location: { en: "Nanjing", de: "Nanjing" },
+      logos: {
+        card: { file: "logo-league-one.png", alt: "China League One", w: 22 },
+        hero: [
+          { file: "logo-league-one.png", alt: "China League One", w: 60 }
+        ]
+      },
+      figures: [
+        { file: "fig-1.jpg", at: 1, en: "Wutaishan Stadium before the crowd — the city behind the north stand.", de: "Das Wutaishan-Stadion vor dem Einlass — die Stadt hinter der Nordtribüne." },
+        { file: "fig-2.jpg", at: 1, en: "A tifo covering laid out on the running track, the stands still empty.", de: "Eine Tifo-Bahn auf der Aschenbahn ausgelegt, die Ränge noch leer." },
+        { file: "fig-3.jpg", at: 2, en: "Ticket check in the rain outside the ground.", de: "Einlasskontrolle im Regen vor dem Stadion." },
+        { file: "fig-4.jpg", at: 2, en: "Umbrellas and rain ponchos along the rail.", de: "Regenschirme und Ponchos am Geländer." },
+        { file: "fig-5.jpg", at: 2, en: "Two spectators in ponchos, watching from the rail.", de: "Zwei Zuschauer in Ponchos am Geländer." },
+        { file: "fig-6.jpg", at: 3, en: "The scoreboard at 46 minutes: 1–0, rain running down the track.", de: "Die Anzeigetafel in der 46. Minute: 1:0, Regen läuft über die Aschenbahn." },
+        { file: "fig-7.jpg", at: 3, ratio: "16/9", en: "The second half under the lights.", de: "Die zweite Halbzeit unter Flutlicht." },
+        { file: "fig-8.jpg", at: 3, en: "Banners behind the goal, staff still out on the track.", de: "Banden hinter dem Tor, Betreuer noch auf der Aschenbahn." },
+        { file: "fig-9.jpg", at: 3, en: "Players and staff by the tunnel under the far stand.", de: "Spieler und Betreuer am Tunnel unter der Gegentribüne." }
+      ],
+      en: {
+        title: "Volunteer for Nanjing City Football Team",
+        summary: "Tifo hanging, venue cleaning and ticket checking at a China League One match on Wutaishan — and the second half I finally got to watch.",
+        body: [
+          "This was a match taking place on Wutai Mountain, where the Nanjing City Football Team played against the Guangzhou Leopard Football Team.",
+          "The volunteer information is sourced from NJAU. As a volunteer, I participated in the entire stadium’s tifo hanging, venue cleaning and ticket checking work. I have gained a relatively confident understanding of what preparations the team has made before the game.",
+          "I watched the second half of the game after the ticket check was over. As a fan of Guangzhou (Evergrande Taobao), I witnessed the 2 goals for Guangzhou and the ultimate “Bengbu Spin” (complete two consecutive “Marseille turns”) in the stoppage time today."
+        ]
+      },
+      de: {
+        title: "Freiwilliger bei Nanjing City",
+        summary: "Tifo-Aufhängen, Platzreinigung und Einlasskontrolle bei einem Spiel der China League One im Wutaishan-Stadion — und die zweite Halbzeit, die ich danach endlich sehen konnte.",
+        body: [
+          "Dies war ein Spiel im Wutaishan-Stadion, wo die Nanjing City Football Team gegen die Guangzhou Leopard Football Team spielte.",
+          "Die Freiwilligeninformation stammt von der NJAU. Als Freiwilliger war ich am Aufhängen des Tifo für das gesamte Stadion, an der Reinigung des Geländes und an der Einlasskontrolle beteiligt. Ich habe ein ziemlich sicheres Verständnis dafür gewonnen, welche Vorbereitungen die Mannschaft vor dem Spiel trifft.",
+          "Die zweite Halbzeit habe ich gesehen, nachdem die Einlasskontrolle vorbei war. Als Fan von Guangzhou (Evergrande Taobao) habe ich die zwei Tore für Guangzhou und den ultimativen „Bengbu Spin“ (zwei aufeinanderfolgende „Marseille-Turns“) in der Nachspielzeit miterlebt."
+        ]
+      }
+    },
+
+    {
       slug: "nanjing-blind-school",
       category: "Volunteer",
       date: "2023-11-10",
@@ -389,8 +431,8 @@ window.SITE = {
         { file: "fig-2.jpg", ratio: "1200/786", en: "The school’s emblem plaque on the wall.", de: "Das Emblemschild der Schule an der Wand." },
         { file: "fig-3.jpg", ratio: "1200/866", en: "A corridor with tactile paving and handrails.", de: "Ein Flur mit Leitstreifen und Handläufen." },
         { file: "fig-4.jpg", ratio: "1200/800", en: "In the classroom, desks already filled with bags.", de: "Im Klassenzimmer, die Tische schon voller Tüten." },
-        { file: "fig-5.jpg", ratio: "1200/811", privacy: true, en: "A student at a desk beside stacks of braille books.", de: "Ein Schüler am Tisch neben Stapeln von Braille-Büchern." },
-        { file: "fig-6.jpg", ratio: "1200/810", privacy: true, en: "Faces around a table in the half-dark.", de: "Gesichter um einen Tisch im Halbdunkel." },
+        { file: "fig-5.jpg", ratio: "1200/811", en: "A student at a desk beside stacks of braille books.", de: "Ein Schüler am Tisch neben Stapeln von Braille-Büchern." },
+        { file: "fig-6.jpg", ratio: "1200/810", en: "Faces around a table in the half-dark.", de: "Gesichter um einen Tisch im Halbdunkel." },
         { file: "fig-7.jpg", ratio: "1200/794", en: "Small things passed around a table.", de: "Kleine Dinge, die am Tisch herumgereicht werden." },
         { file: "fig-8.jpg?v=3", privacy: true, center: true, ratio: "1400/1920", en: "The volunteer certificate — ten hours at the autumn outing, issued by Nanjing School for the Blind.", de: "Das Freiwilligenzertifikat — zehn Stunden beim Herbstausflug, ausgestellt von der Nanjing School for the Blind." }
       ],

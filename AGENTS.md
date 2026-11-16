@@ -61,21 +61,14 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    CERTIFICATES (owner rule, final 2026-11-15 — it reversed an earlier "no
    effects" call the same day): certificates are private figures exactly like
    group photos — always `privacy: true`, plus `center: true` (82% centred so
-   the reveal reads big). PRIVACY RULE v2 (owner, 2026-11-15, supersedes the
-   earlier per-story-call note and the TEDx group-photos-public decision): ANY
-   figure with a detectable face goes `privacy: true` — automatic, never a
-   per-story judgement. A Haar-cascade pass (frontal + profile + mirrored
-   profile, OpenCV) over every visible story's figures flipped 17 more
-   (InnoFair 6, TEDx 9, blind-school 2); visually verified false positives
-   (empty dusk exterior, emblem plaque, corridor with backs only) stayed
-   public — confirm borderline detections by eye before flipping. The cascade
-   also MISSES faces: small webcam tiles in dark frames (ATOX fig-4/5) read 0
-   and had to be flipped by eye — after the pass, glance at every remaining
-   public figure for missed faces before pushing. Rerun the
-   pass on every story update. The
-   volunteer-credits slide (a roster of names) went private, and so did the
-   owner's own portrait at the theme wall, which the owner moved to the very
-   end of the figure run. Brighten
+   the reveal reads big). PRIVACY RULE v3 (owner, 2026-11-16 — FINAL; it
+   revoked the previous day's automatic face-detection rule v2): only two
+   kinds of figure carry `privacy: true` — 合照 (people photographed together:
+   posed keepsakes, group photos, the volunteer table) and certificates.
+   Everything else stays public: meeting/webcam screenshots, single-person
+   portraits, volunteer-credits slides (name rosters), event scenes, talks,
+   UI/browser screenshots. No automatic face pass — do not re-add privacy on
+   face-detection grounds; the owner sets any individual exception. Brighten
    certificate scans when the owner marks the
    source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
    the paper tone and the owner rejected it, as did a plain RGB Brightness
