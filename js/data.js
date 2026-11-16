@@ -348,7 +348,7 @@ window.SITE = {
       date: "2026-06-06",
       location: { en: "Nanjing", de: "Nanjing" },
       logos: {
-        card: { file: "logo-fao.svg", alt: "FAO", w: 22 },
+        card: { file: "logo-fao.svg", alt: "FAO", w: 21, top: 5.4 },
         hero: [
           { file: "logo-fao.svg", alt: "FAO", w: 52 }
         ]
