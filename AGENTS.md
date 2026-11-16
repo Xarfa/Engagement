@@ -33,7 +33,10 @@ are not the only source.
   name bold sans, serif date · location). Body: EB Garamond 18/1.52, single 582px column,
   21px paragraph gaps, scroll reveal at 500ms/10px/scale .99.
 - **Cards:** square, 1200px container, titles `max-width:10.5em` (Instrument Sans's `0` is
-  wide — `ch` units are unusable in this font), 26px→24px cap.
+  wide — `ch` units are unusable in this font), 26px→24px cap. Owner-specified
+  line breaks: per-language `cardTitle` in data.js ("\n" → `<br>`, rendered by
+  app.js) with optional `cardTitleMax` widening the box — WCSS 2026 uses
+  `13.2em` for “Volunteer in the / 23rd World Congress / of Soil Science”.
 - **Fonts:** `--sans: "gt-walsheim"(Adobe Fonts kit pending — owner has Adobe CC) →
   "Instrument Sans"(self-hosted) → Helvetica`. Serif: EB Garamond (self-hosted).
   Kit link goes where "Adobe Fonts" is marked in index.html / story.html.

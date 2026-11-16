@@ -179,7 +179,13 @@
               (cardLogo.top != null ? "top:" + cardLogo.top + "%;" : "") + '"'
             : "") + '>' : "") +
         '<div class="card-body">' +
-          '<h2 class="card-title">' + esc(L.title) + "</h2>" +
+          '<h2 class="card-title"' +
+            (L.cardTitleMax ? ' style="max-width:' + esc(L.cardTitleMax) + '"' : "") + '>' +
+            /* cardTitle (optional, per language): line breaks the owner picked,
+               "\n" becomes <br>; cardTitleMax widens the 10.5em box when a
+               forced line is longer than it. */
+            (L.cardTitle ? L.cardTitle.split("\n").map(esc).join("<br>") : esc(L.title)) +
+          "</h2>" +
           '<p class="card-deck">' + esc(L.summary) + "</p>" +
           '<span class="card-date">' + esc(fmtMonthYear(s.date)) + "</span>" +
         "</div>" +

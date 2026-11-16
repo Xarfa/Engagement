@@ -9,6 +9,9 @@
    `logos.card` is overlaid top-centre on the home card (the white organiser
    mark); `logos.hero` is the full set stacked at the bottom-left of the story
    cover, listed BOTTOM-UP (first entry renders lowest).
+   Card titles wrap inside a 10.5em box; when the owner asks for specific line
+   breaks, add `cardTitle` to the language block ("\n" becomes <br>) plus
+   `cardTitleMax` (a CSS length, e.g. "13.2em") if a forced line is wider.
    The language switch is stored in localStorage("engagement-lang"). */
 
 window.SITE = {
@@ -347,7 +350,7 @@ window.SITE = {
       logos: {
         card: { file: "logo-fao.svg", alt: "FAO", w: 22 },
         hero: [
-          { file: "logo-fao.svg", alt: "FAO", w: 60 }
+          { file: "logo-fao.svg", alt: "FAO", w: 52 }
         ]
       },
       figures: [
@@ -357,21 +360,21 @@ window.SITE = {
         { file: "fig-4.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "Under the Journey of Soil Data panels with the FAO team.", de: "Unter den Panels von „The Journey of Soil Data“ mit dem FAO-Team." },
         { file: "fig-5.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "At booth B07, the Wanwusheng Soil Science Communication Hall.", de: "Am Stand B07, dem Wanwusheng Soil Science Communication Hall." },
         { file: "fig-6.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "The same booth, with its exhibitors and a fellow volunteer.", de: "Derselbe Stand, mit seinen Ausstellern und einer Mitfreiwilligen." },
-        { file: "fig-7.jpg", at: 6, en: "The Nanjing International Expo Center at dusk, the congress banner on the facade.", de: "Das Nanjing International Expo Center in der Dämmerung, das Kongressbanner an der Fassade." },
-        { file: "fig-8.jpg", at: 6, en: "The theme on the building — Soil and the Shared Future for Humanity — in English and Chinese.", de: "Das Thema am Gebäude — Soil and the Shared Future for Humanity — auf Englisch und Chinesisch." },
-        { file: "fig-9.jpg", at: 6, en: "The glass entrance hall in the afternoon sun.", de: "Die gläserne Eingangshalle in der Nachmittagssonne." },
-        { file: "fig-10.jpg", at: 6, en: "Build-up day in the exhibition hall — booths half raised, the aisles still empty.", de: "Aufbautag in der Ausstellungshalle — die Stände halb errichtet, die Gänge noch leer." },
-        { file: "fig-11.jpg", at: 6, en: "A SIM-card service desk and blue carpeting, laid out before the first delegates.", de: "Ein SIM-Karten-Schalter und blauer Teppich, bereitgelegt vor den ersten Delegierten." },
-        { file: "fig-12.jpg", at: 6, en: "Organisers walking the floor along the booth row.", de: "Organisatoren auf dem Weg durch die Standreihe." },
-        { file: "fig-13.jpg", at: 6, en: "Congress banners above the aisles, the central stand going up.", de: "Kongressbanner über den Gängen, der zentrale Stand im Aufbau." },
-        { file: "fig-14.jpg", at: 6, en: "The ring of the central stand, workers still on site.", de: "Der Ring des zentralen Stands, die Arbeiter noch vor Ort." },
-        { file: "fig-15.jpg", at: 6, en: "A worker on scaffolding beside the World Soil Science and Innovation screen.", de: "Ein Arbeiter auf dem Gerüst neben der Leinwand „World Soil Science and Innovation“." },
-        { file: "fig-16.jpg", at: 6, en: "The long corridor to the halls, the congress banner at full height.", de: "Der lange Korridor zu den Hallen, das Kongressbanner in voller Höhe." },
-        { file: "fig-17.jpg", at: 6, en: "Banner columns and the sign for Hall 4.", de: "Bannersäulen und das Schild von Halle 4." },
-        { file: "fig-18.jpg", at: 6, en: "Registration on opening morning — the lobby filling.", de: "Die Registrierung am Eröffnungsmorgen — die Lobby füllt sich." },
-        { file: "fig-19.jpg", at: 6, en: "Queue lines at the entrance, badges already on.", de: "Warteschlangen am Eingang, die Badges schon umgehängt." },
-        { file: "fig-20.jpg", at: 6, en: "A break on the bench behind the glass.", de: "Eine Pause auf der Bank hinter dem Glas." },
-        { file: "fig-21.jpg", at: 6, en: "Carts of bags across the forecourt on the way to Hall 4.", de: "Wagen mit Tüten über den Vorplatz, auf dem Weg zu Halle 4." },
+        { file: "fig-7.jpg", at: 1, en: "The Nanjing International Expo Center at dusk, the congress banner on the facade.", de: "Das Nanjing International Expo Center in der Dämmerung, das Kongressbanner an der Fassade." },
+        { file: "fig-8.jpg", at: 1, en: "The theme on the building — Soil and the Shared Future for Humanity — in English and Chinese.", de: "Das Thema am Gebäude — Soil and the Shared Future for Humanity — auf Englisch und Chinesisch." },
+        { file: "fig-9.jpg", at: 1, en: "The glass entrance hall in the afternoon sun.", de: "Die gläserne Eingangshalle in der Nachmittagssonne." },
+        { file: "fig-10.jpg", at: 1, en: "Build-up day in the exhibition hall — booths half raised, the aisles still empty.", de: "Aufbautag in der Ausstellungshalle — die Stände halb errichtet, die Gänge noch leer." },
+        { file: "fig-11.jpg", at: 1, en: "A SIM-card service desk and blue carpeting, laid out before the first delegates.", de: "Ein SIM-Karten-Schalter und blauer Teppich, bereitgelegt vor den ersten Delegierten." },
+        { file: "fig-12.jpg", at: 2, en: "Organisers walking the floor along the booth row.", de: "Organisatoren auf dem Weg durch die Standreihe." },
+        { file: "fig-13.jpg", at: 2, en: "Congress banners above the aisles, the central stand going up.", de: "Kongressbanner über den Gängen, der zentrale Stand im Aufbau." },
+        { file: "fig-14.jpg", at: 2, en: "The ring of the central stand, workers still on site.", de: "Der Ring des zentralen Stands, die Arbeiter noch vor Ort." },
+        { file: "fig-15.jpg", at: 2, en: "A worker on scaffolding beside the World Soil Science and Innovation screen.", de: "Ein Arbeiter auf dem Gerüst neben der Leinwand „World Soil Science and Innovation“." },
+        { file: "fig-16.jpg", at: 2, en: "The long corridor to the halls, the congress banner at full height.", de: "Der lange Korridor zu den Hallen, das Kongressbanner in voller Höhe." },
+        { file: "fig-17.jpg", at: 5, en: "Banner columns and the sign for Hall 4.", de: "Bannersäulen und das Schild von Halle 4." },
+        { file: "fig-18.jpg", at: 5, en: "Registration on opening morning — the lobby filling.", de: "Die Registrierung am Eröffnungsmorgen — die Lobby füllt sich." },
+        { file: "fig-19.jpg", at: 5, en: "Queue lines at the entrance, badges already on.", de: "Warteschlangen am Eingang, die Badges schon umgehängt." },
+        { file: "fig-20.jpg", at: 5, en: "A break on the bench behind the glass.", de: "Eine Pause auf der Bank hinter dem Glas." },
+        { file: "fig-21.jpg", at: 5, en: "Carts of bags across the forecourt on the way to Hall 4.", de: "Wagen mit Tüten über den Vorplatz, auf dem Weg zu Halle 4." },
         { file: "fig-22.jpg", at: 6, en: "A delegate and volunteers over a soil map at the entrance.", de: "Ein Delegierter und Freiwillige über einer Bodenkarte am Eingang." },
         { file: "fig-23.jpg", at: 6, en: "The Journey of Soil Data booth, open for the day.", de: "Der Stand „The Journey of Soil Data“, geöffnet für den Tag." },
         { file: "fig-24.jpg", at: 6, en: "The FAO banner above the hall.", de: "Das FAO-Banner über der Halle." },
@@ -382,6 +385,8 @@ window.SITE = {
       ],
       en: {
         title: "Volunteer in the 23rd World Congress of Soil Science",
+        cardTitle: "Volunteer in the\n23rd World Congress\nof Soil Science",
+        cardTitleMax: "13.2em",
         summary: "Booth duty and translating for the FAO SoilFer project at WCSS 2026 in Nanjing — the congress’s first time in China.",
         body: [
           "The 23rd World Congress of Soil Science (WCSS 2026) was held from June 8 to 12, 2026, at the Nanjing International Expo Center in Nanjing, China. Co-organized by the International Union of Soil Sciences (IUSS) and the Soil Science Society of China, and hosted by the Institute of Soil Science, Chinese Academy of Sciences, the congress marked the first time in its nearly century-long history—dating back to 1927—that this premier global gathering was convened in China.",
