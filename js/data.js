@@ -341,35 +341,68 @@ window.SITE = {
 
     {
       slug: "wcss-fao-booth",
-      hidden: true,
       category: "Volunteer",
-      date: "2026-06-12",
+      date: "2026-06-06",
       location: { en: "Nanjing", de: "Nanjing" },
+      logos: {
+        card: { file: "logo-fao.svg", alt: "FAO", w: 22 },
+        hero: [
+          { file: "logo-fao.svg", alt: "FAO", w: 60 }
+        ]
+      },
       figures: [
-        { file: "fig-1.jpg", en: "Congress corridors in the morning.", de: "Kongressflure am Morgen." },
-        { file: "fig-2.jpg", en: "Soil, on display.", de: "Boden, ausgestellt." }
+        { file: "fig-1.jpg", at: 3, ratio: "1202/1700", en: "The IUSS centennial book of abstracts and presentations — Florence, 2024, Volume 1.", de: "Der Abstract- und Vortragsband zum IUSS-Jubiläum — Florenz 2024, Band 1." },
+        { file: "fig-2.jpg", at: 3, ratio: "1314/1700", en: "“The IUSS’ Presidents Throughout One Hundred Years of its History” — the second title from the booth.", de: "„The IUSS’ Presidents Throughout One Hundred Years of its History“ — der zweite Titel vom Stand." },
+        { file: "fig-3.jpg", at: 4, privacy: true, en: "At the Journey of Soil Data wall, with the FAO delegation and a copy of the Soil Atlas of Asia.", de: "An der Wand „The Journey of Soil Data“, mit der FAO-Delegation und einem Exemplar des Soil Atlas of Asia." },
+        { file: "fig-4.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "Under the Journey of Soil Data panels with the FAO team.", de: "Unter den Panels von „The Journey of Soil Data“ mit dem FAO-Team." },
+        { file: "fig-5.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "At booth B07, the Wanwusheng Soil Science Communication Hall.", de: "Am Stand B07, dem Wanwusheng Soil Science Communication Hall." },
+        { file: "fig-6.jpg", at: 4, privacy: true, ratio: "1238/1650", en: "The same booth, with its exhibitors and a fellow volunteer.", de: "Derselbe Stand, mit seinen Ausstellern und einer Mitfreiwilligen." },
+        { file: "fig-7.jpg", at: 6, en: "The Nanjing International Expo Center at dusk, the congress banner on the facade.", de: "Das Nanjing International Expo Center in der Dämmerung, das Kongressbanner an der Fassade." },
+        { file: "fig-8.jpg", at: 6, en: "The theme on the building — Soil and the Shared Future for Humanity — in English and Chinese.", de: "Das Thema am Gebäude — Soil and the Shared Future for Humanity — auf Englisch und Chinesisch." },
+        { file: "fig-9.jpg", at: 6, en: "The glass entrance hall in the afternoon sun.", de: "Die gläserne Eingangshalle in der Nachmittagssonne." },
+        { file: "fig-10.jpg", at: 6, en: "Build-up day in the exhibition hall — booths half raised, the aisles still empty.", de: "Aufbautag in der Ausstellungshalle — die Stände halb errichtet, die Gänge noch leer." },
+        { file: "fig-11.jpg", at: 6, en: "A SIM-card service desk and blue carpeting, laid out before the first delegates.", de: "Ein SIM-Karten-Schalter und blauer Teppich, bereitgelegt vor den ersten Delegierten." },
+        { file: "fig-12.jpg", at: 6, en: "Organisers walking the floor along the booth row.", de: "Organisatoren auf dem Weg durch die Standreihe." },
+        { file: "fig-13.jpg", at: 6, en: "Congress banners above the aisles, the central stand going up.", de: "Kongressbanner über den Gängen, der zentrale Stand im Aufbau." },
+        { file: "fig-14.jpg", at: 6, en: "The ring of the central stand, workers still on site.", de: "Der Ring des zentralen Stands, die Arbeiter noch vor Ort." },
+        { file: "fig-15.jpg", at: 6, en: "A worker on scaffolding beside the World Soil Science and Innovation screen.", de: "Ein Arbeiter auf dem Gerüst neben der Leinwand „World Soil Science and Innovation“." },
+        { file: "fig-16.jpg", at: 6, en: "The long corridor to the halls, the congress banner at full height.", de: "Der lange Korridor zu den Hallen, das Kongressbanner in voller Höhe." },
+        { file: "fig-17.jpg", at: 6, en: "Banner columns and the sign for Hall 4.", de: "Bannersäulen und das Schild von Halle 4." },
+        { file: "fig-18.jpg", at: 6, en: "Registration on opening morning — the lobby filling.", de: "Die Registrierung am Eröffnungsmorgen — die Lobby füllt sich." },
+        { file: "fig-19.jpg", at: 6, en: "Queue lines at the entrance, badges already on.", de: "Warteschlangen am Eingang, die Badges schon umgehängt." },
+        { file: "fig-20.jpg", at: 6, en: "A break on the bench behind the glass.", de: "Eine Pause auf der Bank hinter dem Glas." },
+        { file: "fig-21.jpg", at: 6, en: "Carts of bags across the forecourt on the way to Hall 4.", de: "Wagen mit Tüten über den Vorplatz, auf dem Weg zu Halle 4." },
+        { file: "fig-22.jpg", at: 6, en: "A delegate and volunteers over a soil map at the entrance.", de: "Ein Delegierter und Freiwillige über einer Bodenkarte am Eingang." },
+        { file: "fig-23.jpg", at: 6, en: "The Journey of Soil Data booth, open for the day.", de: "Der Stand „The Journey of Soil Data“, geöffnet für den Tag." },
+        { file: "fig-24.jpg", at: 6, en: "The FAO banner above the hall.", de: "Das FAO-Banner über der Halle." },
+        { file: "fig-25.jpg", at: 6, en: "The SoilFer stand from the aisle.", de: "Der SoilFer-Stand vom Gang aus." },
+        { file: "fig-26.jpg", at: 6, privacy: true, ratio: "1281/1650", en: "At the SoilFer wall.", de: "An der SoilFer-Wand." },
+        { file: "fig-27.jpg", at: 6, privacy: true, en: "The volunteer team in front of the central stand.", de: "Das Freiwilligenteam vor dem zentralen Stand." },
+        { file: "fig-28.jpg", at: 6, privacy: true, center: true, ratio: "1500/2000", en: "The volunteer badge and lanyard — WCSS 2026, Nanjing, June 7–12.", de: "Badge und Lanyard als Freiwilliger — WCSS 2026, Nanjing, 7.–12. Juni." }
       ],
       en: {
-        title: "Six Days at the FAO Booth",
-        summary: "Six days of booth duty and interpreting at the 23rd World Congress of Soil Science.",
+        title: "Volunteer in the 23rd World Congress of Soil Science",
+        summary: "Booth duty and translating for the FAO SoilFer project at WCSS 2026 in Nanjing — the congress’s first time in China.",
         body: [
-          "The 23rd World Congress of Soil Science met for a week. I volunteered six days at the FAO exhibition booth: set-up, scheduling, and interpreting between delegates and FAO staff when English stalled.",
-          "The work was rhythm more than content. Doors at eight; the booth swept and stocked before the first session; the afternoon’s handouts counted twice. Delegates arrived from a long list of countries, and most conversations at the booth began the same way — one sentence about soil, and then the part where two people find out how much of their field they share.",
-          "Interpreting for specialists is humbling in a specific way. The vocabulary is learnable in a day; the assumptions underneath it are not. I learned to slow down, to ask the delegate to say the same thing differently, and to let a silence do some of the work.",
-          "By the last afternoon the booth felt less like an assignment and more like a place with regulars. That is the part I would keep."
-        ],
-        quote: { text: "The vocabulary is learnable in a day; the assumptions underneath it are not.", by: "Interpreting notes" }
+          "The 23rd World Congress of Soil Science (WCSS 2026) was held from June 8 to 12, 2026, at the Nanjing International Expo Center in Nanjing, China. Co-organized by the International Union of Soil Sciences (IUSS) and the Soil Science Society of China, and hosted by the Institute of Soil Science, Chinese Academy of Sciences, the congress marked the first time in its nearly century-long history—dating back to 1927—that this premier global gathering was convened in China.",
+          "Under the theme “Soil and the Shared Future for Humanity,” the congress gathered nearly 3,000 participants from over 100 countries and regions. It focused on soil health, gobi ecosystem restoration, and sustainable soil development, while also addressing food security, climate change, biodiversity, and ecological restoration. Featuring over 130 sessions, 9 symposia, 5 workshops, 800+ posters, a forum, and an exhibition, it served as a key international platform for academic exchange and industry–research collaboration, with outcomes expected to support the Nanjing Action Initiative.",
+          "In the booth of FAO SoilFer project, I participated as a translator and assistant. A female official from Rome (FAO headquarters) guided us in work. We were responsible for explaining the information of the FAO and providing some publications such as:",
+          "I teamed up with a high school student, Sophie from Yucai School, and got to know her father, Professor Sun in Northeast Agricultural University, by the way because of the same research field. It was the first time I learned about the summer and winter school systems abroad during the chat with Sophie and determined to accumulate experience in foreign-related exchanges. I met the renowned Professor Chen Nengchang at the same time.",
+          "Team leader Zhou in Suzhou Guozhan Group (organization), who graduated from Australia, possesses very good English skills. She and I will both tour the entire exhibition area to visit interesting booths, conference papers, new book release zones, tea break areas, etc. During this period, I also took the opportunity to pick up the express delivery for the teacher from China Agricultural University.",
+          "Coincidentally, I applied to Southern University of Science and Technology (SUSTech) during my break from volunteer work and was successfully admitted to the university in the subsequent recommendation for exemption from the entrance examination."
+        ]
       },
       de: {
-        title: "Sechs Tage am FAO-Stand",
-        summary: "Sechs Tage Stelldienst und Dolmetschen auf dem 23. Weltbodenkongress.",
+        title: "Freiwilliger beim 23. Weltbodenkongress",
+        summary: "Standdienst und Übersetzen für das FAO-Projekt SoilFer beim WCSS 2026 in Nanjing — dem ersten Mal in China.",
         body: [
-          "Der 23. Weltbodenkongress tagte eine Woche lang. Ich habe sechs Tage am Ausstellungsstand der FAO als Freiwilliger geholfen: Aufbau, Ablaufplanung und Dolmetschen zwischen Delegierten und FAO-Mitarbeitenden, wenn Englisch nicht reichte.",
-          "Die Arbeit war Rhythmus mehr als Inhalt. Türen um acht; der Stand gekehrt und aufgefüllt, bevor die erste Session begann; die Handouts für den Nachmittag doppelt gezählt. Die Delegierten kamen aus einer langen Liste von Ländern, und die meisten Gespräche am Stand begannen gleich — ein Satz über Boden, dann der Teil, in dem zwei Leute herausfinden, wie viel ihres Fachs sie teilen.",
-          "Dolmetschen für Fachleute ist auf eine bestimmte Weise ernüchternd. Das Vokabular lernt man an einem Tag; die Annahmen darunter nicht. Ich habe gelernt, langsamer zu werden, die Delegierten zu bitten, dasselbe anders zu sagen, und eine Pause etwas Arbeit leisten zu lassen.",
-          "Am letzten Nachmittag fühlte sich der Stand weniger wie ein Auftrag an und mehr wie ein Ort mit Stammgästen. Das ist der Teil, den ich behalten würde."
-        ],
-        quote: { text: "Das Vokabular lernt man an einem Tag; die Annahmen darunter nicht.", by: "Dolmetsch-Notizen" }
+          "Der 23. Weltbodenkongress (WCSS 2026) fand vom 8. bis 12. Juni 2026 im Nanjing International Expo Center in Nanjing, China, statt. Mitorganisiert von der International Union of Soil Sciences (IUSS) und der Soil Science Society of China und ausgerichtet vom Institut für Bodenkunde der Chinesischen Akademie der Wissenschaften, war der Kongress das erste Mal in seiner fast hundertjährigen Geschichte — die bis 1927 zurückreicht —, dass diese weltweit führende Zusammenkunft in China stattfand.",
+          "Unter dem Thema „Soil and the Shared Future for Humanity“ versammelte der Kongress fast 3.000 Teilnehmende aus über 100 Ländern und Regionen. Im Mittelpunkt standen Bodengesundheit, die Wiederherstellung von Gobi-Ökosystemen und nachhaltige Bodenentwicklung; zugleich ging es um Ernährungssicherheit, Klimawandel, Biodiversität und ökologische Wiederherstellung. Mit über 130 Sitzungen, 9 Symposien, 5 Workshops, mehr als 800 Postern, einem Forum und einer Ausstellung diente er als zentrale internationale Plattform für akademischen Austausch und Zusammenarbeit zwischen Wissenschaft und Industrie; die Ergebnisse sollen die Nanjing Action Initiative stützen.",
+          "Am Stand des FAO-Projekts SoilFer war ich als Übersetzer und Assistent tätig. Eine Beamtin aus Rom (FAO-Hauptsitz) leitete uns bei der Arbeit. Wir waren dafür verantwortlich, Informationen über die FAO zu erklären und Publikationen bereitzustellen, etwa:",
+          "Ich arbeitete mit einer Schülerin namens Sophie von der Yucai School zusammen und lernte dabei — ganz nebenbei, wegen desselben Forschungsfelds — ihren Vater kennen, Professor Sun von der Northeast Agricultural University. Im Gespräch mit Sophie hörte ich zum ersten Mal von den Sommer- und Winterschulsystemen im Ausland und beschloss, Erfahrungen im internationalen Austausch zu sammeln. Zugleich traf ich den renommierten Professor Chen Nengchang.",
+          "Teamleiterin Zhou von der Suzhou Guozhan Group (Organisation), die in Australien studiert hat, besitzt sehr gute Englischkenntnisse. Sie und ich werden gemeinsam über das gesamte Messegelände gehen, um interessante Stände, Konferenzbeiträge, Neuerscheinungsbereiche, Teepausen usw. zu besuchen. In dieser Zeit nutzte ich auch die Gelegenheit, die Expresssendung für die Lehrkraft von der China Agricultural University abzuholen.",
+          "Zufällig bewarb ich mich während der Pause von der Freiwilligenarbeit an der Southern University of Science and Technology (SUSTech) und wurde im anschließenden Empfehlungsverfahren — mit Befreiung von der Aufnahmeprüfung — an der Universität zugelassen."
+        ]
       }
     },
 
