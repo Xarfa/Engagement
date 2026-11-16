@@ -390,7 +390,7 @@ window.SITE = {
         { file: "fig-3.jpg", at: 2, en: "Ticket check in the rain outside the ground.", de: "Einlasskontrolle im Regen vor dem Stadion." },
         { file: "fig-4.jpg", at: 2, en: "Umbrellas and rain ponchos along the rail.", de: "Regenschirme und Ponchos am Geländer." },
         { file: "fig-5.jpg", at: 2, en: "Two spectators in ponchos, watching from the rail.", de: "Zwei Zuschauer in Ponchos am Geländer." },
-        { file: "fig-6.jpg", at: 3, en: "The scoreboard at 46 minutes: 1–0, rain running down the track.", de: "Die Anzeigetafel in der 46. Minute: 1:0, Regen läuft über die Aschenbahn." },
+        { file: "fig-6.jpg", at: 3, en: "Nanjing City 1–0 Guangzhou Leopard on the board at 45 minutes, rain running down the track.", de: "Nanjing City 1:0 gegen Guangzhou Leopard auf der Anzeigetafel in der 45. Minute, Regen läuft über die Aschenbahn." },
         { file: "fig-7.jpg", at: 3, ratio: "16/9", en: "The second half under the lights.", de: "Die zweite Halbzeit unter Flutlicht." },
         { file: "fig-8.jpg", at: 3, en: "Banners behind the goal, staff still out on the track.", de: "Banden hinter dem Tor, Betreuer noch auf der Aschenbahn." },
         { file: "fig-9.jpg", at: 3, en: "Players and staff by the tunnel under the far stand.", de: "Spieler und Betreuer am Tunnel unter der Gegentribüne." }
