@@ -96,33 +96,63 @@ window.SITE = {
         ]
       },
       figures: [
-        { file: "fig-1.jpg", at: 1, ratio: "1000/1413", en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
-        { file: "fig-2.jpg", at: 1, ratio: "1000/1413", en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
-        { file: "fig-3.jpg", at: 1, ratio: "1000/1413", en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
+        { file: "fig-1.jpg", at: 1, ratio: "1000/1413", privacy: true, en: "Participant handbook, cover.", de: "Teilnehmerhandbuch, Deckblatt." },
+        { file: "fig-2.jpg", at: 1, ratio: "1000/1413", privacy: true, en: "Welcome and event overview.", de: "Willkommen und Veranstaltungsüberblick." },
+        { file: "fig-3.jpg", at: 1, ratio: "1000/1413", privacy: true, en: "Venue, logistics, and what to bring.", de: "Austragungsort, Logistik und was mitzunehmen ist." },
         { file: "fig-4.jpg", at: 2, ratio: "1000/1127", en: "The preheat meeting — atox.world on screen share.", de: "Das Preheat-Treffen — atox.world auf dem geteilten Bildschirm." },
         { file: "fig-5.jpg", at: 2, ratio: "1000/1193", en: "Opening & Challenge Briefing, in Türkiye and Beijing time.", de: "Opening & Challenge Briefing, in Türkei- und Peking-Zeit." },
-        { file: "fig-6.jpg", at: 2, ratio: "1000/530", en: "The mentoring session opens — twenty participants, cameras mostly off.", de: "Die Mentoring-Session beginnt — zwanzig Teilnehmende, meist ohne Kamera." },
-        { file: "fig-7.jpg", at: 2, ratio: "1000/455", en: "In the breakout room with mentor Jasmeet Rai.", de: "Im Breakout-Room bei Mentorin Jasmeet Rai." },
+        { file: "fig-6.jpg", at: 2, ratio: "1000/530", privacy: true, en: "The mentoring session opens — twenty participants, cameras mostly off.", de: "Die Mentoring-Session beginnt — zwanzig Teilnehmende, meist ohne Kamera." },
+        { file: "fig-7.jpg", at: 2, ratio: "1000/455", privacy: true, en: "In the breakout room with mentor Jasmeet Rai.", de: "Im Breakout-Room bei Mentorin Jasmeet Rai." },
         { file: "fig-8.jpg", at: 2, ratio: "1000/1130", en: "Team P05’s demo: Proof API, an AI climate-action verifier.", de: "Das Demo von Team P05: Proof API, ein KI-Verifizierer für Klimaschutzaktionen." },
         { file: "fig-9.jpg", at: 2, ratio: "1000/779", en: "Proof API’s analytics — score calibration and carbon reference factors.", de: "Proof APIs Analytics — Score-Kalibrierung und CO₂-Referenzfaktoren." },
         { file: "fig-10.jpg", at: 2, ratio: "1000/1107", en: "Proof API’s home: local action, a clearer record.", de: "Proof APIs Startseite: lokale Aktionen, ein klareres Protokoll." },
-        { file: "fig-11.jpg", at: 2, ratio: "1000/1131", en: "A quieter breakout room, questions in the chat.", de: "Ein ruhigerer Breakout-Room, Fragen im Chat." },
-        { file: "fig-12.jpg", at: 2, ratio: "1000/880", en: "The Climate Adaptation & Resilience room, three of us.", de: "Der Raum zu Klimaanpassung und Resilienz, wir zu dritt." },
-        { file: "fig-13.jpg", at: 2, ratio: "1000/1294", en: "Questions for mentor Jasmeet Rai in the Climate Adaptation & Resilience room.", de: "Fragen an Mentorin Jasmeet Rai im Raum Climate Adaptation & Resilience." },
-        { file: "fig-14.jpg", at: 2, ratio: "1000/839", en: "The Climate Education room — a drought game, two rule-based farm agents over twelve years.", de: "Der Raum zu Klimabildung — ein Dürre-Spiel, zwei regelbasierte Farm-Agents über zwölf Jahre." },
+        { file: "fig-11.jpg", at: 2, ratio: "1000/1131", privacy: true, en: "A quieter breakout room, questions in the chat.", de: "Ein ruhigerer Breakout-Room, Fragen im Chat." },
+        { file: "fig-12.jpg", at: 2, ratio: "1000/880", privacy: true, en: "The Climate Adaptation & Resilience room, three of us.", de: "Der Raum zu Klimaanpassung und Resilienz, wir zu dritt." },
+        { file: "fig-13.jpg", at: 2, ratio: "1000/1294", privacy: true, en: "Questions for mentor Jasmeet Rai in the Climate Adaptation & Resilience room.", de: "Fragen an Mentorin Jasmeet Rai im Raum Climate Adaptation & Resilience." },
+        { file: "fig-14.jpg", at: 2, ratio: "1000/839", privacy: true, en: "The Climate Education room — a drought game, two rule-based farm agents over twelve years.", de: "Der Raum zu Klimabildung — ein Dürre-Spiel, zwei regelbasierte Farm-Agents über zwölf Jahre." },
         { file: "fig-15.jpg", at: 2, ratio: "1000/1128", en: "Team P35’s roster — ASTER Climate, occupational safety under wildfire risk.", de: "Das Teamblatt von P35 — ASTER Climate, Arbeitsschutz bei Waldbrandgefahr." },
         { file: "fig-16.jpg", at: 2, ratio: "1000/1165", en: "ASTER Climate’s pitch: every worker safe, in every workplace.", de: "Der Pitch von ASTER Climate: jeder Arbeiter sicher, an jedem Arbeitsplatz." },
         { file: "fig-17.jpg", at: 2, ratio: "1000/1128", en: "The live prototype: a wildfire-risk briefing for a crew at Kemer.", de: "Der Live-Prototyp: eine Waldbrand-Briefing für eine Crew in Kemer." },
-        { file: "fig-18.jpg", at: 2, ratio: "1000/1128", en: "Pitch feedback in the room; the team coordinates on WhatsApp between sessions.", de: "Feedback zum Pitch im Raum; das Team koordiniert sich zwischendurch per WhatsApp." },
-        { file: "fig-19.jpg", at: 2, ratio: "1000/1128", en: "Oliver Bonallack answers the team’s questions.", de: "Oliver Bonallack beantwortet die Fragen des Teams." },
-        { file: "fig-20.jpg", at: 2, ratio: "1000/1128", en: "Mentor Oliver Bonallack joins the room.", de: "Mentor Oliver Bonallack kommt in den Raum." }
+        { file: "fig-18.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Pitch feedback in the room; the team coordinates on WhatsApp between sessions.", de: "Feedback zum Pitch im Raum; das Team koordiniert sich zwischendurch per WhatsApp." },
+        { file: "fig-19.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Oliver Bonallack answers the team’s questions.", de: "Oliver Bonallack beantwortet die Fragen des Teams." },
+        { file: "fig-20.jpg", at: 2, ratio: "1000/1128", privacy: true, en: "Mentor Oliver Bonallack joins the room.", de: "Mentor Oliver Bonallack kommt in den Raum." },
+        { file: "fig-21.jpg", at: 3, ratio: "1000/535", privacy: true, en: "The closing numbers: 271 registered, 42 countries, 47 projects — 10 advanced.", de: "Die Schlusszahlen: 271 Registrierte, 42 Länder, 47 Projekte — 10 im Showcase." },
+        { file: "fig-22.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "The GAUC video wall: a speaker from ShinHai University welcomes the room.", de: "Die GAUC-Videowand: ein Sprecher der ShinHai University begrüßt den Raum." },
+        { file: "fig-23.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "Meet the judges — five profiles, from AI policy to climate finance.", de: "Die Jury — fünf Profile, von KI-Politik bis Klimafinanzierung." },
+        { file: "fig-24.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "Opening remarks: visualization as a shared language.", de: "Eröffnung: Visualisierung als gemeinsame Sprache." },
+        { file: "fig-25.jpg", at: 3, ratio: "1000/560", privacy: true, en: "Heritage, science and climate — the China Pavilion programme at COP31.", de: "Kulturerbe, Wissenschaft und Klima — das Programm des China-Pavillons zur COP31." },
+        { file: "fig-26.jpg", at: 3, ratio: "1000/562", privacy: true, en: "The opening-remarks slide in full: a 500-metre radio telescope, drawn in dots.", de: "Die Eröffnungsfolie in voller Breite: ein 500-Meter-Radioteleskop aus Punkten." },
+        { file: "fig-27.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "A shared screen: the four embroidery pieces are now connected.", de: "Ein geteilter Bildschirm: die vier Stickereistücke sind jetzt verbunden." },
+        { file: "fig-28.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "An interactive circle of figures — speak into the microphone.", de: "Ein interaktiver Figurenkreis — ins Mikrofon sprechen." },
+        { file: "fig-29.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "Craft, care and materials — indigo dyeing and Miao/Dong textiles.", de: "Handwerk, Pflege und Materialien — Indigofärbung und Miao-/Dong-Textilien." },
+        { file: "fig-30.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "Visualization as a shared language — from scientists’ rooms to the universe.", de: "Visualisierung als gemeinsame Sprache — von den Räumen der Wissenschaft bis zum Universum." },
+        { file: "fig-31.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "A research talk: ENSO stages and a survey sequence for fisheries.", de: "Ein Forschungsvortrag: ENSO-Phasen und eine Erhebungsfolge für die Fischerei." },
+        { file: "fig-32.jpg", at: 3, ratio: "1000/1234", privacy: true, en: "Landfill or shelter bed? — a pitch on furniture waste and shelter places.", de: "Deponie oder Tierheimbett? — ein Pitch zu Möbelabfall und Tierheimplätzen." },
+        { file: "fig-33.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "LIULIAN Studio’s river-temperature monitoring platform, mid-pitch.", de: "LIULIAN Studios Plattform zur Flusstemperatur-Überwachung, mitten im Pitch." },
+        { file: "fig-34.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "The glacier film: the Great Aletsch has retreated 3.2 km since 1870.", de: "Der Gletscherfilm: Der Große Aletsch ist seit 1870 um 3,2 km zurückgegangen." },
+        { file: "fig-35.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "How I built it, in numbers — two games, 26 hours, 54 video clips.", de: "Wie ich es gebaut habe, in Zahlen — zwei Spiele, 26 Stunden, 54 Videoclips." },
+        { file: "fig-36.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "A demo slide: an 18-second video on a phone mockup.", de: "Eine Demo-Folie: ein 18-Sekunden-Video auf einem Handy-Mockup." },
+        { file: "fig-37.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "CBAM-Copilot — the supplier-side workflow for CBAM data requests.", de: "CBAM-Copilot — der Lieferanten-Workflow für CBAM-Datenanfragen." },
+        { file: "fig-38.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "ReLoop — reuse event equipment, reduce waste; a team of three.", de: "ReLoop — Veranstaltungstechnik wiederverwenden, Abfall reduzieren; ein Dreierteam." },
+        { file: "fig-39.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "ReLoop’s showcase slide; the prototype is open at reloop-web-sage.vercel.app.", de: "ReLoops Showcase-Folie; der Prototyp ist offen unter reloop-web-sage.vercel.app." },
+        { file: "fig-40.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Home Grown, live: pick any place on the map and draw your plot.", de: "Home Grown, live: einen Ort auf der Karte wählen und das Beet zeichnen." },
+        { file: "fig-41.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "HomeGrown — what could your city grow? Geographic and climate data for urban farming.", de: "HomeGrown — was könnte deine Stadt anbauen? Geodaten und Klimadaten für urbane Landwirtschaft." },
+        { file: "fig-42.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "CoralGuard — AI reef stewardship, mid-demo.", de: "CoralGuard — KI-Riffbetreuung, mitten in der Demo." },
+        { file: "fig-43.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "CoralGuard’s title slide — Coral Guardian Team, Guangdong Ocean University.", de: "CoralGuards Titelfolie — Coral Guardian Team, Guangdong Ocean University." },
+        { file: "fig-44.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Blue food source: reefs as fisheries and carbon sinks.", de: "Blaue Nahrungsquelle: Riffe als Fischerei und Kohlenstoffsenken." },
+        { file: "fig-45.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Value and crisis — coral bleaching, and restoration that cannot wait.", de: "Wert und Krise — Korallenbleiche und Restaurierung, die nicht warten kann." },
+        { file: "fig-46.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Local questions make climate change legible in place.", de: "Lokale Fragen machen den Klimawandel vor Ort lesbar." },
+        { file: "fig-47.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "From ocean learning to coastal stewardship — a youth-centred proposal.", de: "Vom Ozeanlernen zur Küstenverantwortung — ein jugendzentrierter Vorschlag." },
+        { file: "fig-48.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "The Final Freeze — a game that teaches glacier melt through mountain environments.", de: "The Final Freeze — ein Spiel, das Gletscherschmelze über Berglandschaften erklärt." },
+        { file: "fig-49.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Thank you — and two QR codes: the WhatsApp group and ATOX on LinkedIn.", de: "Danke — und zwei QR-Codes: die WhatsApp-Gruppe und ATOX auf LinkedIn." }
       ],
       en: {
         title: "Volunteer in AI4Climate hackathon during COP31",
         summary: "Volunteering at ATOX’s AI4Climate hackathon for COP31 — and the two breakrooms I hosted, in pure English and in fields far from my own.",
         body: [
           "An AI4Climate hackathon staged by ATOX — participants collaborate with teammates to create a product demo (in whatever hardware or software) in a limited time (within 2 days). ATOX is a hackathon association established by students from Tsinghua and Peking University, possessing strong Generation Z genes. It seems they are desperately good at digging up good ideas, though more emphasis was placed on social attributes. The theme ‘AI4Climate’ chased the hotspot of COP31 (the 31st Conference of the Parties to the United Nations Framework Convention on Climate Change), which started on Nov 9th and ends on the 20th in Antalya, Türkiye.",
-          "Before the hackathon started, our organisers held two online meetings. The first one was a preheating activity: we set up seven breakrooms for different topics (topics 1 & 2 were mine — 1, Climate Adaptation & Resilience; 2, Clean Energy & Low-Carbon Transition). It was truly a challenge for me to host the breakrooms — not only the ‘PURE’ English communication, but also a field completely distinct from my own (my major is agronomy science)."
+          "Before the hackathon started, our organisers held two online meetings. The first one was a preheating activity: we set up seven breakrooms for different topics (topics 1 & 2 were mine — 1, Climate Adaptation & Resilience; 2, Clean Energy & Low-Carbon Transition). It was truly a challenge for me to host the breakrooms — not only the ‘PURE’ English communication, but also a field completely distinct from my own (my major is agronomy science).",
+          "On the evening of 18 November the hackathon closed with its award ceremony: the judging panel was introduced, the ten finalist projects pitched once more, and the session ended with thanks and two QR codes for what comes next."
         ],
         quote: { text: "ATOX is a hackathon association established by students from Tsinghua and Peking University, possessing strong Generation Z genes.", by: "First impressions of ATOX" }
       },
@@ -131,7 +161,8 @@ window.SITE = {
         summary: "Als Freiwilliger beim AI4Climate-Hackathon von ATOX für die COP31 — und in den zwei Breakrooms, die ich moderiert habe: reines Englisch, in Fachgebieten fern von meinem eigenen.",
         body: [
           "Ein AI4Climate-Hackathon, veranstaltet von ATOX — die Teilnehmenden erarbeiten im Team ein Produktdemo (in beliebiger Hardware oder Software) in begrenzter Zeit (zwei Tage). ATOX ist eine Hackathon-Vereinigung von Studierenden der Tsinghua- und der Peking-Universität, mit starken Gen-Z-Genen. Sie scheinen verblüffend gut darin, gute Ideen auszugraben, auch wenn mehr Gewicht auf die soziale Seite gelegt wird. Das Thema „AI4Climate“ jagte den Hotspot der COP31 (der 31. Vertragsstaatenkonferenz der UN-Klimarahmenkonvention), die am 9. November in Antalya, Türkei, begann und bis zum 20. dauert.",
-          "Vor Beginn des Hackathons veranstalteten die Organisatoren zwei Online-Treffen. Das erste war eine Aufwärmrunde: Wir richteten sieben Breakrooms zu verschiedenen Themen ein (Thema 1 und 2 waren meine — 1, Climate Adaptation & Resilience; 2, Clean Energy & Low-Carbon Transition). Diese Breakrooms zu moderieren war für mich eine echte Herausforderung — nicht nur wegen des „reinen“ Englisch, sondern auch wegen eines Fachgebiets, das meinem eigenen völlig fernliegt (mein Studiengang ist Agrarwissenschaft)."
+          "Vor Beginn des Hackathons veranstalteten die Organisatoren zwei Online-Treffen. Das erste war eine Aufwärmrunde: Wir richteten sieben Breakrooms zu verschiedenen Themen ein (Thema 1 und 2 waren meine — 1, Climate Adaptation & Resilience; 2, Clean Energy & Low-Carbon Transition). Diese Breakrooms zu moderieren war für mich eine echte Herausforderung — nicht nur wegen des „reinen“ Englisch, sondern auch wegen eines Fachgebiets, das meinem eigenen völlig fernliegt (mein Studiengang ist Agrarwissenschaft).",
+          "Am Abend des 18. November endete der Hackathon mit seiner Preisverleihung: Die Jury wurde vorgestellt, die zehn Finalisten-Teams pitchten ein weiteres Mal, und die Session schloss mit Dank und zwei QR-Codes für das, was als Nächstes kommt."
         ],
         quote: { text: "ATOX ist eine Hackathon-Vereinigung von Studierenden der Tsinghua- und der Peking-Universität, mit starken Gen-Z-Genen.", by: "Erste Eindrücke von ATOX" }
       }
@@ -314,11 +345,11 @@ window.SITE = {
         { file: "fig-13.jpg", at: 2, en: "A speaker against the burning-eye projection.", de: "Ein Sprecher vor der Projektion des brennenden Auges." },
         { file: "fig-14.jpg", at: 2, en: "The virtual-cell talk on the big screen.", de: "Der Vortrag über virtuelle Zellen auf der großen Leinwand." },
         { file: "fig-15.jpg", at: 3, privacy: true, en: "Volunteers taking their own keepsake photo, shot on a DV camera.", de: "Freiwillige beim eigenen Erinnerungsfoto, mit einer DV-Kamera." },
-        { file: "fig-16.jpg", at: 3, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
+        { file: "fig-16.jpg", at: 3, privacy: true, en: "The closing slide: credits and the volunteer team of 2026.", de: "Die Schlussfolie: Credits und das Freiwilligenteam von 2026." },
         { file: "fig-17.jpg", at: 3, privacy: true, en: "The whole team behind the TEDxNanjing letters.", de: "Das ganze Team hinter den TEDxNanjing-Buchstaben." },
         { file: "fig-18.jpg", at: 3, privacy: true, en: "Speakers and certificates at the final call on stage.", de: "Sprecher und Zertifikate beim letzten Auftritt auf der Bühne." },
         { file: "fig-19.jpg?v=3", at: 3, privacy: true, center: true, ratio: "1280/1818", en: "The volunteer certificate, issued by the TEDxNanjing team on 25 October 2026.", de: "Das Freiwilligenzertifikat, ausgestellt vom TEDxNanjing-Team am 25. Oktober 2026." },
-        { file: "fig-1.jpg?v=2", at: 3, en: "Me at the theme wall, holding this year’s sign.", de: "Ich vor der Themenwand, mit dem diesjährigen Schild." }
+        { file: "fig-1.jpg?v=2", at: 3, privacy: true, en: "Me at the theme wall, holding this year’s sign.", de: "Ich vor der Themenwand, mit dem diesjährigen Schild." }
       ],
       en: {
         title: "Volunteer in TEDxNanjing 2026",

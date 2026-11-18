@@ -75,7 +75,16 @@ Owner drops a dated source folder `YYYY.MM.DD[~DD] <名称>/` into the repo root
    exceptions override the default — WCSS 2026, 2026-11-16: 合影, 个人照片
    **and** one event scene (fig-22, a delegate with volunteers) are private, so
    the single-person portrait fig-26 is intentional; the rest of that story's
-   scenes stay public). Brighten
+   scenes stay public). ATOX STORY EXCEPTION (owner, 2026-11-18): the WHOLE
+   story is private except an explicit eight-figure allowlist — fig-4 (preheat
+   meeting), fig-5 (Opening & Challenge Briefing), fig-8/9/10 (Proof API
+   demo/analytics/home), fig-15/16/17 (P35 roster, ASTER pitch, live
+   prototype). Everything else, including the handbook pages and all 29
+   award-ceremony photos (11.18 评奖, inserted fig-21…49 in REVERSE of the
+   owner's file listing), carries `privacy: true`. TEDxNanjing (same day): the
+   credits slide and the owner's theme-wall portrait were re-privatised —
+   per-story exceptions always override the default, and credits slides are
+   not automatically public. Brighten
    certificate scans when the owner marks the
    source file 调亮 — but NEVER shift the hue: `ImageOps.autocontrast` cooled
    the paper tone and the owner rejected it, as did a plain RGB Brightness
