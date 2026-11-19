@@ -144,7 +144,16 @@ window.SITE = {
         { file: "fig-46.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Local questions make climate change legible in place.", de: "Lokale Fragen machen den Klimawandel vor Ort lesbar." },
         { file: "fig-47.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "From ocean learning to coastal stewardship — a youth-centred proposal.", de: "Vom Ozeanlernen zur Küstenverantwortung — ein jugendzentrierter Vorschlag." },
         { file: "fig-48.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "The Final Freeze — a game that teaches glacier melt through mountain environments.", de: "The Final Freeze — ein Spiel, das Gletscherschmelze über Berglandschaften erklärt." },
-        { file: "fig-49.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Thank you — and two QR codes: the WhatsApp group and ATOX on LinkedIn.", de: "Danke — und zwei QR-Codes: die WhatsApp-Gruppe und ATOX auf LinkedIn." }
+        { file: "fig-49.jpg", at: 3, ratio: "1000/1235", privacy: true, en: "Thank you — and two QR codes: the WhatsApp group and ATOX on LinkedIn.", de: "Danke — und zwei QR-Codes: die WhatsApp-Gruppe und ATOX auf LinkedIn." },
+        { file: "fig-50.jpg", at: 3, ratio: "1000/667", en: "On-site at the GAUC pavilion in Antalya — the member-university wall; I followed the whole ceremony from my screen.", de: "Vor Ort im GAUC-Pavillon in Antalya — die Wand der Mitgliedsuniversitäten; ich habe die ganze Zeremonie vom Bildschirm aus verfolgt." },
+        { file: "fig-51.jpg", at: 3, ratio: "1000/667", en: "On-site: the opening presentation at the GAUC booth.", de: "Vor Ort: die Eröffnungspräsentation am GAUC-Stand." },
+        { file: "fig-52.jpg", at: 3, ratio: "1000/667", en: "On-site: PAWCYCLE AI pitching at the booth.", de: "Vor Ort: PAWCYCLE AI pitchte am Stand." },
+        { file: "fig-53.jpg", at: 3, ratio: "1000/667", en: "On-site: the wider hall during the PAWCYCLE AI session.", de: "Vor Ort: die größere Halle während der PAWCYCLE-AI-Session." },
+        { file: "fig-54.jpg", at: 3, ratio: "1000/667", en: "On-site: ClimaShield presenting at the booth.", de: "Vor Ort: ClimaShield präsentiert am Stand." },
+        { file: "fig-55.jpg", at: 3, ratio: "1000/667", en: "On-site: The Final Freeze — its twelve-year-old author presenting at the booth.", de: "Vor Ort: The Final Freeze — sein zwölfjähriger Autor präsentiert am Stand." },
+        { file: "fig-56.jpg", at: 3, ratio: "1000/667", en: "On-site: the HomeGrown team after their pitch.", de: "Vor Ort: das HomeGrown-Team nach seinem Pitch." },
+        { file: "fig-57.jpg", at: 3, ratio: "1000/667", en: "On-site: the closing group photo in front of the THANK YOU screen.", de: "Vor Ort: das Abschlussgruppenfoto vor dem THANK-YOU-Bildschirm." },
+        { file: "fig-58.jpg", at: 3, ratio: "1000/656", privacy: true, en: "The winners’ announcement in the organiser’s group chat — CoralGuard, HomeGrown and Ayden Xu’s The Final Freeze, equally recognised.", de: "Die Gewinner-Ankündigung im Gruppenchat der Organisatoren — CoralGuard, HomeGrown und Ayden Xus The Final Freeze, alle gleichwertig anerkannt." }
       ],
       en: {
         title: "Volunteer in AI4Climate hackathon during COP31",
